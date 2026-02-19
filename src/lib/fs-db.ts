@@ -24,7 +24,11 @@ async function writeJsonFile<T>(filename: string, data: T): Promise<void> {
     // Ensure directory exists
     await fs.mkdir(DATA_DIR, { recursive: true });
     await fs.writeFile(filePath, JSON.stringify(data, null, 2), 'utf-8');
-  } catch (error) {
+  } catch (error: any) {
+    if (error.code === 'EROFS' || error.syscall === 'open') {
+        console.warn(`[WARN] Read-only file system detected (Vercel). Write to ${filename} skipped.`);
+        return; // Gracefully degrade
+    }
     console.error(`Error writing ${filename}:`, error);
     throw new Error(`Failed to write data to ${filename}`);
   }
