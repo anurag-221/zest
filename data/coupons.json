@@ -1,0 +1,24 @@
+[
+    {
+        "code": "WELCOME50",
+        "type": "flat",
+        "value": 50,
+        "minOrderValue": 199,
+        "description": "Flat ₹50 off on orders above ₹199"
+    },
+    {
+        "code": "FREEDEL",
+        "type": "shipping",
+        "value": 0,
+        "minOrderValue": 99,
+        "description": "Free Delivery on orders above ₹99"
+    },
+    {
+        "code": "ZEPTO10",
+        "type": "percentage",
+        "value": 10,
+        "maxDiscount": 100,
+        "minOrderValue": 299,
+        "description": "10% off up to ₹100 on orders above ₹299"
+    }
+]

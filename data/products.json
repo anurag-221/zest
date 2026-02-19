@@ -1,0 +1,120 @@
+[
+  {
+    "id": "p-1",
+    "name": "Amul Butter (500g)",
+    "description": "Delicious and creamy Amul Butter.",
+    "price": 280,
+    "image": "/images/products/p-1.jpg",
+    "category": "dairy",
+    "tags": [
+      "dairy",
+      "breakfast",
+      "essentials"
+    ]
+  },
+  {
+    "id": "p-2",
+    "name": "Britannia Whole Wheat Bread",
+    "description": "Healthy and soft whole wheat bread.",
+    "price": 45,
+    "image": "/images/products/p-2.jpg",
+    "category": "bakery",
+    "tags": [
+      "bakery",
+      "breakfast",
+      "toast"
+    ]
+  },
+  {
+    "id": "p-3",
+    "name": "Tata Salt (1kg)",
+    "description": "Iodized salt for your daily cooking.",
+    "price": 25,
+    "image": "/images/products/p-3.jpg",
+    "category": "pantry",
+    "tags": [
+      "pantry",
+      "essentials"
+    ]
+  },
+  {
+    "id": "p-4",
+    "name": "Davidoff Coffee (100g)",
+    "description": "Rich aroma intense coffee.",
+    "price": 550,
+    "image": "/images/products/p-4.jpg",
+    "category": "beverages",
+    "tags": [
+      "beverages",
+      "morning",
+      "caffeine"
+    ]
+  },
+  {
+    "id": "p-5",
+    "name": "Haldiram's Aloo Bhujia",
+    "description": "Crispy and spicy potato noodles snack.",
+    "price": 60,
+    "image": "/images/products/p-5.jpg",
+    "category": "snacks",
+    "tags": [
+      "snacks",
+      "party",
+      "spicy"
+    ]
+  },
+  {
+    "id": "p-6",
+    "name": "Kaju Katli (250g)",
+    "description": "Premium cashew sweets.",
+    "price": 350,
+    "image": "/images/products/p-6.jpg",
+    "category": "sweets",
+    "tags": [
+      "sweets",
+      "festival",
+      "diwali",
+      "gift"
+    ]
+  },
+  {
+    "id": "p-7",
+    "name": "Sabudana (500g)",
+    "description": "Premium quality Sago pearls.",
+    "price": 80,
+    "image": "/images/products/p-7.jpg",
+    "category": "pantry",
+    "tags": [
+      "pantry",
+      "fasting",
+      "vrat",
+      "navratri"
+    ]
+  },
+  {
+    "id": "p-8",
+    "name": "Rock Salt / Sendha Namak",
+    "description": "Pure Sendha Namak for fasting.",
+    "price": 40,
+    "image": "/images/products/p-8.jpg",
+    "category": "pantry",
+    "tags": [
+      "pantry",
+      "fasting",
+      "vrat",
+      "navratri"
+    ]
+  },
+  {
+    "id": "prod-1771435245999",
+    "name": "Kitkat",
+    "description": "Have a kitkat",
+    "price": 25,
+    "image": "/images/products/kitkat.jpg",
+    "category": "snacks",
+    "tags": [
+      "chochlate",
+      "sweets"
+    ]
+  }
+]

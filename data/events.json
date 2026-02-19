@@ -1,0 +1,73 @@
+[
+  {
+    "id": "navratri-2026",
+    "name": "Navratri Special",
+    "type": "festival",
+    "schedule": {
+      "start": "2026-10-01T00:00:00Z",
+      "end": "2026-10-10T00:00:00Z"
+    },
+    "rules": {
+      "showTags": [
+        "fasting",
+        "vrat",
+        "sweets"
+      ],
+      "boostCategory": "pantry"
+    },
+    "assets": {
+      "banner": "https://placehold.co/1200x300/orange/white?text=Happy+Navratri+-+Fasting+Specials",
+      "themeColor": "#FF9900"
+    },
+    "targetCities": [
+      "all"
+    ]
+  },
+  {
+    "id": "weekend-sale",
+    "name": "Weekend Sale",
+    "type": "sale",
+    "schedule": {
+      "start": "2024-01-01T00:00:00Z",
+      "end": "2026-12-31T23:59:59Z"
+    },
+    "rules": {
+      "showTags": [
+        "snacks",
+        "beverages"
+      ],
+      "boostCategory": "snacks"
+    },
+    "assets": {
+      "banner": "https://placehold.co/1200x300/blue/white?text=Weekend+Munchies",
+      "themeColor": "#dd4bd1"
+    },
+    "targetCities": [
+      "blr-1"
+    ]
+  },
+  {
+    "id": "evt-1771431760092",
+    "name": "Holi Sale",
+    "type": "festival",
+    "schedule": {
+      "start": "2026-02-18T16:25:00.000Z",
+      "end": "2026-02-18T18:29:00.000Z"
+    },
+    "rules": {
+      "showTags": [
+        "sweets",
+        "snacks",
+        "color"
+      ],
+      "boostCategory": "sweets"
+    },
+    "assets": {
+      "banner": "https://img.freepik.com/free-vector/realistic-holi-horizontal-banner-template_23-2149301366.jpg?w=740&t=st=1711113230~exp=1711113830~hmac=308623486537bcb2ff804555939033585e45b115754393b628ecd8a654ecc4ea",
+      "themeColor": "#077e30"
+    },
+    "targetCities": [
+      "all"
+    ]
+  }
+]
