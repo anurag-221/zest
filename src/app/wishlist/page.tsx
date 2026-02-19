@@ -57,7 +57,6 @@ export default function WishlistPage() {
                             <div className="flex items-center justify-between">
                                 <div className="flex items-baseline gap-2">
                                     <span className="font-bold text-lg text-gray-900 dark:text-white">₹{product.price}</span>
-                                    <span className="font-bold text-lg text-gray-900 dark:text-white">₹{product.price}</span>
                                     {/* Original price not available on Product type yet */}
                                 </div>
                                 <button 

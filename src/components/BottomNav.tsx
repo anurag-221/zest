@@ -26,7 +26,7 @@ export default function BottomNav() {
   }
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-100 shadow-2xl md:hidden pb-safe">
+    <div className="fixed bottom-0 left-0 right-0 z-40 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 shadow-2xl md:hidden pb-safe transition-colors">
       <div className="grid grid-cols-3 h-16">
         {navItems.map((item) => {
           const ActiveIcon = item.icon;
@@ -37,7 +37,7 @@ export default function BottomNav() {
               key={item.name} 
               href={item.path}
               className={`flex flex-col items-center justify-center w-full h-full space-y-1 ${
-                active ? 'text-indigo-600' : 'text-gray-400 hover:text-gray-600'
+                active ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300'
               }`}
             >
                 <div className="relative">

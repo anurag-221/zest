@@ -1,33 +1,33 @@
 [
-    {
-        "id": "mum-1",
-        "name": "Mumbai",
-        "pincodes": [
-            "400001",
-            "400050",
-            "400069",
-            "400099"
-        ],
-        "isActive": true
-    },
-    {
-        "id": "del-1",
-        "name": "New Delhi",
-        "pincodes": [
-            "110001",
-            "110010",
-            "110020"
-        ],
-        "isActive": true
-    },
-    {
-        "id": "blr-1",
-        "name": "Bangalore",
-        "pincodes": [
-            "560001",
-            "560002",
-            "560003"
-        ],
-        "isActive": true
-    }
+  {
+    "id": "mum-1",
+    "name": "Mumbai",
+    "pincodes": [
+      "400001",
+      "400050",
+      "400069",
+      "400099"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "del-1",
+    "name": "New Delhi",
+    "pincodes": [
+      "110001",
+      "110010",
+      "110020"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "blr-1",
+    "name": "Bangalore",
+    "pincodes": [
+      "560001",
+      "560002",
+      "560003"
+    ],
+    "isActive": false
+  }
 ]

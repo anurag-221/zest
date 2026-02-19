@@ -147,7 +147,7 @@ export default function PaymentModal({ amount, isOpen, onClose, onSuccess, onFai
                     <p className="text-gray-500 text-center text-sm mb-6">Something went wrong with the transaction.</p>
                     <button 
                         onClick={() => setState('idle')}
-                        className="px-6 py-2 bg-gray-100 text-gray-900 rounded-lg font-bold hover:bg-gray-200 transition-colors"
+                        className="px-6 py-2 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-lg font-bold hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
                     >
                         Try Again
                     </button>

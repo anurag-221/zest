@@ -59,7 +59,7 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-white pb-20">
+    <main className="min-h-screen bg-white dark:bg-black pb-20">
       <Header />
       
       {!selectedCity ? (

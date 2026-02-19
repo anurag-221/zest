@@ -28,11 +28,11 @@ export default function ProductPage() {
 
     if (!product) {
         return (
-            <main className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4">
+            <main className="min-h-screen bg-gray-50 dark:bg-black flex flex-col items-center justify-center p-4 transition-colors">
                 <Header />
                 <div className="text-center mt-20">
-                    <h1 className="text-2xl font-bold text-gray-900 mb-2">Product Not Found</h1>
-                    <p className="text-gray-500 mb-6">The item you are looking for does not exist or has been removed.</p>
+                    <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Product Not Found</h1>
+                    <p className="text-gray-500 dark:text-gray-400 mb-6">The item you are looking for does not exist or has been removed.</p>
                     <Link href="/" className="bg-indigo-600 text-white px-6 py-2 rounded-xl font-bold hover:bg-indigo-700 transition-colors">
                         Back to Home
                     </Link>
@@ -53,7 +53,7 @@ export default function ProductPage() {
                 <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
                     {/* Image Section */}
                     {/* Image Section */}
-                    <div className="bg-gray-50 rounded-3xl p-8 flex items-center justify-center aspect-square md:aspect-auto md:h-[500px] relative overflow-hidden">
+                    <div className="bg-gray-50 dark:bg-gray-900 rounded-3xl p-8 flex items-center justify-center aspect-square md:aspect-auto md:h-[500px] relative overflow-hidden transition-colors">
                          {!isImageLoaded && (
                             <div className="absolute inset-0 bg-gray-200 animate-pulse" />
                          )}
@@ -72,25 +72,25 @@ export default function ProductPage() {
 
                     {/* Details Section */}
                     <div className="flex flex-col justify-center">
-                        <div className="mb-2 text-indigo-600 font-bold text-xs uppercase tracking-wider bg-indigo-50 w-fit px-2 py-1 rounded">
+                        <div className="mb-2 text-indigo-600 dark:text-indigo-400 font-bold text-xs uppercase tracking-wider bg-indigo-50 dark:bg-indigo-900/30 w-fit px-2 py-1 rounded transition-colors">
                             {product.category}
                         </div>
-                        <h1 className="text-3xl lg:text-4xl font-extrabold text-gray-900 dark:text-gray-100 mb-2 leading-tight">
+                        <h1 className="text-3xl lg:text-4xl font-extrabold text-gray-900 dark:text-white mb-2 leading-tight">
                             {product.name}
                         </h1>
-                        <div className="text-gray-500 mb-6 text-lg leading-relaxed">
+                        <div className="text-gray-500 dark:text-gray-400 mb-6 text-lg leading-relaxed">
                             {product.description}
                         </div>
 
                         {/* Price & Rating */}
                         <div className="flex items-center gap-4 mb-8">
                             <div>
-                                <span className="text-3xl font-bold text-gray-900">₹{product.price}</span>
-                                <span className="text-lg text-gray-400 line-through ml-2">₹{product.price + (product.price * 0.2)}</span>
+                                <span className="text-3xl font-bold text-gray-900 dark:text-white">₹{product.price}</span>
+                                <span className="text-lg text-gray-400 dark:text-gray-600 line-through ml-2">₹{product.price + (product.price * 0.2)}</span>
                             </div>
-                            <div className="h-8 w-[1px] bg-gray-200"></div>
-                            <div className="flex items-center gap-1 bg-yellow-50 px-2 py-1 rounded-lg border border-yellow-100">
-                                <span className="font-bold text-yellow-700 text-sm">4.8</span>
+                            <div className="h-8 w-[1px] bg-gray-200 dark:bg-gray-700"></div>
+                            <div className="flex items-center gap-1 bg-yellow-50 dark:bg-yellow-900/20 px-2 py-1 rounded-lg border border-yellow-100 dark:border-yellow-900/50">
+                                <span className="font-bold text-yellow-700 dark:text-yellow-400 text-sm">4.8</span>
                             </div>
                         </div>
 
@@ -109,23 +109,23 @@ export default function ProductPage() {
                                     Add to Cart
                                 </button>
                              ) : (
-                                <div className="flex items-center gap-4 bg-gray-100 rounded-xl p-2 w-fit">
+                                <div className="flex items-center gap-4 bg-gray-100 dark:bg-gray-800 rounded-xl p-2 w-fit transition-colors">
                                     <button 
                                         onClick={() => {
                                             widthdrawItem(product.id);
                                             trigger.soft();
                                         }}
-                                        className="bg-white p-2 rounded-lg text-gray-700 shadow-sm hover:text-indigo-600 transition-colors active:scale-95"
+                                        className="bg-white dark:bg-gray-700 p-2 rounded-lg text-gray-700 dark:text-white shadow-sm hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors active:scale-95"
                                     >
                                         <Minus size={20} />
                                     </button>
-                                    <span className="font-bold text-xl min-w-[30px] text-center">{quantity}</span>
+                                    <span className="font-bold text-xl min-w-[30px] text-center text-gray-900 dark:text-white">{quantity}</span>
                                     <button 
                                         onClick={() => {
                                             addItem(product);
                                             trigger.medium();
                                         }}
-                                        className="bg-white p-2 rounded-lg text-gray-700 shadow-sm hover:text-indigo-600 transition-colors active:scale-95"
+                                        className="bg-white dark:bg-gray-700 p-2 rounded-lg text-gray-700 dark:text-white shadow-sm hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors active:scale-95"
                                     >
                                         <Plus size={20} />
                                     </button>
@@ -136,8 +136,8 @@ export default function ProductPage() {
                                 onClick={() => toggleWishlist(product)}
                                 className={`p-3 rounded-xl border-2 transition-all ${
                                     isInWishlist(product.id) 
-                                    ? 'border-red-500 bg-red-50 text-red-500' 
-                                    : 'border-gray-200 hover:border-red-200 text-gray-400 hover:text-red-500'
+                                    ? 'border-red-500 bg-red-50 dark:bg-red-900/20 text-red-500' 
+                                    : 'border-gray-200 dark:border-gray-800 text-gray-400 dark:text-gray-500 hover:border-red-200 dark:hover:border-red-900/50 hover:text-red-500'
                                 }`}
                              >
                                 <Heart size={24} className={isInWishlist(product.id) ? 'fill-red-500' : ''} />
@@ -146,22 +146,22 @@ export default function ProductPage() {
 
                          {/* Trust Badges */}
                          <div className="grid grid-cols-2 gap-4">
-                            <div className="flex items-center gap-3 p-4 border border-gray-100 rounded-xl">
-                                <div className="bg-green-100 p-2 rounded-full">
-                                    <ShieldCheck size={20} className="text-green-600" />
+                            <div className="flex items-center gap-3 p-4 border border-gray-100 dark:border-gray-800 rounded-xl">
+                                <div className="bg-green-100 dark:bg-green-900/30 p-2 rounded-full">
+                                    <ShieldCheck size={20} className="text-green-600 dark:text-green-400" />
                                 </div>
                                 <div className="text-sm">
-                                    <p className="font-bold text-gray-900">Quality Assured</p>
-                                    <p className="text-gray-500">Fresh from farms</p>
+                                    <p className="font-bold text-gray-900 dark:text-white">Quality Assured</p>
+                                    <p className="text-gray-500 dark:text-gray-400">Fresh from farms</p>
                                 </div>
                             </div>
-                            <div className="flex items-center gap-3 p-4 border border-gray-100 rounded-xl">
-                                <div className="bg-blue-100 p-2 rounded-full">
-                                    <Truck size={20} className="text-blue-600" />
+                            <div className="flex items-center gap-3 p-4 border border-gray-100 dark:border-gray-800 rounded-xl">
+                                <div className="bg-blue-100 dark:bg-blue-900/30 p-2 rounded-full">
+                                    <Truck size={20} className="text-blue-600 dark:text-blue-400" />
                                 </div>
                                 <div className="text-sm">
-                                    <p className="font-bold text-gray-900">Instant Delivery</p>
-                                    <p className="text-gray-500">In 10 minutes</p>
+                                    <p className="font-bold text-gray-900 dark:text-white">Instant Delivery</p>
+                                    <p className="text-gray-500 dark:text-gray-400">In 10 minutes</p>
                                 </div>
                             </div>
                          </div>
@@ -169,7 +169,7 @@ export default function ProductPage() {
                 </div>
 
                 {/* Related Products */}
-                <div className="mt-16 border-t border-gray-100 pt-10">
+                <div className="mt-16 border-t border-gray-100 dark:border-gray-800 pt-10">
                     <RecommendationRail title="Frequently Bought Together" products={RecommendationService.getSimilarProducts(product)} />
                 </div>
             </div>

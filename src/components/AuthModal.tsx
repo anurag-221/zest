@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { X, Smartphone, ArrowRight, Loader2, KeyRound, User as UserIcon } from 'lucide-react';
+import { X, Smartphone, ArrowRight, Loader2, KeyRound, User as UserIcon, Check } from 'lucide-react';
 import { toast } from 'sonner';
 import { useAuthStore } from '@/store/auth-store';
 
@@ -16,6 +16,8 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
   const [step, setStep] = useState<Step>('phone');
   const [phone, setPhone] = useState('');
   const [otp, setOtp] = useState('');
+  const [generatedOtp, setGeneratedOtp] = useState('');
+  const [useWhatsapp, setUseWhatsapp] = useState(false);
   const [name, setName] = useState('');
   const [loading, setLoading] = useState(false);
   
@@ -30,11 +32,22 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
         return;
     }
     setLoading(true);
+    
+    // Generate Random 4-digit OTP
+    const newOtp = Math.floor(1000 + Math.random() * 9000).toString();
+    setGeneratedOtp(newOtp);
+
     setTimeout(() => {
         setLoading(false);
         setStep('otp');
-        toast.info('OTP Sent: 1234');
-    }, 1000);
+        
+        const method = useWhatsapp ? 'WhatsApp' : 'SMS';
+        toast.success(`OTP sent via ${method}: ${newOtp}`, {
+            duration: 5000,
+            icon: useWhatsapp ? <Smartphone size={18} className="text-green-500" /> : undefined
+        });
+        console.log(`[Auth] OTP for ${phone} (${method}): ${newOtp}`);
+    }, 1500);
   };
 
   const handleVerifyOtp = (e: React.FormEvent) => {
@@ -42,10 +55,10 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
     setLoading(true);
     setTimeout(() => {
         setLoading(false);
-        if (otp === '1234') {
+        if (otp === generatedOtp) {
             setStep('name');
         } else {
-            toast.error('Invalid OTP. Try 1234');
+            toast.error('Invalid OTP. Please try again.');
         }
     }, 1000);
   };
@@ -108,7 +121,15 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
                             />
                         </div>
                     </div>
-                    <button type="submit" disabled={loading} className="w-full bg-indigo-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-indigo-200 dark:shadow-none hover:bg-indigo-700 transition-all flex items-center justify-center gap-2">
+                    <div className="flex items-center gap-2 cursor-pointer" onClick={() => setUseWhatsapp(!useWhatsapp)}>
+                        <div className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${useWhatsapp ? 'bg-green-500 border-green-500' : 'border-gray-300 dark:border-gray-600'}`}>
+                            {useWhatsapp && <Check size={14} className="text-white" />}
+                        </div>
+                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300 select-none">Get OTP via WhatsApp</span>
+                        {useWhatsapp && <Smartphone size={16} className="text-green-500 ml-auto" />}
+                    </div>
+
+                    <button type="submit" disabled={loading} className={`w-full text-white font-bold py-4 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 ${useWhatsapp ? 'bg-green-600 hover:bg-green-700 shadow-green-200 dark:shadow-none' : 'bg-indigo-600 hover:bg-indigo-700 shadow-indigo-200 dark:shadow-none'}`}>
                         {loading ? <Loader2 className="animate-spin" /> : <>Continue <ArrowRight size={18} /></>}
                     </button>
                     <p className="text-xs text-center text-gray-400">By continuing, you agree to our Terms.</p>

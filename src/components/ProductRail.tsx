@@ -24,7 +24,7 @@ export default function ProductRail({ title, products, viewAllLink }: ProductRai
     <div className="py-6">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-xl md:text-2xl font-bold text-gray-900">{title}</h3>
+          <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">{title}</h3>
           {viewAllLink && (
             <Link href={viewAllLink} className="text-indigo-600 font-semibold text-sm hover:underline">
               See All

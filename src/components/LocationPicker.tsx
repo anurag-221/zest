@@ -64,7 +64,7 @@ export const LocationPicker = ({ onConfirm, onClose }: LocationPickerProps) => {
              <div className="flex items-start gap-3 bg-indigo-50 p-3 rounded-xl border border-indigo-100">
                 <MapPin className="text-indigo-600 mt-0.5" size={18} />
                 <div>
-                   <p className="font-bold text-gray-900 text-sm">Pinned Location</p>
+                   <p className="font-bold text-gray-900 dark:text-gray-900 text-sm">Pinned Location</p>
                    <p className="text-xs text-indigo-700 mt-0.5">
                       Lat: {coords.lat.toFixed(6)}, Lng: {coords.lng.toFixed(6)}
                    </p>

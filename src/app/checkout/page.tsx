@@ -165,16 +165,16 @@ export default function CheckoutPage() {
 
 
     return (
-        <div className="min-h-screen bg-gray-50 pb-24 md:pb-10">
+        <div className="min-h-screen bg-gray-50 dark:bg-black pb-24 md:pb-10 transition-colors">
             {/* Header */}
-            <header className="bg-white border-b sticky top-0 z-10">
+            <header className="bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 sticky top-0 z-10 transition-colors">
                 <div className="container mx-auto px-4 py-4 flex items-center gap-4">
-                    <Link href="/" className="p-2 hover:bg-gray-100 rounded-full">
+                    <Link href="/" className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full text-gray-700 dark:text-gray-300 transition-colors">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
                     </Link>
                     <div className="flex-1">
-                        <h1 className="text-lg font-bold">Checkout</h1>
-                        <p className="text-xs text-gray-500">{items.length} items • Total ₹{grandTotal}</p>
+                        <h1 className="text-lg font-bold text-gray-900 dark:text-white">Checkout</h1>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">{items.length} items • Total ₹{grandTotal}</p>
                     </div>
                 </div>
             </header>
@@ -192,16 +192,16 @@ export default function CheckoutPage() {
             <main className="container mx-auto px-4 py-6 max-w-3xl space-y-6">
                 
                 {/* 1. Address Section */}
-                <section className="bg-white p-5 rounded-xl shadow-sm border border-gray-100 relative overflow-hidden">
+                <section className="bg-white dark:bg-gray-900 p-5 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 relative overflow-hidden transition-colors">
                     <div className="absolute top-0 left-0 w-1 h-full bg-indigo-600"></div>
                     <div className="flex justify-between items-start mb-2">
                         <div className="flex items-center gap-2 mb-1">
                             <MapPin size={18} className="text-indigo-600" />
-                            <h2 className="font-bold text-gray-900">Delivery Address</h2>
+                            <h2 className="font-bold text-gray-900 dark:text-white">Delivery Address</h2>
                         </div>
                         <Link 
                             href="/profile/addresses"
-                            className="text-indigo-600 text-sm font-bold uppercase hover:bg-indigo-50 px-2 py-1 rounded transition-colors"
+                            className="text-indigo-600 dark:text-indigo-400 text-sm font-bold uppercase hover:bg-indigo-50 dark:hover:bg-indigo-900/30 px-2 py-1 rounded transition-colors"
                         >
                             {activeAddress ? 'Change' : 'Add New'}
                         </Link>
@@ -209,33 +209,33 @@ export default function CheckoutPage() {
                     
                     {activeAddress ? (
                         <div className="pl-6">
-                            <h3 className="font-bold text-sm text-gray-800">{activeAddress.type}</h3>
-                            <p className="text-sm text-gray-500 leading-relaxed">
+                            <h3 className="font-bold text-sm text-gray-800 dark:text-gray-200">{activeAddress.type}</h3>
+                            <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
                                 {activeAddress.line1} <br/>
                                 {activeAddress.line2}
                             </p>
-                            <p className="text-xs text-gray-400 mt-1">{activeAddress.city}, {activeAddress.zip}</p>
-                            <div className="flex items-center gap-2 mt-3 text-xs font-bold text-gray-600 bg-gray-100 w-fit px-3 py-1.5 rounded-lg">
+                            <p className="text-xs text-gray-400 dark:text-gray-500 mt-1">{activeAddress.city}, {activeAddress.zip}</p>
+                            <div className="flex items-center gap-2 mt-3 text-xs font-bold text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 w-fit px-3 py-1.5 rounded-lg">
                                 <Clock size={14} />
                                 <span>Delivery in 9 mins</span>
                             </div>
                         </div>
                     ) : (
-                         <div className="pl-6 text-sm text-gray-500">
+                         <div className="pl-6 text-sm text-gray-500 dark:text-gray-400">
                             Please select or add a delivery address to proceed.
                         </div>
                     )}
                 </section>
 
                 {/* 2. Payment Method */}
-                <section className="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
-                    <h2 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-                        <Banknote size={18} className="text-gray-700" />
+                <section className="bg-white dark:bg-gray-900 p-5 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 transition-colors">
+                    <h2 className="font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                        <Banknote size={18} className="text-gray-700 dark:text-gray-300" />
                         Payment Method
                     </h2>
                     
                     <div className="space-y-3">
-                        <label className={`flex items-center gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all ${paymentMethod === 'upi' ? 'border-indigo-600 bg-indigo-50' : 'border-gray-100 hover:border-gray-200'}`}>
+                        <label className={`flex items-center gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all ${paymentMethod === 'upi' ? 'border-indigo-600 bg-indigo-50 dark:bg-indigo-900/20' : 'border-gray-100 dark:border-gray-700 hover:border-gray-200 dark:hover:border-gray-600 bg-white dark:bg-gray-800'}`}>
                             <input 
                                 type="radio" 
                                 name="payment" 
@@ -244,13 +244,13 @@ export default function CheckoutPage() {
                                 onChange={() => setPaymentMethod('upi')}
                             />
                             <div className="flex-1">
-                                <span className="font-bold text-gray-900 block">UPI</span>
-                                <span className="text-xs text-gray-500">Google Pay, PhonePe, Paytm</span>
+                                <span className="font-bold text-gray-900 dark:text-white block">UPI</span>
+                                <span className="text-xs text-gray-500 dark:text-gray-400">Google Pay, PhonePe, Paytm</span>
                             </div>
                             <img src="https://cdn-icons-png.flaticon.com/512/270/270830.png" className="w-8 h-8 opacity-80" alt="UPI" />
                         </label>
 
-                        <label className={`flex items-center gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all ${paymentMethod === 'cod' ? 'border-indigo-600 bg-indigo-50' : 'border-gray-100 hover:border-gray-200'}`}>
+                        <label className={`flex items-center gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all ${paymentMethod === 'cod' ? 'border-indigo-600 bg-indigo-50 dark:bg-indigo-900/20' : 'border-gray-100 dark:border-gray-700 hover:border-gray-200 dark:hover:border-gray-600 bg-white dark:bg-gray-800'}`}>
                             <input 
                                 type="radio" 
                                 name="payment" 
@@ -259,16 +259,16 @@ export default function CheckoutPage() {
                                 onChange={() => setPaymentMethod('cod')}
                             />
                             <div className="flex-1">
-                                <span className="font-bold text-gray-900 block">Cash on Delivery</span>
-                                <span className="text-xs text-gray-500">Pay cash/UPI at doorstep</span>
+                                <span className="font-bold text-gray-900 dark:text-white block">Cash on Delivery</span>
+                                <span className="text-xs text-gray-500 dark:text-gray-400">Pay cash/UPI at doorstep</span>
                             </div>
                             <Banknote className="text-gray-400" size={24} />
                         </label>
                     </div>
 
                     {/* Wallet Option */}
-                    <div className="mt-4 pt-4 border-t border-gray-100">
-                        <label className={`flex items-center gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all ${useWallet ? 'border-indigo-600 bg-indigo-50' : 'border-gray-100 hover:border-gray-200'}`}>
+                    <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800">
+                        <label className={`flex items-center gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all ${useWallet ? 'border-indigo-600 bg-indigo-50 dark:bg-indigo-900/20' : 'border-gray-100 dark:border-gray-700 hover:border-gray-200 dark:hover:border-gray-600 bg-white dark:bg-gray-800'}`}>
                              <div className="relative">
                                 <input 
                                     type="checkbox" 
@@ -277,26 +277,26 @@ export default function CheckoutPage() {
                                     onChange={(e) => setUseWallet(e.target.checked)}
                                     disabled={balance <= 0}
                                 />
-                                <div className={`w-5 h-5 border-2 rounded flex items-center justify-center ${useWallet ? 'bg-indigo-600 border-indigo-600' : 'border-gray-300'}`}>
+                                <div className={`w-5 h-5 border-2 rounded flex items-center justify-center ${useWallet ? 'bg-indigo-600 border-indigo-600' : 'border-gray-300 dark:border-gray-600'}`}>
                                     {useWallet && <CheckCircle2 size={12} className="text-white" />}
                                 </div>
                              </div>
                              <div className="flex-1">
-                                 <span className="font-bold text-gray-900 flex items-center gap-2">
+                                 <span className="font-bold text-gray-900 dark:text-white flex items-center gap-2">
                                      Use Zest Cash
-                                     {balance > 0 && <span className="bg-green-100 text-green-700 text-[10px] px-1.5 py-0.5 rounded-full">Available</span>}
+                                     {balance > 0 && <span className="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-[10px] px-1.5 py-0.5 rounded-full">Available</span>}
                                  </span>
-                                 <span className="text-xs text-gray-500">Balance: ₹{balance.toFixed(2)}</span>
+                                 <span className="text-xs text-gray-500 dark:text-gray-400">Balance: ₹{balance.toFixed(2)}</span>
                              </div>
-                             <Wallet className="text-indigo-600" size={24} />
+                             <Wallet className="text-indigo-600 dark:text-indigo-400" size={24} />
                         </label>
                     </div>
                 </section>
 
                 {/* 3. Coupon Section */}
-                <section className="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
-                     <h2 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-                        <Tag size={18} className="text-gray-700" />
+                <section className="bg-white dark:bg-gray-900 p-5 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 transition-colors">
+                     <h2 className="font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                        <Tag size={18} className="text-gray-700 dark:text-gray-300" />
                         Coupons & Offers
                      </h2>
                      
@@ -317,7 +317,7 @@ export default function CheckoutPage() {
                                 <input 
                                     type="text"
                                     placeholder="Enter Coupon Code"
-                                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-indigo-500 uppercase"
+                                    className="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-indigo-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white uppercase placeholder-gray-400"
                                     value={couponInput}
                                     onChange={(e) => {
                                         setCouponInput(e.target.value.toUpperCase());
@@ -382,39 +382,39 @@ export default function CheckoutPage() {
                 </section>
 
                 {/* 4. Bill Details */}
-                <section className="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
-                     <h2 className="font-bold text-gray-900 mb-4">Bill Details</h2>
+                <section className="bg-white dark:bg-gray-900 p-5 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 transition-colors">
+                     <h2 className="font-bold text-gray-900 dark:text-white mb-4">Bill Details</h2>
                      <div className="space-y-3 text-sm">
-                        <div className="flex justify-between text-gray-600">
+                        <div className="flex justify-between text-gray-600 dark:text-gray-400">
                             <span>Item Total</span>
                             <span>₹{total}</span>
                         </div>
-                        <div className="flex justify-between text-gray-600">
+                        <div className="flex justify-between text-gray-600 dark:text-gray-400">
                             <span className="flex items-center gap-1">
                                 Delivery Fee 
-                                {deliveryFee === 0 && <span className="text-[10px] bg-green-100 text-green-700 px-1.5 rounded">FREE</span>}
+                                {deliveryFee === 0 && <span className="text-[10px] bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-1.5 rounded">FREE</span>}
                             </span>
-                            <span className={deliveryFee === 0 ? "text-green-600" : ""}>
+                            <span className={deliveryFee === 0 ? "text-green-600 dark:text-green-400" : ""}>
                                 {deliveryFee === 0 ? "- ₹35" : `₹${deliveryFee}`}
                             </span>
                         </div>
                         {deliveryFee === 0 && (
-                            <div className="text-xs text-gray-400 pl-1">
+                            <div className="text-xs text-gray-400 dark:text-gray-500 pl-1">
                                 <span className="line-through mr-2">₹35</span>
                                 Free delivery for orders above ₹499
                             </div>
                         )}
-                        <div className="flex justify-between text-gray-600">
+                        <div className="flex justify-between text-gray-600 dark:text-gray-400">
                             <span>Handling Charge</span>
                             <span>₹{handlingFee}</span>
                         </div>
-                        <div className="flex justify-between text-gray-600">
+                        <div className="flex justify-between text-gray-600 dark:text-gray-400">
                             <span>Platform Fee</span>
                             <span>₹{platformFee}</span>
                         </div>
                         
                         {discount > 0 && (
-                             <div className="flex justify-between text-green-600 font-bold">
+                             <div className="flex justify-between text-green-600 dark:text-green-400 font-bold">
                                 <span>Coupon Discount</span>
                                 <span>- ₹{discount}</span>
                             </div>
@@ -428,23 +428,23 @@ export default function CheckoutPage() {
                         )}
 
                         {useWallet && walletDeduction > 0 && (
-                             <div className="flex justify-between text-indigo-600 font-bold">
+                             <div className="flex justify-between text-indigo-600 dark:text-indigo-400 font-bold">
                                 <span>Zest Cash Used</span>
                                 <span>- ₹{walletDeduction}</span>
                             </div>
                         )}
 
-                        <div className="border-t border-dashed border-gray-300 my-4 pt-4 flex justify-between items-center">
-                            <span className="font-bold text-lg text-gray-900">To Pay</span>
-                            <span className="font-bold text-lg text-gray-900">₹{grandTotal}</span>
+                        <div className="border-t border-dashed border-gray-300 dark:border-gray-700 my-4 pt-4 flex justify-between items-center">
+                            <span className="font-bold text-lg text-gray-900 dark:text-white">To Pay</span>
+                            <span className="font-bold text-lg text-gray-900 dark:text-white">₹{grandTotal}</span>
                         </div>
                      </div>
                 </section>
 
                 {/* 4. Cancellation Policy */}
-                <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex gap-3">
+                <div className="bg-white dark:bg-gray-900 p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 flex gap-3 transition-colors">
                     <AlertCircle className="text-gray-400 flex-shrink-0" size={20} />
-                    <p className="text-xs text-gray-500 leading-relaxed">
+                    <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
                         Orders cannot be cancelled once packed for delivery. In case of unexpected delays, a refund will be provided, if applicable.
                     </p>
                 </div>
@@ -452,7 +452,7 @@ export default function CheckoutPage() {
             </main>
 
             {/* Bottom Bar */}
-            <div className="fixed bottom-0 left-0 right-0 bg-white border-t p-4 z-[60] md:hidden">
+            <div className="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 p-4 z-[60] md:hidden transition-colors">
                 <button 
                     onClick={handlePlaceOrder}
                     disabled={loading}

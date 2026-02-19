@@ -68,7 +68,7 @@ export default function Header() {
                     Collecting nearby
                     <span className="bg-indigo-600 text-white px-1.5 py-0.5 rounded text-[10px]">10 MINS</span>
                 </span>
-                <div className="flex items-center gap-1 text-gray-900 group">
+                <div className="flex items-center gap-1 text-gray-900 dark:text-gray-100 group">
                     <span className="text-sm font-bold truncate max-w-[120px] md:max-w-[140px] border-b border-dashed border-gray-400 pb-0.5">
                         {selectedCity ? selectedCity.name : 'Select Location'}
                     </span>

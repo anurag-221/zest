@@ -25,10 +25,10 @@ function SearchResults() {
     }, [query]);
 
     return (
-        <main className="min-h-screen bg-gray-50 pb-24">
+        <main className="min-h-screen bg-gray-50 dark:bg-black pb-24 transition-colors">
             <Header />
             <div className="container mx-auto px-4 py-6">
-                <h1 className="text-xl font-bold text-gray-900 mb-6">
+                <h1 className="text-xl font-bold text-gray-900 dark:text-white mb-6">
                     {results.length} results for "{query}"
                 </h1>
 
@@ -36,8 +36,8 @@ function SearchResults() {
                     <ProductRail title="Products" products={results} />
                 ) : (
                     <div className="flex flex-col items-center justify-center py-20">
-                         <img src="https://cdn-icons-png.flaticon.com/512/6134/6134065.png" alt="No Results" className="w-32 opacity-50 mb-4 mix-blend-multiply" />
-                         <p className="text-gray-500 font-medium">No matches found. Try searching for "Milk", "Bread", or "Chips".</p>
+                         <img src="https://cdn-icons-png.flaticon.com/512/6134/6134065.png" alt="No Results" className="w-32 opacity-50 mb-4 mix-blend-multiply dark:mix-blend-screen dark:invert" />
+                         <p className="text-gray-500 dark:text-gray-400 font-medium">No matches found. Try searching for "Milk", "Bread", or "Chips".</p>
                     </div>
                 )}
             </div>

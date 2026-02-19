@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { LayoutDashboard, Calendar, Package, Settings, ShoppingBag, MapPin } from 'lucide-react';
+import AdminGuard from '@/components/admin/AdminGuard';
 
 export default function AdminLayout({
   children,
@@ -46,7 +47,9 @@ export default function AdminLayout({
 
       {/* Main Content */}
       <main className="flex-1 md:ml-64 p-8">
-        {children}
+        <AdminGuard>
+            {children}
+        </AdminGuard>
       </main>
     </div>
   );

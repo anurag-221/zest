@@ -89,7 +89,7 @@ export default function OrderSuccessPage({ params }: { params: Promise<{ id: str
     }, [params]);
 
     return (
-        <div className="min-h-screen bg-indigo-600 flex flex-col items-center justify-center p-4 text-white relative overflow-hidden pb-24">
+        <div className="min-h-screen bg-indigo-600 dark:bg-black flex flex-col items-center justify-center p-4 text-white relative overflow-hidden pb-24 transition-colors">
             {/* Off-screen Receipt for PDF Generation (Display block needed for html2canvas) */}
             <div className="absolute top-0 left-[-9999px]">
                 {order && (
@@ -115,7 +115,7 @@ export default function OrderSuccessPage({ params }: { params: Promise<{ id: str
             </div>
 
             <div className="z-10 text-center max-w-md w-full">
-                <div className="bg-white text-gray-900 rounded-3xl p-8 shadow-2xl mx-4 relative">
+                <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white rounded-3xl p-8 shadow-2xl mx-4 relative transition-colors">
                     
                     {/* Success Icon */}
                     <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-green-500 p-4 rounded-full shadow-lg border-4 border-indigo-600">
@@ -139,7 +139,7 @@ export default function OrderSuccessPage({ params }: { params: Promise<{ id: str
                             {/* Live Delivery Progress */}
                             <div className="space-y-6 text-left relative pl-2">
                                 {/* Vertical Line */}
-                                <div className="absolute left-[19px] top-2 bottom-4 w-0.5 bg-gray-200"></div>
+                                <div className="absolute left-[19px] top-2 bottom-4 w-0.5 bg-gray-200 dark:bg-gray-800"></div>
 
                                 {[
                                     { status: 'Processing', label: 'Order Placed', time: '10:00 AM' },
@@ -166,14 +166,14 @@ export default function OrderSuccessPage({ params }: { params: Promise<{ id: str
                         </div>
                     </div>
 
-                        <Link href="/" className="w-full bg-gray-100 text-gray-900 py-3 rounded-xl font-bold hover:bg-gray-200 transition-colors flex items-center justify-center gap-2">
+                        <Link href="/" className="w-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white py-3 rounded-xl font-bold hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors flex items-center justify-center gap-2">
                              <Home size={18} />
                              Home
                         </Link>
 
                     {/* Live Tracking Map */}
-                    <div className="mt-6 border-t border-dashed border-gray-200 pt-6">
-                        <h3 className="text-left font-bold text-gray-900 mb-3 flex items-center gap-2">
+                    <div className="mt-6 border-t border-dashed border-gray-200 dark:border-gray-800 pt-6">
+                        <h3 className="text-left font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
                             <span className="relative flex h-3 w-3">
                               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                               <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>

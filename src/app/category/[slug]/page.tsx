@@ -30,7 +30,7 @@ export default function CategoryPage() {
     }
 
     return (
-        <main className="min-h-screen bg-gray-50">
+        <main className="min-h-screen bg-gray-50 dark:bg-black transition-colors">
             <Header />
             
             {/* Category Banner (Mock) */}
@@ -46,11 +46,11 @@ export default function CategoryPage() {
                     <ProductRail title={`All ${categoryName}`} products={categoryProducts} />
                 ) : (
                      <div className="flex flex-col items-center justify-center py-20 text-center">
-                         <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mb-4 text-4xl">
+                         <div className="w-24 h-24 bg-gray-200 dark:bg-gray-800 rounded-full flex items-center justify-center mb-4 text-4xl transition-colors">
                             🤷‍♂️
                          </div>
-                         <h3 className="text-xl font-bold text-gray-900 mb-2">No products found</h3>
-                         <p className="text-gray-500 mb-6 max-w-md">
+                         <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">No products found</h3>
+                         <p className="text-gray-500 dark:text-gray-400 mb-6 max-w-md">
                             We couldn't find any products in this category. 
                             Try checking other categories or come back later!
                          </p>
