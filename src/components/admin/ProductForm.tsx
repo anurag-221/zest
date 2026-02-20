@@ -5,6 +5,10 @@ import { saveProduct, updateInventory } from '@/actions/product-actions';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Loader2, Save, MapPin } from 'lucide-react';
+import dynamic from 'next/dynamic';
+import 'react-quill-new/dist/quill.snow.css';
+
+const ReactQuill = dynamic(() => import('react-quill-new'), { ssr: false });
 
 interface ProductFormProps {
   initialData?: Product;
@@ -105,14 +109,15 @@ export default function ProductForm({ initialData, cities, initialInventory = {}
                 </div>
                 
                 <div className="md:col-span-2">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
-                    <textarea 
-                        required
-                        rows={3}
-                        value={formData.description || ''}
-                        onChange={e => handleChange('description', e.target.value)}
-                        className="w-full rounded-lg border-gray-300 border p-2.5 outline-none"
-                    />
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Description (Rich Text)</label>
+                    <div className="bg-white">
+                        <ReactQuill 
+                            theme="snow"
+                            value={formData.description || ''}
+                            onChange={(content) => handleChange('description', content)}
+                            className="rounded-lg mb-12 h-48"
+                        />
+                    </div>
                 </div>
 
                 <div>

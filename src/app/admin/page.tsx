@@ -5,6 +5,7 @@ import AdminAnalytics from '@/components/AdminAnalytics';
 export default async function AdminDashboard() {
   const events = await db.events.getAll();
   const orders = await db.orders.getAll();
+  const products = await db.products.getAll();
   
   // 1. Active Events
   const activeEvents = events.filter(e => {
@@ -24,6 +25,46 @@ export default async function AdminDashboard() {
 
   // 3. User Metrics (Unique Customers)
   const uniqueCustomers = new Set(orders.map(o => o.customer?.name || 'Guest')).size;
+
+  // 4. Analytics Data
+  const last7Days = Array.from({length: 7}).map((_, i) => {
+      const d = new Date();
+      d.setDate(d.getDate() - (6 - i));
+      return d.toDateString();
+  });
+
+  const weeklyData = last7Days.map(dateStr => {
+      const dayOrders = orders.filter(o => o.status !== 'cancelled' && new Date(o.createdAt).toDateString() === dateStr);
+      return {
+          name: dateStr.split(' ')[0], // Mon, Tue...
+          revenue: dayOrders.reduce((acc, o) => acc + o.total, 0),
+          orders: dayOrders.length
+      };
+  });
+
+  const categorySales: Record<string, number> = {};
+  const productSales: Record<string, { name: string; sales: number; revenue: number }> = {};
+
+  orders.filter(o => o.status !== 'cancelled').forEach(order => {
+      order.items.forEach(item => {
+          const product = products.find(p => p.id === item.id);
+          if (product) {
+              categorySales[product.category] = (categorySales[product.category] || 0) + (item.price * item.quantity);
+              
+              if (!productSales[product.id]) {
+                  productSales[product.id] = { name: product.name, sales: 0, revenue: 0 };
+              }
+              productSales[product.id].sales += item.quantity;
+              productSales[product.id].revenue += (item.price * item.quantity);
+          }
+      });
+  });
+
+  const categoryData = Object.entries(categorySales).map(([name, value]) => ({ name, value }));
+  const topProducts = Object.values(productSales)
+      .sort((a, b) => b.revenue - a.revenue)
+      .slice(0, 5)
+      .map(p => ({ ...p, revenue: `₹${p.revenue.toLocaleString()}` }));
 
   return (
     <div>
@@ -59,7 +100,11 @@ export default async function AdminDashboard() {
       </div>
 
       <div className="mb-8">
-         <AdminAnalytics />
+         <AdminAnalytics 
+            weeklyData={weeklyData} 
+            categoryData={categoryData} 
+            topProducts={topProducts} 
+         />
       </div>
 
       {/* Recent Activity */}

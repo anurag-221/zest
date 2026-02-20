@@ -6,6 +6,7 @@ import SupportChat from '@/components/SupportChat';
 import LocationGuard from "@/components/LocationGuard";
 import BottomNav from "@/components/BottomNav";
 import FloatingCart from "@/components/FloatingCart";
+import PushPermissionBanner from "@/components/PushPermissionBanner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -44,6 +45,7 @@ export default function RootLayout({
             {children}
             <FloatingCart />
             <BottomNav />
+            <PushPermissionBanner />
           </LocationGuard>
         </Providers>
       </body>

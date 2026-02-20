@@ -13,12 +13,16 @@ import BrandRail from '@/components/BrandRail';
 
 import PullToRefresh from '@/components/PullToRefresh';
 import { useCallback } from 'react';
+import { useViewedStore } from '@/store/viewed-store';
 
 export default function Home() {
   const { selectedCity } = useLocationStore();
   const [activeEvents, setActiveEvents] = useState<AppEvent[]>([]);
   const [cityProducts, setCityProducts] = useState<any[]>([]);
   const [eventProducts, setEventProducts] = useState<any[]>([]);
+  const [topCategories, setTopCategories] = useState<{name: string, products: any[]}[]>([]);
+  const [mounted, setMounted] = useState(false);
+  const { viewedProductIds } = useViewedStore();
 
   const loadData = useCallback(async () => {
     if (!selectedCity) return;
@@ -46,10 +50,29 @@ export default function Home() {
     } else {
       setEventProducts([]);
     }
+
+    // 4. Derive Top Categories (categories with most products)
+    const categoryMap = new Map<string, any[]>();
+    products.forEach(p => {
+        if (!categoryMap.has(p.category)) categoryMap.set(p.category, []);
+        categoryMap.get(p.category)!.push(p);
+    });
+    
+    // Sort categories by product count and take top 4
+    const sortedCategories = Array.from(categoryMap.entries())
+        .sort((a, b) => b[1].length - a[1].length)
+        .slice(0, 4)
+        .map(([name, products]) => ({
+            name: name.charAt(0).toUpperCase() + name.slice(1).replace('-', ' '),
+            products: products.slice(0, 10) // show up to 10 per rail
+        }));
+        
+    setTopCategories(sortedCategories);
   }, [selectedCity]);
 
   // Effect to load data when city changes
   useEffect(() => {
+    setMounted(true);
     loadData();
   }, [loadData]);
 
@@ -86,6 +109,13 @@ export default function Home() {
       ) : (
         <PullToRefresh onRefresh={handleRefresh}>
           <BannerCarousel events={activeEvents} />
+
+          {mounted && viewedProductIds.length > 0 && (
+             <ProductRail 
+                 title="Recently Viewed" 
+                 products={viewedProductIds.map(id => ProductService.getAllProducts().find(p => p.id === id)).filter(Boolean) as any[]} 
+             />
+          )}
         
           <BrandRail />
 
@@ -114,11 +144,22 @@ export default function Home() {
               />
           )}
 
-           {/* Fallback / General Categories */}
-           <ProductRail 
-            title="Daily Essentials" 
-            products={cityProducts.filter(p => p.category === 'dairy' || p.category === 'bakery' || p.category === 'pantry').slice(0, 10)} 
-          />
+          {/* 🔥 Trending Deals — flagship phones */}
+          {cityProducts.some(p => p.isTrending) && (
+              <ProductRail
+                title="🔥 Trending Deals"
+                products={cityProducts.filter(p => p.isTrending)}
+              />
+          )}
+
+           {/* Dynamic Category Rails */}
+           {topCategories.map(cat => (
+              <ProductRail 
+                key={cat.name}
+                title={`Top in ${cat.name}`} 
+                products={cat.products} 
+              />
+           ))}
         </PullToRefresh>
       )}
 

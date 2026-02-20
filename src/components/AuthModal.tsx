@@ -20,12 +20,13 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
   const [useWhatsapp, setUseWhatsapp] = useState(false);
   const [name, setName] = useState('');
   const [loading, setLoading] = useState(false);
+  const [mockExpectedOtp, setMockExpectedOtp] = useState<string | null>(null);
   
   const { login } = useAuthStore();
 
   if (!isOpen) return null;
 
-  const handleSendOtp = (e: React.FormEvent) => {
+  const handleSendOtp = async (e: React.FormEvent) => {
     e.preventDefault();
     if (phone.length < 10) {
         toast.error('Please enter a valid 10-digit number');
@@ -33,34 +34,61 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
     }
     setLoading(true);
     
-    // Generate Random 4-digit OTP
-    const newOtp = Math.floor(1000 + Math.random() * 9000).toString();
-    setGeneratedOtp(newOtp);
-
-    setTimeout(() => {
-        setLoading(false);
-        setStep('otp');
+    try {
+        const response = await fetch('/api/auth/send-otp', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ phone, channel: useWhatsapp ? 'whatsapp' : 'sms' }),
+        });
         
+        const data = await response.json();
+        
+        if (!response.ok) {
+            throw new Error(data.error || 'Failed to send OTP');
+        }
+
+        if (data.mock && data.devOtp) {
+            setMockExpectedOtp(data.devOtp); // Store mock OTP to send to verification endpoint later
+        }
+
+        setStep('otp');
         const method = useWhatsapp ? 'WhatsApp' : 'SMS';
-        toast.success(`OTP sent via ${method}: ${newOtp}`, {
+        const msg = data.mock ? `OTP sent via ${method}: ${data.devOtp} (DEV MODE)` : `OTP sent via ${method}`;
+        toast.success(msg, {
             duration: 5000,
             icon: useWhatsapp ? <Smartphone size={18} className="text-green-500" /> : undefined
         });
-        console.log(`[Auth] OTP for ${phone} (${method}): ${newOtp}`);
-    }, 1500);
+    } catch (err) {
+        toast.error((err as Error).message || 'Something went wrong');
+    } finally {
+        setLoading(false);
+    }
   };
 
-  const handleVerifyOtp = (e: React.FormEvent) => {
+  const handleVerifyOtp = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!otp) return;
     setLoading(true);
-    setTimeout(() => {
-        setLoading(false);
-        if (otp === generatedOtp) {
+    
+    try {
+        const response = await fetch('/api/auth/verify-otp', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ phone, otp, mockExpectedOtp }),
+        });
+        
+        const data = await response.json();
+        
+        if (data.valid) {
             setStep('name');
         } else {
             toast.error('Invalid OTP. Please try again.');
         }
-    }, 1000);
+    } catch (err) {
+        toast.error('Verification failed. Try again later.');
+    } finally {
+        setLoading(false);
+    }
   };
 
   const handleComplete = (e: React.FormEvent) => {
@@ -82,6 +110,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
         setPhone('');
         setOtp('');
         setName('');
+        setMockExpectedOtp(null);
     }, 500);
   };
 

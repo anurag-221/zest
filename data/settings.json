@@ -1,0 +1,10 @@
+{
+  "storeName": "Zest Hyperlocal",
+  "supportEmail": "support@zest.com",
+  "currency": "INR",
+  "deliveryFee": 5,
+  "freeDeliveryThreshold": 499,
+  "handlingFee": 5,
+  "platformFee": 2,
+  "adminPasswordHash": "Zest@2026"
+}

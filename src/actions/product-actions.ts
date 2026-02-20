@@ -73,7 +73,8 @@ export async function placeOrder(cityId: string, items: { id: string; quantity: 
         id: orderId,
         items: orderItems,
         total: orderTotal, // Note: This is simplified, ideally pass full total from client or calc fees here
-        status: 'processing',
+        status: 'pending',
+        statusHistory: [{ status: 'pending', timestamp: new Date().toISOString() }],
         createdAt: new Date().toISOString(),
         cityId,
         // We can accept more details in args later

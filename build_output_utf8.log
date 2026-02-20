@@ -1,0 +1,110 @@
+﻿
+> ecommerce-app@0.1.0 build
+> next build
+
+Γû▓ Next.js 16.1.6 (Turbopack)
+
+  Creating an optimized production build ...
+npm : 
+At line:1 char:1
++ npm run build > 
+build_output.log 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~
+    + CategoryInfo        
+      : NotSpecified: (:  
+  String) [], RemoteExc   
+ eption
+    + FullyQualifiedError 
+   Id : NativeCommandErr  
+  or
+ 
+> Build error occurred
+Error: Turbopack build 
+failed with 1 errors:
+./src/components/admin/Pro
+ductForm.tsx:9:1
+Module not found: Can't 
+resolve 'react-quill/dist/
+quill.snow.css'
+[0m [90m  7 |[39m 
+[36mimport[39m { [33mLo
+ader2[39m[33m,[39m 
+[33mSave[39m[33m,[39m 
+[33mMapPin[39m } 
+[36mfrom[39m [32m'lucid
+e-react'[39m[33m;[39m
+ [90m  8 |[39m 
+[36mimport[39m dynamic 
+[36mfrom[39m [32m'next/
+dynamic'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 
+ 9 |[39m 
+[36mimport[39m [32m'rea
+ct-quill/dist/quill.snow.c
+ss'[39m[33m;[39m
+ [90m    |[39m [31m[1m
+^[22m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31m[
+1m^[22m[39m[31m[1m^[2
+2m[39m[31m[1m^[22m[39
+m[31m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22m[
+39m[31m[1m^[22m[39m[3
+1m[1m^[22m[39m[31m[1m
+^[22m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31m[
+1m^[22m[39m[31m[1m^[2
+2m[39m[31m[1m^[22m[39
+m[31m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22m[
+39m[31m[1m^[22m[39m[3
+1m[1m^[22m[39m[31m[1m
+^[22m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31m[
+1m^[22m[39m[31m[1m^[2
+2m[39m[31m[1m^[22m[39
+m[31m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22m[
+39m[31m[1m^[22m[39m[3
+1m[1m^[22m[39m[31m[1m
+^[22m[39m[31m[1m^[22m
+[39m
+ [90m 10 |[39m
+ [90m 11 |[39m 
+[36mconst[39m 
+[33mReactQuill[39m 
+[33m=[39m dynamic(() 
+[33m=>[39m [36mimport[
+39m([32m'react-quill-new'
+[39m)[33m,[39m { 
+ssr[33m:[39m 
+[36mfalse[39m 
+})[33m;[39m
+ [90m 12 |[39m[0m
+
+
+
+Import trace:
+  Server Component:
+    ./src/components/admin
+/ProductForm.tsx
+    ./src/app/admin/produc
+ts/[id]/page.tsx
+
+https://nextjs.org/docs/me
+ssages/module-not-found
+
+
+    at <unknown> (./src/co
+mponents/admin/ProductForm
+.tsx:9:1)
+    at <unknown> (https://
+nextjs.org/docs/messages/m
+odule-not-found)

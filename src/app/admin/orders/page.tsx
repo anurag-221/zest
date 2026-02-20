@@ -1,5 +1,6 @@
 import { db } from '@/lib/fs-db';
 import { Package, Truck, CheckCircle, Clock } from 'lucide-react';
+import OrderStatusSelector from '@/components/admin/OrderStatusSelector';
 
 export default async function OrdersPage() {
   const orders = await db.orders.getAll();
@@ -70,10 +71,7 @@ export default async function OrdersPage() {
                             <p className="text-xs text-gray-500">{order.paymentMethod ? order.paymentMethod.toUpperCase() : 'COD'}</p>
                         </td>
                         <td className="p-4 align-top">
-                            <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold capitalize ${getStatusColor(order.status)}`}>
-                                {getStatusIcon(order.status)}
-                                {order.status.replace(/-/g, ' ')}
-                            </span>
+                            <OrderStatusSelector orderId={order.id} currentStatus={order.status} />
                         </td>
                     </tr>
                 ))}

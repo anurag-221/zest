@@ -16,6 +16,9 @@ import { toast } from 'sonner';
 import PaymentModal from '@/components/PaymentModal';
 import { useAuthStore } from '@/store/auth-store';
 import AuthModal from '@/components/AuthModal';
+import { getSettings } from '@/actions/settings-actions';
+import { GlobalSettings } from '@/types';
+import AddressSelectionModal from '@/components/checkout/AddressSelectionModal';
 
 export default function CheckoutPage() {
     const { items, total, discount, couponCode, applyCoupon, removeCoupon, clearCart, tip, setTip } = useCartStore();
@@ -24,7 +27,6 @@ export default function CheckoutPage() {
     const { selectedCity } = useLocationStore();
     const [mounted, setMounted] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [paymentMethod, setPaymentMethod] = useState<'upi' | 'cod'>('upi');
     
     // Auth Check
     const { isAuthenticated, user } = useAuthStore();
@@ -32,6 +34,7 @@ export default function CheckoutPage() {
     
     // Address State
     const [selectedAddressId, setSelectedAddressId] = useState<string>('');
+    const [showAddressModal, setShowAddressModal] = useState(false);
     
     useEffect(() => {
         if (user?.addresses && user.addresses.length > 0 && !selectedAddressId) {
@@ -57,7 +60,7 @@ export default function CheckoutPage() {
 
         if (!activeAddress) {
             toast.error('Please Select or Add an address');
-             // optional: router.push('/profile/addresses');
+            setShowAddressModal(true);
             return;
         }
 
@@ -79,15 +82,22 @@ export default function CheckoutPage() {
     // Wallet State
     const { balance, deductFunds } = useWalletStore();
     const [useWallet, setUseWallet] = useState(false);
+    
+    // Global Settings State
+    const [settings, setSettings] = useState<GlobalSettings | null>(null);
 
     useEffect(() => {
         setMounted(true);
+        // Fetch dynamic fees from server
+        getSettings().then(res => {
+            if (res.success && res.settings) setSettings(res.settings);
+        });
     }, []);
 
-    // Bill Calculations - Moved up safely as they only depend on state/props
-    const deliveryFee = total > 499 ? 0 : 35;
-    const handlingFee = 5;
-    const platformFee = 2; 
+    // Bill Calculations
+    const deliveryFee = total > (settings?.freeDeliveryThreshold ?? 499) ? 0 : (settings?.deliveryFee ?? 35);
+    const handlingFee = settings?.handlingFee ?? 5;
+    const platformFee = settings?.platformFee ?? 2; 
     
     // Calculate intermediate totals
     const totalAfterCoupon = Math.max(0, total + deliveryFee + handlingFee + platformFee + tip - discount);
@@ -127,7 +137,6 @@ export default function CheckoutPage() {
                      deductFunds(walletDeduction, `Order Payment #${result.orderId}`);
                 }
 
-                // 2. Create Local Order Record
                 const newOrder = {
                     id: result.orderId!, // Use ID from server
                     items: [...items],
@@ -138,8 +147,9 @@ export default function CheckoutPage() {
                     platformFee,
                     tip, // Save tip
                     total: grandTotal,
-                    date: new Date().toLocaleDateString(),
-                    status: 'Processing' as const,
+                    date: new Date().toISOString(),
+                    status: 'pending' as const,
+                    statusHistory: [{ status: 'pending', timestamp: new Date().toISOString() }],
                     address: activeAddress ? `${activeAddress.line1}, ${activeAddress.city}` : 'Guest Address', 
                     paymentMethod: method // Save method
                 };
@@ -147,7 +157,7 @@ export default function CheckoutPage() {
                 addOrder(newOrder);
                 clearCart();
                 toast.success('Order placed successfully! 🎉');
-                router.push(`/order-success/${result.orderId}`);
+                router.push(`/order-success/${result.orderId}?fromCheckout=true`);
             }
         } catch (error: any) {
             toast.error(error.message || 'Failed to place order');
@@ -199,12 +209,12 @@ export default function CheckoutPage() {
                             <MapPin size={18} className="text-indigo-600" />
                             <h2 className="font-bold text-gray-900 dark:text-white">Delivery Address</h2>
                         </div>
-                        <Link 
-                            href="/profile/addresses"
+                        <button 
+                            onClick={isAuthenticated ? () => setShowAddressModal(true) : () => setShowAuthModal(true)}
                             className="text-indigo-600 dark:text-indigo-400 text-sm font-bold uppercase hover:bg-indigo-50 dark:hover:bg-indigo-900/30 px-2 py-1 rounded transition-colors"
                         >
                             {activeAddress ? 'Change' : 'Add New'}
-                        </Link>
+                        </button>
                     </div>
                     
                     {activeAddress ? (
@@ -227,47 +237,14 @@ export default function CheckoutPage() {
                     )}
                 </section>
 
-                {/* 2. Payment Method */}
+                {/* 2. Wallet Option */}
                 <section className="bg-white dark:bg-gray-900 p-5 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 transition-colors">
                     <h2 className="font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                         <Banknote size={18} className="text-gray-700 dark:text-gray-300" />
-                        Payment Method
+                        Zest Wallet
                     </h2>
                     
-                    <div className="space-y-3">
-                        <label className={`flex items-center gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all ${paymentMethod === 'upi' ? 'border-indigo-600 bg-indigo-50 dark:bg-indigo-900/20' : 'border-gray-100 dark:border-gray-700 hover:border-gray-200 dark:hover:border-gray-600 bg-white dark:bg-gray-800'}`}>
-                            <input 
-                                type="radio" 
-                                name="payment" 
-                                className="w-5 h-5 text-indigo-600 focus:ring-indigo-500"
-                                checked={paymentMethod === 'upi'}
-                                onChange={() => setPaymentMethod('upi')}
-                            />
-                            <div className="flex-1">
-                                <span className="font-bold text-gray-900 dark:text-white block">UPI</span>
-                                <span className="text-xs text-gray-500 dark:text-gray-400">Google Pay, PhonePe, Paytm</span>
-                            </div>
-                            <img src="https://cdn-icons-png.flaticon.com/512/270/270830.png" className="w-8 h-8 opacity-80" alt="UPI" />
-                        </label>
-
-                        <label className={`flex items-center gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all ${paymentMethod === 'cod' ? 'border-indigo-600 bg-indigo-50 dark:bg-indigo-900/20' : 'border-gray-100 dark:border-gray-700 hover:border-gray-200 dark:hover:border-gray-600 bg-white dark:bg-gray-800'}`}>
-                            <input 
-                                type="radio" 
-                                name="payment" 
-                                className="w-5 h-5 text-indigo-600 focus:ring-indigo-500"
-                                checked={paymentMethod === 'cod'}
-                                onChange={() => setPaymentMethod('cod')}
-                            />
-                            <div className="flex-1">
-                                <span className="font-bold text-gray-900 dark:text-white block">Cash on Delivery</span>
-                                <span className="text-xs text-gray-500 dark:text-gray-400">Pay cash/UPI at doorstep</span>
-                            </div>
-                            <Banknote className="text-gray-400" size={24} />
-                        </label>
-                    </div>
-
-                    {/* Wallet Option */}
-                    <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800">
+                    <div className="">
                         <label className={`flex items-center gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all ${useWallet ? 'border-indigo-600 bg-indigo-50 dark:bg-indigo-900/20' : 'border-gray-100 dark:border-gray-700 hover:border-gray-200 dark:hover:border-gray-600 bg-white dark:bg-gray-800'}`}>
                              <div className="relative">
                                 <input 
@@ -494,6 +471,14 @@ export default function CheckoutPage() {
                     onClose={() => setShowMap(false)} 
                 />
             )}
+            <AddressSelectionModal 
+                isOpen={showAddressModal}
+                onClose={() => setShowAddressModal(false)}
+                onSelect={(id) => {
+                    setSelectedAddressId(id);
+                    setShowAddressModal(false);
+                }}
+            />
 
             <PaymentModal 
                 amount={grandTotal}

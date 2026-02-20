@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useAuthStore } from '@/store/auth-store';
 import { toast } from 'sonner';
 import { Lock, ArrowRight, Loader2 } from 'lucide-react';
+import { validateAdminPassword } from '@/actions/auth-actions';
 
 export default function AdminLoginPage() {
   const [username, setUsername] = useState('');
@@ -13,21 +14,31 @@ export default function AdminLoginPage() {
   const router = useRouter();
   const { adminLogin } = useAuthStore();
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
-    // Simulate API delay
-    setTimeout(() => {
-      if (username === 'admin' && password === 'Zest@2026') {
-        adminLogin();
-        toast.success('Admin Access Granted 🔓');
-        router.push('/admin');
-      } else {
-        toast.error('Invalid Credentials ❌');
+    try {
+        if (username !== 'admin') {
+            toast.error('Invalid Credentials ❌');
+            setLoading(false);
+            return;
+        }
+
+        const result = await validateAdminPassword(password);
+        
+        if (result.success) {
+            adminLogin();
+            toast.success('Admin Access Granted 🔓');
+            router.push('/admin');
+        } else {
+            toast.error(result.message || 'Invalid Credentials ❌');
+        }
+    } catch (error) {
+        toast.error('An error occurred during login');
+    } finally {
         setLoading(false);
-      }
-    }, 1000);
+    }
   };
 
   return (

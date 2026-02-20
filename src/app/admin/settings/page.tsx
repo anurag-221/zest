@@ -1,10 +1,15 @@
-export default function SettingsPage() {
+import { db } from '@/lib/fs-db';
+import SettingsForm from '@/components/admin/SettingsForm';
+
+export default async function SettingsPage() {
+  const currentSettings = await db.settings.get();
+
   return (
-    <div>
-        <h1 className="text-2xl font-bold text-gray-900 mb-8">Settings</h1>
-        <div className="bg-white p-8 rounded-xl border border-gray-100 text-center py-20">
-            <p className="text-gray-500">Global application settings will appear here.</p>
-        </div>
+    <div className="max-w-5xl mx-auto">
+        <h1 className="text-2xl font-bold text-gray-900 mb-8">Global Settings</h1>
+        <p className="text-gray-500 mb-6">Manage platform fees, text identifiers, and security boundaries.</p>
+        
+        <SettingsForm initialSettings={currentSettings} />
     </div>
   );
 }

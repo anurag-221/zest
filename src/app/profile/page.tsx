@@ -10,8 +10,43 @@ import { useEffect } from 'react';
 
 export default function ProfilePage() {
   const { user, logout, isAuthenticated } = useAuthStore();
-  const { orders } = useOrderStore();
+  const { orders, updateOrderStatusLocally } = useOrderStore();
   const router = useRouter();
+
+  useEffect(() => {
+    let isMounted = true;
+    
+    const syncOrders = async () => {
+        const { getOrderById } = await import('@/actions/order-actions');
+        
+        for (const order of orders) {
+            // Skip finished orders
+            if (['delivered', 'cancelled'].includes(order.status)) continue;
+            
+            try {
+                const result = await getOrderById(order.id);
+                if (isMounted && result.success && result.order) {
+                    if (result.order.status !== order.status) {
+                        updateOrderStatusLocally(order.id, result.order.status);
+                    }
+                }
+            } catch (err) {
+                console.error("Failed to sync order", err);
+            }
+        }
+    };
+
+    if (isAuthenticated) {
+        syncOrders();
+        const interval = setInterval(syncOrders, 5000);
+        return () => { 
+            isMounted = false; 
+            clearInterval(interval); 
+        };
+    }
+    
+    return () => { isMounted = false; };
+  }, [orders, isAuthenticated, updateOrderStatusLocally]);
 
   useEffect(() => {
     if (!isAuthenticated) {
@@ -25,6 +60,23 @@ export default function ProfilePage() {
   // currently order-store is local-only, so all orders there "belong" to the device user.
   // In a real app, we'd filter by user.id. For now, show all.
   const myOrders = orders;
+
+  const getStatusColor = (status: string) => {
+      switch(status) {
+          case 'pending': return 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-400 border-yellow-200 dark:border-yellow-800/50';
+          case 'processing': return 'bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 border-blue-200 dark:border-blue-800/50';
+          case 'packed': return 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-400 border-indigo-200 dark:border-indigo-800/50';
+          case 'shipped': return 'bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-400 border-purple-200 dark:border-purple-800/50';
+          case 'out-for-delivery': return 'bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-400 border-orange-200 dark:border-orange-800/50';
+          case 'delivered': return 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-400 border-green-200 dark:border-green-800/50';
+          case 'cancelled': return 'bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-400 border-red-200 dark:border-red-800/50';
+          default: return 'bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-400 border-gray-200 dark:border-gray-700';
+      }
+  };
+
+  const formatStatus = (status: string) => {
+      return status.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-black pb-20">
@@ -94,7 +146,12 @@ export default function ProfilePage() {
                         <div className="flex justify-between items-start mb-3">
                             <div>
                                 <h3 className="font-bold text-gray-900 dark:text-white text-sm">Order #{order.id}</h3>
-                                <p className="text-xs text-gray-500 dark:text-gray-400">{order.date} • {order.status}</p>
+                                <div className="flex items-center gap-2 mt-1">
+                                    <span className="text-xs text-gray-500 dark:text-gray-400">{order.date ? new Date(order.date).toLocaleDateString() : 'Recent'}</span>
+                                    <span className={`text-[10px] uppercase font-bold px-2 py-0.5 rounded-full border ${getStatusColor(order.status)}`}>
+                                        {formatStatus(order.status)}
+                                    </span>
+                                </div>
                             </div>
                             <span className="font-bold text-gray-900 dark:text-white">₹{order.total}</span>
                         </div>

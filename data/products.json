@@ -1,120 +1,6073 @@
 [
   {
-    "id": "p-1",
-    "name": "Amul Butter (500g)",
-    "description": "Delicious and creamy Amul Butter.",
-    "price": 280,
-    "image": "/images/products/p-1.jpg",
-    "category": "dairy",
+    "id": "phone-iphone-16-pro-max",
+    "name": "iPhone 16 Pro Max",
+    "description": "Apple's most advanced iPhone. 6.9\" Super Retina XDR display with ProMotion 120Hz, A18 Pro chip, 48MP Fusion camera, titanium design, and all-day battery life.",
+    "price": 144900,
+    "image": "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-16-pro-max-1.jpg",
+    "category": "smartphones",
+    "brand": "Apple",
     "tags": [
-      "dairy",
-      "breakfast",
-      "essentials"
+      "iphone",
+      "apple",
+      "smartphone",
+      "trending",
+      "flagship",
+      "5g"
+    ],
+    "isBestSeller": true,
+    "isNewArrival": true,
+    "isTrending": true,
+    "variants": [
+      {
+        "label": "256GB",
+        "price": 144900
+      },
+      {
+        "label": "512GB",
+        "price": 164900
+      },
+      {
+        "label": "1TB",
+        "price": 194900,
+        "discount": "5% off"
+      }
+    ],
+    "colors": [
+      "#1a1a1a",
+      "#f5f5f0",
+      "#8a7560",
+      "#b5a99a"
     ]
   },
   {
-    "id": "p-2",
-    "name": "Britannia Whole Wheat Bread",
-    "description": "Healthy and soft whole wheat bread.",
-    "price": 45,
-    "image": "/images/products/p-2.jpg",
-    "category": "bakery",
+    "id": "phone-iphone-16-pro",
+    "name": "iPhone 16 Pro",
+    "description": "6.3\" Super Retina XDR display with ProMotion 120Hz, A18 Pro chip, titanium design, Camera Control button, and USB-C with USB 3 speeds.",
+    "price": 119900,
+    "image": "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-16-pro-1.jpg",
+    "category": "smartphones",
+    "brand": "Apple",
     "tags": [
-      "bakery",
-      "breakfast",
-      "toast"
+      "iphone",
+      "apple",
+      "smartphone",
+      "trending",
+      "flagship",
+      "5g"
+    ],
+    "isBestSeller": true,
+    "isNewArrival": true,
+    "isTrending": true,
+    "variants": [
+      {
+        "label": "128GB",
+        "price": 119900
+      },
+      {
+        "label": "256GB",
+        "price": 129900
+      },
+      {
+        "label": "512GB",
+        "price": 149900,
+        "discount": "3% off"
+      },
+      {
+        "label": "1TB",
+        "price": 179900,
+        "discount": "5% off"
+      }
+    ],
+    "colors": [
+      "#1a1a1a",
+      "#f5f5f0",
+      "#8a7560",
+      "#b5a99a"
     ]
   },
   {
-    "id": "p-3",
-    "name": "Tata Salt (1kg)",
-    "description": "Iodized salt for your daily cooking.",
-    "price": 25,
-    "image": "/images/products/p-3.jpg",
-    "category": "pantry",
+    "id": "phone-iphone-16",
+    "name": "iPhone 16",
+    "description": "6.1\" Super Retina XDR display, A18 chip, new Camera Control button, 48MP Fusion camera, Action Button, and USB-C connectivity.",
+    "price": 79900,
+    "image": "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-16-1.jpg",
+    "category": "smartphones",
+    "brand": "Apple",
     "tags": [
-      "pantry",
-      "essentials"
+      "iphone",
+      "apple",
+      "smartphone",
+      "trending",
+      "5g"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": true,
+    "isTrending": true,
+    "variants": [
+      {
+        "label": "128GB",
+        "price": 79900
+      },
+      {
+        "label": "256GB",
+        "price": 89900
+      },
+      {
+        "label": "512GB",
+        "price": 109900,
+        "discount": "4% off"
+      }
+    ],
+    "colors": [
+      "#000000",
+      "#f5f5f5",
+      "#f0a0b0",
+      "#008080",
+      "#3a5dad"
     ]
   },
   {
-    "id": "p-4",
-    "name": "Davidoff Coffee (100g)",
-    "description": "Rich aroma intense coffee.",
-    "price": 550,
-    "image": "/images/products/p-4.jpg",
-    "category": "beverages",
+    "id": "phone-samsung-s25-ultra",
+    "name": "Samsung Galaxy S25 Ultra",
+    "description": "The ultimate Galaxy experience. 6.9\" QHD+ Dynamic AMOLED 2X, Snapdragon 8 Elite, 200MP ProVisual camera system, built-in S Pen, and 5000mAh battery.",
+    "price": 129999,
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Samsung_Galaxy_S25_Ultra.jpg/500px-Samsung_Galaxy_S25_Ultra.jpg",
+    "category": "smartphones",
+    "brand": "Samsung",
+    "tags": [
+      "samsung",
+      "galaxy",
+      "smartphone",
+      "trending",
+      "flagship",
+      "5g",
+      "s-pen"
+    ],
+    "isBestSeller": true,
+    "isNewArrival": true,
+    "isTrending": true,
+    "variants": [
+      {
+        "label": "256GB",
+        "price": 129999
+      },
+      {
+        "label": "512GB",
+        "price": 149999
+      },
+      {
+        "label": "1TB",
+        "price": 179999,
+        "discount": "5% off"
+      }
+    ],
+    "colors": [
+      "#1b1b1b",
+      "#d4d0c8",
+      "#9db9d6",
+      "#f5f3ef"
+    ]
+  },
+  {
+    "id": "phone-samsung-s25-plus",
+    "name": "Samsung Galaxy S25+",
+    "description": "6.7\" QHD+ Dynamic AMOLED 2X 120Hz, Snapdragon 8 Elite, 50MP ProVisual triple camera with AI features, 4900mAh battery with 45W fast charging.",
+    "price": 99999,
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Samsung_Galaxy_S25_Ultra.jpg/500px-Samsung_Galaxy_S25_Ultra.jpg",
+    "category": "smartphones",
+    "brand": "Samsung",
+    "tags": [
+      "samsung",
+      "galaxy",
+      "smartphone",
+      "trending",
+      "5g"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": true,
+    "isTrending": true,
+    "variants": [
+      {
+        "label": "256GB",
+        "price": 99999
+      },
+      {
+        "label": "512GB",
+        "price": 119999,
+        "discount": "4% off"
+      }
+    ],
+    "colors": [
+      "#4a7fad",
+      "#98c4a5",
+      "#222222",
+      "#c0bdb5"
+    ]
+  },
+  {
+    "id": "phone-samsung-s25",
+    "name": "Samsung Galaxy S25",
+    "description": "6.2\" Dynamic AMOLED 2X 120Hz display, Snapdragon 8 Elite, 50MP triple rear camera, 4000mAh battery. Compact flagship with Galaxy AI built in.",
+    "price": 79999,
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Samsung_Galaxy_S25_Ultra.jpg/500px-Samsung_Galaxy_S25_Ultra.jpg",
+    "category": "smartphones",
+    "brand": "Samsung",
+    "tags": [
+      "samsung",
+      "galaxy",
+      "smartphone",
+      "trending",
+      "5g"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": true,
+    "isTrending": true,
+    "variants": [
+      {
+        "label": "128GB",
+        "price": 79999
+      },
+      {
+        "label": "256GB",
+        "price": 89999
+      }
+    ],
+    "colors": [
+      "#4a7fad",
+      "#98c4a5",
+      "#222222",
+      "#c0bdb5",
+      "#d87060"
+    ]
+  },
+  {
+    "id": "phone-pixel-9-pro-xl",
+    "name": "Google Pixel 9 Pro XL",
+    "description": "6.8\" LTPO OLED 1-120Hz, Google Tensor G4 chip, 50MP triple camera with 5x optical zoom, 7 years of OS updates, and built-in Gemini AI.",
+    "price": 108999,
+    "image": "https://fdn2.gsmarena.com/vv/pics/google/google-pixel-9-pro-xl-1.jpg",
+    "category": "smartphones",
+    "brand": "Google",
+    "tags": [
+      "google",
+      "pixel",
+      "smartphone",
+      "trending",
+      "flagship",
+      "5g",
+      "ai"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": true,
+    "isTrending": true,
+    "variants": [
+      {
+        "label": "128GB",
+        "price": 108999
+      },
+      {
+        "label": "256GB",
+        "price": 118999
+      },
+      {
+        "label": "512GB",
+        "price": 138999,
+        "discount": "5% off"
+      },
+      {
+        "label": "1TB",
+        "price": 168999,
+        "discount": "8% off"
+      }
+    ],
+    "colors": [
+      "#1a1a1a",
+      "#f5f1ed",
+      "#5a6b55",
+      "#d4a0a0"
+    ]
+  },
+  {
+    "id": "phone-pixel-9-pro",
+    "name": "Google Pixel 9 Pro",
+    "description": "6.3\" LTPO OLED 1-120Hz, Google Tensor G4, 50MP triple camera, 4700mAh battery, 7 years of guaranteed updates, and Gemini Advanced.",
+    "price": 89999,
+    "image": "https://fdn2.gsmarena.com/vv/pics/google/google-pixel-9-pro-1.jpg",
+    "category": "smartphones",
+    "brand": "Google",
+    "tags": [
+      "google",
+      "pixel",
+      "smartphone",
+      "trending",
+      "flagship",
+      "5g",
+      "ai"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": true,
+    "isTrending": true,
+    "variants": [
+      {
+        "label": "128GB",
+        "price": 89999
+      },
+      {
+        "label": "256GB",
+        "price": 99999
+      },
+      {
+        "label": "512GB",
+        "price": 119999,
+        "discount": "5% off"
+      },
+      {
+        "label": "1TB",
+        "price": 149999,
+        "discount": "8% off"
+      }
+    ],
+    "colors": [
+      "#1a1a1a",
+      "#f5f1ed",
+      "#5a6b55",
+      "#d4a0a0"
+    ]
+  },
+  {
+    "id": "phone-pixel-9",
+    "name": "Google Pixel 9",
+    "description": "6.3\" Actua OLED display, Google Tensor G4 chip, 50MP rear camera, 24hr battery with Extreme Battery Saver, and 7 years of OS & security updates.",
+    "price": 69999,
+    "image": "https://fdn2.gsmarena.com/vv/pics/google/google-pixel-9-1.jpg",
+    "category": "smartphones",
+    "brand": "Google",
+    "tags": [
+      "google",
+      "pixel",
+      "smartphone",
+      "trending",
+      "5g",
+      "ai"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": true,
+    "isTrending": true,
+    "variants": [
+      {
+        "label": "128GB",
+        "price": 69999
+      },
+      {
+        "label": "256GB",
+        "price": 79999
+      }
+    ],
+    "colors": [
+      "#1a1a1a",
+      "#f5f1ed",
+      "#2d6b5a",
+      "#d4789a"
+    ]
+  },
+  {
+    "id": "prod-gen-1",
+    "name": "Essence Mascara Lash Princess",
+    "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+    "price": 829,
+    "image": "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp",
+    "category": "beauty",
+    "brand": "Essence",
+    "tags": [
+      "beauty",
+      "mascara"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "30ml",
+        "price": 415
+      },
+      {
+        "label": "75ml",
+        "price": 829
+      },
+      {
+        "label": "150ml",
+        "price": 1409,
+        "discount": "10% off"
+      },
+      {
+        "label": "300ml",
+        "price": 2404,
+        "discount": "18% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-2",
+    "name": "Eyeshadow Palette with Mirror",
+    "description": "The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning eye looks. With a built-in mirror, it's convenient for on-the-go makeup application.",
+    "price": 1659,
+    "image": "https://cdn.dummyjson.com/product-images/beauty/eyeshadow-palette-with-mirror/thumbnail.webp",
+    "category": "beauty",
+    "brand": "Glamour Beauty",
+    "tags": [
+      "beauty",
+      "eyeshadow"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "30ml",
+        "price": 830
+      },
+      {
+        "label": "75ml",
+        "price": 1659
+      },
+      {
+        "label": "150ml",
+        "price": 2820,
+        "discount": "10% off"
+      },
+      {
+        "label": "300ml",
+        "price": 4811,
+        "discount": "18% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-3",
+    "name": "Powder Canister",
+    "description": "The Powder Canister is a finely milled setting powder designed to set makeup and control shine. With a lightweight and translucent formula, it provides a smooth and matte finish.",
+    "price": 1244,
+    "image": "https://cdn.dummyjson.com/product-images/beauty/powder-canister/thumbnail.webp",
+    "category": "beauty",
+    "brand": "Velvet Touch",
+    "tags": [
+      "beauty",
+      "face powder"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "30ml",
+        "price": 622
+      },
+      {
+        "label": "75ml",
+        "price": 1244
+      },
+      {
+        "label": "150ml",
+        "price": 2115,
+        "discount": "10% off"
+      },
+      {
+        "label": "300ml",
+        "price": 3608,
+        "discount": "18% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-4",
+    "name": "Red Lipstick",
+    "description": "The Red Lipstick is a classic and bold choice for adding a pop of color to your lips. With a creamy and pigmented formula, it provides a vibrant and long-lasting finish.",
+    "price": 1078,
+    "image": "https://cdn.dummyjson.com/product-images/beauty/red-lipstick/thumbnail.webp",
+    "category": "beauty",
+    "brand": "Chic Cosmetics",
+    "tags": [
+      "beauty",
+      "lipstick"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "30ml",
+        "price": 539
+      },
+      {
+        "label": "75ml",
+        "price": 1078
+      },
+      {
+        "label": "150ml",
+        "price": 1833,
+        "discount": "10% off"
+      },
+      {
+        "label": "300ml",
+        "price": 3126,
+        "discount": "18% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-5",
+    "name": "Red Nail Polish",
+    "description": "The Red Nail Polish offers a rich and glossy red hue for vibrant and polished nails. With a quick-drying formula, it provides a salon-quality finish at home.",
+    "price": 746,
+    "image": "https://cdn.dummyjson.com/product-images/beauty/red-nail-polish/thumbnail.webp",
+    "category": "beauty",
+    "brand": "Nail Couture",
+    "tags": [
+      "beauty",
+      "nail polish"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "30ml",
+        "price": 373
+      },
+      {
+        "label": "75ml",
+        "price": 746
+      },
+      {
+        "label": "150ml",
+        "price": 1268,
+        "discount": "10% off"
+      },
+      {
+        "label": "300ml",
+        "price": 2163,
+        "discount": "18% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-6",
+    "name": "Calvin Klein CK One",
+    "description": "CK One by Calvin Klein is a classic unisex fragrance, known for its fresh and clean scent. It's a versatile fragrance suitable for everyday wear.",
+    "price": 4149,
+    "image": "https://cdn.dummyjson.com/product-images/fragrances/calvin-klein-ck-one/thumbnail.webp",
+    "category": "fragrances",
+    "brand": "Calvin Klein",
+    "tags": [
+      "fragrances",
+      "perfumes"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "30ml",
+        "price": 2282
+      },
+      {
+        "label": "50ml",
+        "price": 4149
+      },
+      {
+        "label": "100ml",
+        "price": 7053,
+        "discount": "15% off"
+      },
+      {
+        "label": "200ml",
+        "price": 11617,
+        "discount": "22% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-7",
+    "name": "Chanel Coco Noir Eau De",
+    "description": "Coco Noir by Chanel is an elegant and mysterious fragrance, featuring notes of grapefruit, rose, and sandalwood. Perfect for evening occasions.",
+    "price": 10789,
+    "image": "https://cdn.dummyjson.com/product-images/fragrances/chanel-coco-noir-eau-de/thumbnail.webp",
+    "category": "fragrances",
+    "brand": "Chanel",
+    "tags": [
+      "fragrances",
+      "perfumes"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "30ml",
+        "price": 5934
+      },
+      {
+        "label": "50ml",
+        "price": 10789
+      },
+      {
+        "label": "100ml",
+        "price": 18341,
+        "discount": "15% off"
+      },
+      {
+        "label": "200ml",
+        "price": 30209,
+        "discount": "22% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-8",
+    "name": "Dior J'adore",
+    "description": "J'adore by Dior is a luxurious and floral fragrance, known for its blend of ylang-ylang, rose, and jasmine. It embodies femininity and sophistication.",
+    "price": 7469,
+    "image": "https://cdn.dummyjson.com/product-images/fragrances/dior-j'adore/thumbnail.webp",
+    "category": "fragrances",
+    "brand": "Dior",
+    "tags": [
+      "fragrances",
+      "perfumes"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "30ml",
+        "price": 4108
+      },
+      {
+        "label": "50ml",
+        "price": 7469
+      },
+      {
+        "label": "100ml",
+        "price": 12697,
+        "discount": "15% off"
+      },
+      {
+        "label": "200ml",
+        "price": 20913,
+        "discount": "22% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-9",
+    "name": "Dolce Shine Eau de",
+    "description": "Dolce Shine by Dolce & Gabbana is a vibrant and fruity fragrance, featuring notes of mango, jasmine, and blonde woods. It's a joyful and youthful scent.",
+    "price": 5809,
+    "image": "https://cdn.dummyjson.com/product-images/fragrances/dolce-shine-eau-de/thumbnail.webp",
+    "category": "fragrances",
+    "brand": "Dolce & Gabbana",
+    "tags": [
+      "fragrances",
+      "perfumes"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "30ml",
+        "price": 3195
+      },
+      {
+        "label": "50ml",
+        "price": 5809
+      },
+      {
+        "label": "100ml",
+        "price": 9875,
+        "discount": "15% off"
+      },
+      {
+        "label": "200ml",
+        "price": 16265,
+        "discount": "22% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-10",
+    "name": "Gucci Bloom Eau de",
+    "description": "Gucci Bloom by Gucci is a floral and captivating fragrance, with notes of tuberose, jasmine, and Rangoon creeper. It's a modern and romantic scent.",
+    "price": 6639,
+    "image": "https://cdn.dummyjson.com/product-images/fragrances/gucci-bloom-eau-de/thumbnail.webp",
+    "category": "fragrances",
+    "brand": "Gucci",
+    "tags": [
+      "fragrances",
+      "perfumes"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "30ml",
+        "price": 3651
+      },
+      {
+        "label": "50ml",
+        "price": 6639
+      },
+      {
+        "label": "100ml",
+        "price": 11286,
+        "discount": "15% off"
+      },
+      {
+        "label": "200ml",
+        "price": 18589,
+        "discount": "22% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-11",
+    "name": "Annibale Colombo Bed",
+    "description": "The Annibale Colombo Bed is a luxurious and elegant bed frame, crafted with high-quality materials for a comfortable and stylish bedroom.",
+    "price": 157699,
+    "image": "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-bed/thumbnail.webp",
+    "category": "furniture",
+    "brand": "Annibale Colombo",
+    "tags": [
+      "furniture",
+      "beds"
+    ],
+    "isBestSeller": true,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 157699
+      },
+      {
+        "label": "Set of 2",
+        "price": 283858,
+        "discount": "10% off"
+      },
+      {
+        "label": "Set of 4",
+        "price": 504637,
+        "discount": "20% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-12",
+    "name": "Annibale Colombo Sofa",
+    "description": "The Annibale Colombo Sofa is a sophisticated and comfortable seating option, featuring exquisite design and premium upholstery for your living room.",
+    "price": 207499,
+    "image": "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-sofa/thumbnail.webp",
+    "category": "furniture",
+    "brand": "Annibale Colombo",
+    "tags": [
+      "furniture",
+      "sofas"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 207499
+      },
+      {
+        "label": "Set of 2",
+        "price": 373498,
+        "discount": "10% off"
+      },
+      {
+        "label": "Set of 4",
+        "price": 663997,
+        "discount": "20% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-13",
+    "name": "Bedside Table African Cherry",
+    "description": "The Bedside Table in African Cherry is a stylish and functional addition to your bedroom, providing convenient storage space and a touch of elegance.",
+    "price": 24899,
+    "image": "https://cdn.dummyjson.com/product-images/furniture/bedside-table-african-cherry/thumbnail.webp",
+    "category": "furniture",
+    "brand": "Furniture Co.",
+    "tags": [
+      "furniture",
+      "bedside tables"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 24899
+      },
+      {
+        "label": "Set of 2",
+        "price": 44818,
+        "discount": "10% off"
+      },
+      {
+        "label": "Set of 4",
+        "price": 79677,
+        "discount": "20% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-14",
+    "name": "Knoll Saarinen Executive Conference Chair",
+    "description": "The Knoll Saarinen Executive Conference Chair is a modern and ergonomic chair, perfect for your office or conference room with its timeless design.",
+    "price": 41499,
+    "image": "https://cdn.dummyjson.com/product-images/furniture/knoll-saarinen-executive-conference-chair/thumbnail.webp",
+    "category": "furniture",
+    "brand": "Knoll",
+    "tags": [
+      "furniture",
+      "office chairs"
+    ],
+    "isBestSeller": true,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 41499
+      },
+      {
+        "label": "Set of 2",
+        "price": 74698,
+        "discount": "10% off"
+      },
+      {
+        "label": "Set of 4",
+        "price": 132797,
+        "discount": "20% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-15",
+    "name": "Wooden Bathroom Sink With Mirror",
+    "description": "The Wooden Bathroom Sink with Mirror is a unique and stylish addition to your bathroom, featuring a wooden sink countertop and a matching mirror.",
+    "price": 66399,
+    "image": "https://cdn.dummyjson.com/product-images/furniture/wooden-bathroom-sink-with-mirror/thumbnail.webp",
+    "category": "furniture",
+    "brand": "Bath Trends",
+    "tags": [
+      "furniture",
+      "bathroom"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 66399
+      },
+      {
+        "label": "Set of 2",
+        "price": 119518,
+        "discount": "10% off"
+      },
+      {
+        "label": "Set of 4",
+        "price": 212477,
+        "discount": "20% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-16",
+    "name": "Apple",
+    "description": "Fresh and crisp apples, perfect for snacking or incorporating into various recipes.",
+    "price": 165,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/apple/thumbnail.webp",
+    "category": "groceries",
+    "brand": "Generic",
+    "tags": [
+      "fruits"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "250g",
+        "price": 50
+      },
+      {
+        "label": "500g",
+        "price": 91
+      },
+      {
+        "label": "1kg",
+        "price": 165
+      },
+      {
+        "label": "5kg",
+        "price": 693,
+        "discount": "16% off"
+      },
+      {
+        "label": "10kg",
+        "price": 1238,
+        "discount": "25% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-17",
+    "name": "Beef Steak",
+    "description": "High-quality beef steak, great for grilling or cooking to your preferred level of doneness.",
+    "price": 1078,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/beef-steak/thumbnail.webp",
+    "category": "groceries",
+    "brand": "Generic",
+    "tags": [
+      "meat"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "250g",
+        "price": 323
+      },
+      {
+        "label": "500g",
+        "price": 593
+      },
+      {
+        "label": "1kg",
+        "price": 1078
+      },
+      {
+        "label": "5kg",
+        "price": 4528,
+        "discount": "16% off"
+      },
+      {
+        "label": "10kg",
+        "price": 8085,
+        "discount": "25% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-18",
+    "name": "Cat Food",
+    "description": "Nutritious cat food formulated to meet the dietary needs of your feline friend.",
+    "price": 746,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/cat-food/thumbnail.webp",
+    "category": "groceries",
+    "brand": "Generic",
+    "tags": [
+      "pet supplies",
+      "cat food"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "250g",
+        "price": 224
+      },
+      {
+        "label": "500g",
+        "price": 410
+      },
+      {
+        "label": "1kg",
+        "price": 746
+      },
+      {
+        "label": "5kg",
+        "price": 3133,
+        "discount": "16% off"
+      },
+      {
+        "label": "10kg",
+        "price": 5595,
+        "discount": "25% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-19",
+    "name": "Chicken Meat",
+    "description": "Fresh and tender chicken meat, suitable for various culinary preparations.",
+    "price": 829,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/chicken-meat/thumbnail.webp",
+    "category": "groceries",
+    "brand": "Generic",
+    "tags": [
+      "meat"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "250g",
+        "price": 249
+      },
+      {
+        "label": "500g",
+        "price": 456
+      },
+      {
+        "label": "1kg",
+        "price": 829
+      },
+      {
+        "label": "5kg",
+        "price": 3482,
+        "discount": "16% off"
+      },
+      {
+        "label": "10kg",
+        "price": 6218,
+        "discount": "25% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-20",
+    "name": "Cooking Oil",
+    "description": "Versatile cooking oil suitable for frying, sautéing, and various culinary applications.",
+    "price": 414,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/cooking-oil/thumbnail.webp",
+    "category": "groceries",
+    "brand": "Generic",
+    "tags": [
+      "cooking essentials"
+    ],
+    "isBestSeller": true,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "250g",
+        "price": 124
+      },
+      {
+        "label": "500g",
+        "price": 228
+      },
+      {
+        "label": "1kg",
+        "price": 414
+      },
+      {
+        "label": "5kg",
+        "price": 1739,
+        "discount": "16% off"
+      },
+      {
+        "label": "10kg",
+        "price": 3105,
+        "discount": "25% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-21",
+    "name": "Cucumber",
+    "description": "Crisp and hydrating cucumbers, ideal for salads, snacks, or as a refreshing side.",
+    "price": 124,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/cucumber/thumbnail.webp",
+    "category": "groceries",
+    "brand": "Generic",
+    "tags": [
+      "vegetables"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "250g",
+        "price": 37
+      },
+      {
+        "label": "500g",
+        "price": 68
+      },
+      {
+        "label": "1kg",
+        "price": 124
+      },
+      {
+        "label": "5kg",
+        "price": 521,
+        "discount": "16% off"
+      },
+      {
+        "label": "10kg",
+        "price": 930,
+        "discount": "25% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-22",
+    "name": "Dog Food",
+    "description": "Specially formulated dog food designed to provide essential nutrients for your canine companion.",
+    "price": 912,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/dog-food/thumbnail.webp",
+    "category": "groceries",
+    "brand": "Generic",
+    "tags": [
+      "pet supplies",
+      "dog food"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "250g",
+        "price": 274
+      },
+      {
+        "label": "500g",
+        "price": 502
+      },
+      {
+        "label": "1kg",
+        "price": 912
+      },
+      {
+        "label": "5kg",
+        "price": 3830,
+        "discount": "16% off"
+      },
+      {
+        "label": "10kg",
+        "price": 6840,
+        "discount": "25% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-23",
+    "name": "Eggs",
+    "description": "Fresh eggs, a versatile ingredient for baking, cooking, or breakfast.",
+    "price": 248,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/eggs/thumbnail.webp",
+    "category": "groceries",
+    "brand": "Generic",
+    "tags": [
+      "dairy"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "250g",
+        "price": 74
+      },
+      {
+        "label": "500g",
+        "price": 136
+      },
+      {
+        "label": "1kg",
+        "price": 248
+      },
+      {
+        "label": "5kg",
+        "price": 1042,
+        "discount": "16% off"
+      },
+      {
+        "label": "10kg",
+        "price": 1860,
+        "discount": "25% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-24",
+    "name": "Fish Steak",
+    "description": "Quality fish steak, suitable for grilling, baking, or pan-searing.",
+    "price": 1244,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/fish-steak/thumbnail.webp",
+    "category": "groceries",
+    "brand": "Generic",
+    "tags": [
+      "seafood"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "250g",
+        "price": 373
+      },
+      {
+        "label": "500g",
+        "price": 684
+      },
+      {
+        "label": "1kg",
+        "price": 1244
+      },
+      {
+        "label": "5kg",
+        "price": 5225,
+        "discount": "16% off"
+      },
+      {
+        "label": "10kg",
+        "price": 9330,
+        "discount": "25% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-25",
+    "name": "Green Bell Pepper",
+    "description": "Fresh and vibrant green bell pepper, perfect for adding color and flavor to your dishes.",
+    "price": 107,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/green-bell-pepper/thumbnail.webp",
+    "category": "groceries",
+    "brand": "Generic",
+    "tags": [
+      "vegetables"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "250g",
+        "price": 32
+      },
+      {
+        "label": "500g",
+        "price": 59
+      },
+      {
+        "label": "1kg",
+        "price": 107
+      },
+      {
+        "label": "5kg",
+        "price": 449,
+        "discount": "16% off"
+      },
+      {
+        "label": "10kg",
+        "price": 803,
+        "discount": "25% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-26",
+    "name": "Green Chili Pepper",
+    "description": "Spicy green chili pepper, ideal for adding heat to your favorite recipes.",
+    "price": 82,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/green-chili-pepper/thumbnail.webp",
+    "category": "groceries",
+    "brand": "Generic",
+    "tags": [
+      "vegetables"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "250g",
+        "price": 25
+      },
+      {
+        "label": "500g",
+        "price": 45
+      },
+      {
+        "label": "1kg",
+        "price": 82
+      },
+      {
+        "label": "5kg",
+        "price": 344,
+        "discount": "16% off"
+      },
+      {
+        "label": "10kg",
+        "price": 615,
+        "discount": "25% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-27",
+    "name": "Honey Jar",
+    "description": "Pure and natural honey in a convenient jar, perfect for sweetening beverages or drizzling over food.",
+    "price": 580,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/honey-jar/thumbnail.webp",
+    "category": "groceries",
+    "brand": "Generic",
+    "tags": [
+      "condiments"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "250g",
+        "price": 174
+      },
+      {
+        "label": "500g",
+        "price": 319
+      },
+      {
+        "label": "1kg",
+        "price": 580
+      },
+      {
+        "label": "5kg",
+        "price": 2436,
+        "discount": "16% off"
+      },
+      {
+        "label": "10kg",
+        "price": 4350,
+        "discount": "25% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-28",
+    "name": "Ice Cream",
+    "description": "Creamy and delicious ice cream, available in various flavors for a delightful treat.",
+    "price": 456,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/ice-cream/thumbnail.webp",
+    "category": "groceries",
+    "brand": "Generic",
+    "tags": [
+      "desserts"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "250g",
+        "price": 137
+      },
+      {
+        "label": "500g",
+        "price": 251
+      },
+      {
+        "label": "1kg",
+        "price": 456
+      },
+      {
+        "label": "5kg",
+        "price": 1915,
+        "discount": "16% off"
+      },
+      {
+        "label": "10kg",
+        "price": 3420,
+        "discount": "25% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-29",
+    "name": "Juice",
+    "description": "Refreshing fruit juice, packed with vitamins and great for staying hydrated.",
+    "price": 331,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/juice/thumbnail.webp",
+    "category": "groceries",
+    "brand": "Generic",
+    "tags": [
+      "beverages"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "250g",
+        "price": 99
+      },
+      {
+        "label": "500g",
+        "price": 182
+      },
+      {
+        "label": "1kg",
+        "price": 331
+      },
+      {
+        "label": "5kg",
+        "price": 1390,
+        "discount": "16% off"
+      },
+      {
+        "label": "10kg",
+        "price": 2483,
+        "discount": "25% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-30",
+    "name": "Kiwi",
+    "description": "Nutrient-rich kiwi, perfect for snacking or adding a tropical twist to your dishes.",
+    "price": 207,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/kiwi/thumbnail.webp",
+    "category": "groceries",
+    "brand": "Generic",
+    "tags": [
+      "fruits"
+    ],
+    "isBestSeller": true,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "250g",
+        "price": 62
+      },
+      {
+        "label": "500g",
+        "price": 114
+      },
+      {
+        "label": "1kg",
+        "price": 207
+      },
+      {
+        "label": "5kg",
+        "price": 869,
+        "discount": "16% off"
+      },
+      {
+        "label": "10kg",
+        "price": 1553,
+        "discount": "25% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-31",
+    "name": "Lemon",
+    "description": "Zesty and tangy lemons, versatile for cooking, baking, or making refreshing beverages.",
+    "price": 66,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/lemon/thumbnail.webp",
+    "category": "groceries",
+    "brand": "Generic",
+    "tags": [
+      "fruits"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "250g",
+        "price": 20
+      },
+      {
+        "label": "500g",
+        "price": 36
+      },
+      {
+        "label": "1kg",
+        "price": 66
+      },
+      {
+        "label": "5kg",
+        "price": 277,
+        "discount": "16% off"
+      },
+      {
+        "label": "10kg",
+        "price": 495,
+        "discount": "25% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-32",
+    "name": "Milk",
+    "description": "Fresh and nutritious milk, a staple for various recipes and daily consumption.",
+    "price": 290,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/milk/thumbnail.webp",
+    "category": "groceries",
+    "brand": "Generic",
+    "tags": [
+      "dairy"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "250g",
+        "price": 87
+      },
+      {
+        "label": "500g",
+        "price": 160
+      },
+      {
+        "label": "1kg",
+        "price": 290
+      },
+      {
+        "label": "5kg",
+        "price": 1218,
+        "discount": "16% off"
+      },
+      {
+        "label": "10kg",
+        "price": 2175,
+        "discount": "25% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-33",
+    "name": "Mulberry",
+    "description": "Sweet and juicy mulberries, perfect for snacking or adding to desserts and cereals.",
+    "price": 414,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/mulberry/thumbnail.webp",
+    "category": "groceries",
+    "brand": "Generic",
+    "tags": [
+      "fruits"
+    ],
+    "isBestSeller": true,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "250g",
+        "price": 124
+      },
+      {
+        "label": "500g",
+        "price": 228
+      },
+      {
+        "label": "1kg",
+        "price": 414
+      },
+      {
+        "label": "5kg",
+        "price": 1739,
+        "discount": "16% off"
+      },
+      {
+        "label": "10kg",
+        "price": 3105,
+        "discount": "25% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-34",
+    "name": "Nescafe Coffee",
+    "description": "Quality coffee from Nescafe, available in various blends for a rich and satisfying cup.",
+    "price": 663,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/nescafe-coffee/thumbnail.webp",
+    "category": "groceries",
+    "brand": "Generic",
     "tags": [
       "beverages",
-      "morning",
-      "caffeine"
+      "coffee"
+    ],
+    "isBestSeller": true,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "250g",
+        "price": 199
+      },
+      {
+        "label": "500g",
+        "price": 365
+      },
+      {
+        "label": "1kg",
+        "price": 663
+      },
+      {
+        "label": "5kg",
+        "price": 2785,
+        "discount": "16% off"
+      },
+      {
+        "label": "10kg",
+        "price": 4973,
+        "discount": "25% off"
+      }
     ]
   },
   {
-    "id": "p-5",
-    "name": "Haldiram's Aloo Bhujia",
-    "description": "Crispy and spicy potato noodles snack.",
-    "price": 60,
-    "image": "/images/products/p-5.jpg",
-    "category": "snacks",
+    "id": "prod-gen-35",
+    "name": "Potatoes",
+    "description": "Versatile and starchy potatoes, great for roasting, mashing, or as a side dish.",
+    "price": 190,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/potatoes/thumbnail.webp",
+    "category": "groceries",
+    "brand": "Generic",
     "tags": [
-      "snacks",
-      "party",
-      "spicy"
+      "vegetables"
+    ],
+    "isBestSeller": true,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "250g",
+        "price": 57
+      },
+      {
+        "label": "500g",
+        "price": 105
+      },
+      {
+        "label": "1kg",
+        "price": 190
+      },
+      {
+        "label": "5kg",
+        "price": 798,
+        "discount": "16% off"
+      },
+      {
+        "label": "10kg",
+        "price": 1425,
+        "discount": "25% off"
+      }
     ]
   },
   {
-    "id": "p-6",
-    "name": "Kaju Katli (250g)",
-    "description": "Premium cashew sweets.",
-    "price": 350,
-    "image": "/images/products/p-6.jpg",
-    "category": "sweets",
+    "id": "prod-gen-36",
+    "name": "Protein Powder",
+    "description": "Nutrient-packed protein powder, ideal for supplementing your diet with essential proteins.",
+    "price": 1659,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/protein-powder/thumbnail.webp",
+    "category": "groceries",
+    "brand": "Generic",
     "tags": [
-      "sweets",
-      "festival",
-      "diwali",
-      "gift"
+      "health supplements"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "250g",
+        "price": 498
+      },
+      {
+        "label": "500g",
+        "price": 912
+      },
+      {
+        "label": "1kg",
+        "price": 1659
+      },
+      {
+        "label": "5kg",
+        "price": 6968,
+        "discount": "16% off"
+      },
+      {
+        "label": "10kg",
+        "price": 12443,
+        "discount": "25% off"
+      }
     ]
   },
   {
-    "id": "p-7",
-    "name": "Sabudana (500g)",
-    "description": "Premium quality Sago pearls.",
-    "price": 80,
-    "image": "/images/products/p-7.jpg",
-    "category": "pantry",
+    "id": "prod-gen-37",
+    "name": "Red Onions",
+    "description": "Flavorful and aromatic red onions, perfect for adding depth to your savory dishes.",
+    "price": 165,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/red-onions/thumbnail.webp",
+    "category": "groceries",
+    "brand": "Generic",
     "tags": [
-      "pantry",
-      "fasting",
-      "vrat",
-      "navratri"
+      "vegetables"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "250g",
+        "price": 50
+      },
+      {
+        "label": "500g",
+        "price": 91
+      },
+      {
+        "label": "1kg",
+        "price": 165
+      },
+      {
+        "label": "5kg",
+        "price": 693,
+        "discount": "16% off"
+      },
+      {
+        "label": "10kg",
+        "price": 1238,
+        "discount": "25% off"
+      }
     ]
   },
   {
-    "id": "p-8",
-    "name": "Rock Salt / Sendha Namak",
-    "description": "Pure Sendha Namak for fasting.",
-    "price": 40,
-    "image": "/images/products/p-8.jpg",
-    "category": "pantry",
+    "id": "prod-gen-38",
+    "name": "Rice",
+    "description": "High-quality rice, a staple for various cuisines and a versatile base for many dishes.",
+    "price": 497,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/rice/thumbnail.webp",
+    "category": "groceries",
+    "brand": "Generic",
     "tags": [
-      "pantry",
-      "fasting",
-      "vrat",
-      "navratri"
+      "grains"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "250g",
+        "price": 149
+      },
+      {
+        "label": "500g",
+        "price": 273
+      },
+      {
+        "label": "1kg",
+        "price": 497
+      },
+      {
+        "label": "5kg",
+        "price": 2087,
+        "discount": "16% off"
+      },
+      {
+        "label": "10kg",
+        "price": 3728,
+        "discount": "25% off"
+      }
     ]
   },
   {
-    "id": "prod-1771435245999",
-    "name": "Kitkat",
-    "description": "Have a kitkat",
-    "price": 25,
-    "image": "/images/products/kitkat.jpg",
-    "category": "snacks",
+    "id": "prod-gen-39",
+    "name": "Soft Drinks",
+    "description": "Assorted soft drinks in various flavors, perfect for refreshing beverages.",
+    "price": 165,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/soft-drinks/thumbnail.webp",
+    "category": "groceries",
+    "brand": "Generic",
     "tags": [
-      "chochlate",
-      "sweets"
+      "beverages"
+    ],
+    "isBestSeller": true,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "250g",
+        "price": 50
+      },
+      {
+        "label": "500g",
+        "price": 91
+      },
+      {
+        "label": "1kg",
+        "price": 165
+      },
+      {
+        "label": "5kg",
+        "price": 693,
+        "discount": "16% off"
+      },
+      {
+        "label": "10kg",
+        "price": 1238,
+        "discount": "25% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-40",
+    "name": "Strawberry",
+    "description": "Sweet and succulent strawberries, great for snacking, desserts, or blending into smoothies.",
+    "price": 331,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/strawberry/thumbnail.webp",
+    "category": "groceries",
+    "brand": "Generic",
+    "tags": [
+      "fruits"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "250g",
+        "price": 99
+      },
+      {
+        "label": "500g",
+        "price": 182
+      },
+      {
+        "label": "1kg",
+        "price": 331
+      },
+      {
+        "label": "5kg",
+        "price": 1390,
+        "discount": "16% off"
+      },
+      {
+        "label": "10kg",
+        "price": 2483,
+        "discount": "25% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-41",
+    "name": "Tissue Paper Box",
+    "description": "Convenient tissue paper box for everyday use, providing soft and absorbent tissues.",
+    "price": 207,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/tissue-paper-box/thumbnail.webp",
+    "category": "groceries",
+    "brand": "Generic",
+    "tags": [
+      "household essentials"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "250g",
+        "price": 62
+      },
+      {
+        "label": "500g",
+        "price": 114
+      },
+      {
+        "label": "1kg",
+        "price": 207
+      },
+      {
+        "label": "5kg",
+        "price": 869,
+        "discount": "16% off"
+      },
+      {
+        "label": "10kg",
+        "price": 1553,
+        "discount": "25% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-42",
+    "name": "Water",
+    "description": "Pure and refreshing bottled water, essential for staying hydrated throughout the day.",
+    "price": 82,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/water/thumbnail.webp",
+    "category": "groceries",
+    "brand": "Generic",
+    "tags": [
+      "beverages"
+    ],
+    "isBestSeller": true,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "250g",
+        "price": 25
+      },
+      {
+        "label": "500g",
+        "price": 45
+      },
+      {
+        "label": "1kg",
+        "price": 82
+      },
+      {
+        "label": "5kg",
+        "price": 344,
+        "discount": "16% off"
+      },
+      {
+        "label": "10kg",
+        "price": 615,
+        "discount": "25% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-43",
+    "name": "Decoration Swing",
+    "description": "The Decoration Swing is a charming addition to your home decor. Crafted with intricate details, it adds a touch of elegance and whimsy to any room.",
+    "price": 4979,
+    "image": "https://cdn.dummyjson.com/product-images/home-decoration/decoration-swing/thumbnail.webp",
+    "category": "home-decoration",
+    "brand": "Generic",
+    "tags": [
+      "home decor",
+      "swing"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1x",
+        "price": 4979
+      },
+      {
+        "label": "2x Pack",
+        "price": 8713,
+        "discount": "12% off"
+      },
+      {
+        "label": "5x Pack",
+        "price": 18920,
+        "discount": "24% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-44",
+    "name": "Family Tree Photo Frame",
+    "description": "The Family Tree Photo Frame is a sentimental and stylish way to display your cherished family memories. With multiple photo slots, it tells the story of your loved ones.",
+    "price": 2489,
+    "image": "https://cdn.dummyjson.com/product-images/home-decoration/family-tree-photo-frame/thumbnail.webp",
+    "category": "home-decoration",
+    "brand": "Generic",
+    "tags": [
+      "home decor",
+      "photo frame"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1x",
+        "price": 2489
+      },
+      {
+        "label": "2x Pack",
+        "price": 4356,
+        "discount": "12% off"
+      },
+      {
+        "label": "5x Pack",
+        "price": 9458,
+        "discount": "24% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-45",
+    "name": "House Showpiece Plant",
+    "description": "The House Showpiece Plant is an artificial plant that brings a touch of nature to your home without the need for maintenance. It adds greenery and style to any space.",
+    "price": 3319,
+    "image": "https://cdn.dummyjson.com/product-images/home-decoration/house-showpiece-plant/thumbnail.webp",
+    "category": "home-decoration",
+    "brand": "Generic",
+    "tags": [
+      "home decor",
+      "artificial plants"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1x",
+        "price": 3319
+      },
+      {
+        "label": "2x Pack",
+        "price": 5808,
+        "discount": "12% off"
+      },
+      {
+        "label": "5x Pack",
+        "price": 12612,
+        "discount": "24% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-46",
+    "name": "Plant Pot",
+    "description": "The Plant Pot is a stylish container for your favorite plants. With a sleek design, it complements your indoor or outdoor garden, adding a modern touch to your plant display.",
+    "price": 1244,
+    "image": "https://cdn.dummyjson.com/product-images/home-decoration/plant-pot/thumbnail.webp",
+    "category": "home-decoration",
+    "brand": "Generic",
+    "tags": [
+      "home decor",
+      "plant accessories"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1x",
+        "price": 1244
+      },
+      {
+        "label": "2x Pack",
+        "price": 2177,
+        "discount": "12% off"
+      },
+      {
+        "label": "5x Pack",
+        "price": 4727,
+        "discount": "24% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-47",
+    "name": "Table Lamp",
+    "description": "The Table Lamp is a functional and decorative lighting solution for your living space. With a modern design, it provides both ambient and task lighting, enhancing the atmosphere.",
+    "price": 4149,
+    "image": "https://cdn.dummyjson.com/product-images/home-decoration/table-lamp/thumbnail.webp",
+    "category": "home-decoration",
+    "brand": "Generic",
+    "tags": [
+      "home decor",
+      "lighting"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1x",
+        "price": 4149
+      },
+      {
+        "label": "2x Pack",
+        "price": 7261,
+        "discount": "12% off"
+      },
+      {
+        "label": "5x Pack",
+        "price": 15766,
+        "discount": "24% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-48",
+    "name": "Bamboo Spatula",
+    "description": "The Bamboo Spatula is a versatile kitchen tool made from eco-friendly bamboo. Ideal for flipping, stirring, and serving various dishes.",
+    "price": 663,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/bamboo-spatula/thumbnail.webp",
+    "category": "kitchen-accessories",
+    "brand": "Generic",
+    "tags": [
+      "kitchen tools",
+      "utensils"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 663
+      },
+      {
+        "label": "2 Pack",
+        "price": 1127,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 2321,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-49",
+    "name": "Black Aluminium Cup",
+    "description": "The Black Aluminium Cup is a stylish and durable cup suitable for both hot and cold beverages. Its sleek black design adds a modern touch to your drinkware collection.",
+    "price": 497,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/black-aluminium-cup/thumbnail.webp",
+    "category": "kitchen-accessories",
+    "brand": "Generic",
+    "tags": [
+      "drinkware",
+      "cups"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 497
+      },
+      {
+        "label": "2 Pack",
+        "price": 845,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 1740,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-50",
+    "name": "Black Whisk",
+    "description": "The Black Whisk is a kitchen essential for whisking and beating ingredients. Its ergonomic handle and sleek design make it a practical and stylish tool.",
+    "price": 829,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/black-whisk/thumbnail.webp",
+    "category": "kitchen-accessories",
+    "brand": "Generic",
+    "tags": [
+      "kitchen tools",
+      "utensils"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 829
+      },
+      {
+        "label": "2 Pack",
+        "price": 1409,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 2902,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-51",
+    "name": "Boxed Blender",
+    "description": "The Boxed Blender is a powerful and compact blender perfect for smoothies, shakes, and more. Its convenient design and multiple functions make it a versatile kitchen appliance.",
+    "price": 3319,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/boxed-blender/thumbnail.webp",
+    "category": "kitchen-accessories",
+    "brand": "Generic",
+    "tags": [
+      "kitchen appliances",
+      "blenders"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 3319
+      },
+      {
+        "label": "2 Pack",
+        "price": 5642,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 11617,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-52",
+    "name": "Carbon Steel Wok",
+    "description": "The Carbon Steel Wok is a versatile cooking pan suitable for stir-frying, sautéing, and deep frying. Its sturdy construction ensures even heat distribution for delicious meals.",
+    "price": 2489,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/carbon-steel-wok/thumbnail.webp",
+    "category": "kitchen-accessories",
+    "brand": "Generic",
+    "tags": [
+      "cookware",
+      "woks"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 2489
+      },
+      {
+        "label": "2 Pack",
+        "price": 4231,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 8712,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-53",
+    "name": "Chopping Board",
+    "description": "The Chopping Board is an essential kitchen accessory for food preparation. Made from durable material, it provides a safe and hygienic surface for cutting and chopping.",
+    "price": 1078,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/chopping-board/thumbnail.webp",
+    "category": "kitchen-accessories",
+    "brand": "Generic",
+    "tags": [
+      "kitchen tools",
+      "cutting boards"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 1078
+      },
+      {
+        "label": "2 Pack",
+        "price": 1833,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 3773,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-54",
+    "name": "Citrus Squeezer Yellow",
+    "description": "The Citrus Squeezer in Yellow is a handy tool for extracting juice from citrus fruits. Its vibrant color adds a cheerful touch to your kitchen gadgets.",
+    "price": 746,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/citrus-squeezer-yellow/thumbnail.webp",
+    "category": "kitchen-accessories",
+    "brand": "Generic",
+    "tags": [
+      "kitchen tools",
+      "juicers"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 746
+      },
+      {
+        "label": "2 Pack",
+        "price": 1268,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 2611,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-55",
+    "name": "Egg Slicer",
+    "description": "The Egg Slicer is a convenient tool for slicing boiled eggs evenly. It's perfect for salads, sandwiches, and other dishes where sliced eggs are desired.",
+    "price": 580,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/egg-slicer/thumbnail.webp",
+    "category": "kitchen-accessories",
+    "brand": "Generic",
+    "tags": [
+      "kitchen tools",
+      "slicers"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 580
+      },
+      {
+        "label": "2 Pack",
+        "price": 986,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 2030,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-56",
+    "name": "Electric Stove",
+    "description": "The Electric Stove provides a portable and efficient cooking solution. Ideal for small kitchens or as an additional cooking surface for various culinary needs.",
+    "price": 4149,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/electric-stove/thumbnail.webp",
+    "category": "kitchen-accessories",
+    "brand": "Generic",
+    "tags": [
+      "kitchen appliances",
+      "cooktops"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 4149
+      },
+      {
+        "label": "2 Pack",
+        "price": 7053,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 14522,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-57",
+    "name": "Fine Mesh Strainer",
+    "description": "The Fine Mesh Strainer is a versatile tool for straining liquids and sifting dry ingredients. Its fine mesh ensures efficient filtering for smooth cooking and baking.",
+    "price": 829,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/fine-mesh-strainer/thumbnail.webp",
+    "category": "kitchen-accessories",
+    "brand": "Generic",
+    "tags": [
+      "kitchen tools",
+      "strainers"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 829
+      },
+      {
+        "label": "2 Pack",
+        "price": 1409,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 2902,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-58",
+    "name": "Fork",
+    "description": "The Fork is a classic utensil for various dining and serving purposes. Its durable and ergonomic design makes it a reliable choice for everyday use.",
+    "price": 331,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/fork/thumbnail.webp",
+    "category": "kitchen-accessories",
+    "brand": "Generic",
+    "tags": [
+      "kitchen tools",
+      "utensils"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 331
+      },
+      {
+        "label": "2 Pack",
+        "price": 563,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 1159,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-59",
+    "name": "Glass",
+    "description": "The Glass is a versatile and elegant drinking vessel suitable for a variety of beverages. Its clear design allows you to enjoy the colors and textures of your drinks.",
+    "price": 414,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/glass/thumbnail.webp",
+    "category": "kitchen-accessories",
+    "brand": "Generic",
+    "tags": [
+      "drinkware",
+      "glasses"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 414
+      },
+      {
+        "label": "2 Pack",
+        "price": 704,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 1449,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-60",
+    "name": "Grater Black",
+    "description": "The Grater in Black is a handy kitchen tool for grating cheese, vegetables, and more. Its sleek design and sharp blades make food preparation efficient and easy.",
+    "price": 912,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/grater-black/thumbnail.webp",
+    "category": "kitchen-accessories",
+    "brand": "Generic",
+    "tags": [
+      "kitchen tools",
+      "graters"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 912
+      },
+      {
+        "label": "2 Pack",
+        "price": 1550,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 3192,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-61",
+    "name": "Hand Blender",
+    "description": "The Hand Blender is a versatile kitchen appliance for blending, pureeing, and mixing. Its compact design and powerful motor make it a convenient tool for various recipes.",
+    "price": 2904,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/hand-blender/thumbnail.webp",
+    "category": "kitchen-accessories",
+    "brand": "Generic",
+    "tags": [
+      "kitchen appliances",
+      "blenders"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 2904
+      },
+      {
+        "label": "2 Pack",
+        "price": 4937,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 10164,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-62",
+    "name": "Ice Cube Tray",
+    "description": "The Ice Cube Tray is a practical accessory for making ice cubes in various shapes. Perfect for keeping your drinks cool and adding a fun element to your beverages.",
+    "price": 497,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/ice-cube-tray/thumbnail.webp",
+    "category": "kitchen-accessories",
+    "brand": "Generic",
+    "tags": [
+      "kitchen tools",
+      "ice cube trays"
+    ],
+    "isBestSeller": true,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 497
+      },
+      {
+        "label": "2 Pack",
+        "price": 845,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 1740,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-63",
+    "name": "Kitchen Sieve",
+    "description": "The Kitchen Sieve is a versatile tool for sifting and straining dry and wet ingredients. Its fine mesh design ensures smooth results in your cooking and baking.",
+    "price": 663,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/kitchen-sieve/thumbnail.webp",
+    "category": "kitchen-accessories",
+    "brand": "Generic",
+    "tags": [
+      "kitchen tools",
+      "strainers"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 663
+      },
+      {
+        "label": "2 Pack",
+        "price": 1127,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 2321,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-64",
+    "name": "Knife",
+    "description": "The Knife is an essential kitchen tool for chopping, slicing, and dicing. Its sharp blade and ergonomic handle make it a reliable choice for food preparation.",
+    "price": 1244,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/knife/thumbnail.webp",
+    "category": "kitchen-accessories",
+    "brand": "Generic",
+    "tags": [
+      "kitchen tools",
+      "cutlery"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 1244
+      },
+      {
+        "label": "2 Pack",
+        "price": 2115,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 4354,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-65",
+    "name": "Lunch Box",
+    "description": "The Lunch Box is a convenient and portable container for packing and carrying your meals. With compartments for different foods, it's perfect for on-the-go dining.",
+    "price": 1078,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/lunch-box/thumbnail.webp",
+    "category": "kitchen-accessories",
+    "brand": "Generic",
+    "tags": [
+      "kitchen tools",
+      "storage"
+    ],
+    "isBestSeller": true,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 1078
+      },
+      {
+        "label": "2 Pack",
+        "price": 1833,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 3773,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-66",
+    "name": "Microwave Oven",
+    "description": "The Microwave Oven is a versatile kitchen appliance for quick and efficient cooking, reheating, and defrosting. Its compact size makes it suitable for various kitchen setups.",
+    "price": 7469,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/microwave-oven/thumbnail.webp",
+    "category": "kitchen-accessories",
+    "brand": "Generic",
+    "tags": [
+      "kitchen appliances",
+      "microwaves"
+    ],
+    "isBestSeller": true,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 7469
+      },
+      {
+        "label": "2 Pack",
+        "price": 12697,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 26142,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-67",
+    "name": "Mug Tree Stand",
+    "description": "The Mug Tree Stand is a stylish and space-saving solution for organizing your mugs. Keep your favorite mugs easily accessible and neatly displayed in your kitchen.",
+    "price": 1327,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/mug-tree-stand/thumbnail.webp",
+    "category": "kitchen-accessories",
+    "brand": "Generic",
+    "tags": [
+      "kitchen tools",
+      "organization"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 1327
+      },
+      {
+        "label": "2 Pack",
+        "price": 2256,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 4645,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-68",
+    "name": "Pan",
+    "description": "The Pan is a versatile and essential cookware item for frying, sautéing, and cooking various dishes. Its non-stick coating ensures easy food release and cleanup.",
+    "price": 2074,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/pan/thumbnail.webp",
+    "category": "kitchen-accessories",
+    "brand": "Generic",
+    "tags": [
+      "cookware",
+      "pans"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 2074
+      },
+      {
+        "label": "2 Pack",
+        "price": 3526,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 7259,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-69",
+    "name": "Plate",
+    "description": "The Plate is a classic and essential dishware item for serving meals. Its durable and stylish design makes it suitable for everyday use or special occasions.",
+    "price": 331,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/plate/thumbnail.webp",
+    "category": "kitchen-accessories",
+    "brand": "Generic",
+    "tags": [
+      "dinnerware",
+      "plates"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 331
+      },
+      {
+        "label": "2 Pack",
+        "price": 563,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 1159,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-70",
+    "name": "Red Tongs",
+    "description": "The Red Tongs are versatile kitchen tongs suitable for various cooking and serving tasks. Their vibrant color adds a pop of excitement to your kitchen utensils.",
+    "price": 580,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/red-tongs/thumbnail.webp",
+    "category": "kitchen-accessories",
+    "brand": "Generic",
+    "tags": [
+      "kitchen tools",
+      "tongs"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 580
+      },
+      {
+        "label": "2 Pack",
+        "price": 986,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 2030,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-71",
+    "name": "Silver Pot With Glass Cap",
+    "description": "The Silver Pot with Glass Cap is a stylish and functional cookware item for boiling, simmering, and preparing delicious meals. Its glass cap allows you to monitor cooking progress.",
+    "price": 3319,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/silver-pot-with-glass-cap/thumbnail.webp",
+    "category": "kitchen-accessories",
+    "brand": "Generic",
+    "tags": [
+      "cookware",
+      "pots"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 3319
+      },
+      {
+        "label": "2 Pack",
+        "price": 5642,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 11617,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-72",
+    "name": "Slotted Turner",
+    "description": "The Slotted Turner is a kitchen utensil designed for flipping and turning food items. Its slotted design allows excess liquid to drain, making it ideal for frying and sautéing.",
+    "price": 746,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/slotted-turner/thumbnail.webp",
+    "category": "kitchen-accessories",
+    "brand": "Generic",
+    "tags": [
+      "kitchen tools",
+      "turners"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 746
+      },
+      {
+        "label": "2 Pack",
+        "price": 1268,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 2611,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-73",
+    "name": "Spice Rack",
+    "description": "The Spice Rack is a convenient organizer for your spices and seasonings. Keep your kitchen essentials within reach and neatly arranged with this stylish spice rack.",
+    "price": 1659,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/spice-rack/thumbnail.webp",
+    "category": "kitchen-accessories",
+    "brand": "Generic",
+    "tags": [
+      "kitchen tools",
+      "organization"
+    ],
+    "isBestSeller": true,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 1659
+      },
+      {
+        "label": "2 Pack",
+        "price": 2820,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 5807,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-74",
+    "name": "Spoon",
+    "description": "The Spoon is a versatile kitchen utensil for stirring, serving, and tasting. Its ergonomic design and durable construction make it an essential tool for every kitchen.",
+    "price": 414,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/spoon/thumbnail.webp",
+    "category": "kitchen-accessories",
+    "brand": "Generic",
+    "tags": [
+      "kitchen tools",
+      "utensils"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 414
+      },
+      {
+        "label": "2 Pack",
+        "price": 704,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 1449,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-75",
+    "name": "Tray",
+    "description": "The Tray is a functional and decorative item for serving snacks, appetizers, or drinks. Its stylish design makes it a versatile accessory for entertaining guests.",
+    "price": 1410,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/tray/thumbnail.webp",
+    "category": "kitchen-accessories",
+    "brand": "Generic",
+    "tags": [
+      "serveware",
+      "trays"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 1410
+      },
+      {
+        "label": "2 Pack",
+        "price": 2397,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 4935,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-76",
+    "name": "Wooden Rolling Pin",
+    "description": "The Wooden Rolling Pin is a classic kitchen tool for rolling out dough for baking. Its smooth surface and sturdy handles make it easy to achieve uniform thickness.",
+    "price": 995,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/wooden-rolling-pin/thumbnail.webp",
+    "category": "kitchen-accessories",
+    "brand": "Generic",
+    "tags": [
+      "kitchen tools",
+      "baking"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 995
+      },
+      {
+        "label": "2 Pack",
+        "price": 1692,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 3483,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-77",
+    "name": "Yellow Peeler",
+    "description": "The Yellow Peeler is a handy tool for peeling fruits and vegetables with ease. Its bright yellow color adds a cheerful touch to your kitchen gadgets.",
+    "price": 497,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/yellow-peeler/thumbnail.webp",
+    "category": "kitchen-accessories",
+    "brand": "Generic",
+    "tags": [
+      "kitchen tools",
+      "peelers"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 497
+      },
+      {
+        "label": "2 Pack",
+        "price": 845,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 1740,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-78",
+    "name": "Apple MacBook Pro 14 Inch Space Grey",
+    "description": "The MacBook Pro 14 Inch in Space Grey is a powerful and sleek laptop, featuring Apple's M1 Pro chip for exceptional performance and a stunning Retina display.",
+    "price": 165999,
+    "image": "https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/thumbnail.webp",
+    "category": "laptops",
+    "brand": "Apple",
+    "tags": [
+      "laptops",
+      "apple"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "S",
+        "price": 165999
+      },
+      {
+        "label": "M",
+        "price": 165999
+      },
+      {
+        "label": "L",
+        "price": 165999
+      },
+      {
+        "label": "XL",
+        "price": 174299
+      },
+      {
+        "label": "XXL",
+        "price": 174299
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-79",
+    "name": "Asus Zenbook Pro Dual Screen Laptop",
+    "description": "The Asus Zenbook Pro Dual Screen Laptop is a high-performance device with dual screens, providing productivity and versatility for creative professionals.",
+    "price": 149399,
+    "image": "https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/thumbnail.webp",
+    "category": "laptops",
+    "brand": "Asus",
+    "tags": [
+      "laptops"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "S",
+        "price": 149399
+      },
+      {
+        "label": "M",
+        "price": 149399
+      },
+      {
+        "label": "L",
+        "price": 149399
+      },
+      {
+        "label": "XL",
+        "price": 156869
+      },
+      {
+        "label": "XXL",
+        "price": 156869
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-80",
+    "name": "Huawei Matebook X Pro",
+    "description": "The Huawei Matebook X Pro is a slim and stylish laptop with a high-resolution touchscreen display, offering a premium experience for users on the go.",
+    "price": 116199,
+    "image": "https://cdn.dummyjson.com/product-images/laptops/huawei-matebook-x-pro/thumbnail.webp",
+    "category": "laptops",
+    "brand": "Huawei",
+    "tags": [
+      "laptops"
+    ],
+    "isBestSeller": true,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "S",
+        "price": 116199
+      },
+      {
+        "label": "M",
+        "price": 116199
+      },
+      {
+        "label": "L",
+        "price": 116199
+      },
+      {
+        "label": "XL",
+        "price": 122009
+      },
+      {
+        "label": "XXL",
+        "price": 122009
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-81",
+    "name": "Lenovo Yoga 920",
+    "description": "The Lenovo Yoga 920 is a 2-in-1 convertible laptop with a flexible hinge, allowing you to use it as a laptop or tablet, offering versatility and portability.",
+    "price": 91299,
+    "image": "https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/thumbnail.webp",
+    "category": "laptops",
+    "brand": "Lenovo",
+    "tags": [
+      "laptops"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "S",
+        "price": 91299
+      },
+      {
+        "label": "M",
+        "price": 91299
+      },
+      {
+        "label": "L",
+        "price": 91299
+      },
+      {
+        "label": "XL",
+        "price": 95864
+      },
+      {
+        "label": "XXL",
+        "price": 95864
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-82",
+    "name": "New DELL XPS 13 9300 Laptop",
+    "description": "The New DELL XPS 13 9300 Laptop is a compact and powerful device, featuring a virtually borderless InfinityEdge display and high-end performance for various tasks.",
+    "price": 124499,
+    "image": "https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/thumbnail.webp",
+    "category": "laptops",
+    "brand": "Dell",
+    "tags": [
+      "laptops"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "S",
+        "price": 124499
+      },
+      {
+        "label": "M",
+        "price": 124499
+      },
+      {
+        "label": "L",
+        "price": 124499
+      },
+      {
+        "label": "XL",
+        "price": 130724
+      },
+      {
+        "label": "XXL",
+        "price": 130724
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-83",
+    "name": "Blue & Black Check Shirt",
+    "description": "The Blue & Black Check Shirt is a stylish and comfortable men's shirt featuring a classic check pattern. Made from high-quality fabric, it's suitable for both casual and semi-formal occasions.",
+    "price": 2489,
+    "image": "https://cdn.dummyjson.com/product-images/mens-shirts/blue-&-black-check-shirt/thumbnail.webp",
+    "category": "mens-shirts",
+    "brand": "Fashion Trends",
+    "tags": [
+      "clothing",
+      "men's shirts"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "S",
+        "price": 2489
+      },
+      {
+        "label": "M",
+        "price": 2489
+      },
+      {
+        "label": "L",
+        "price": 2489
+      },
+      {
+        "label": "XL",
+        "price": 2613
+      },
+      {
+        "label": "XXL",
+        "price": 2613
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-84",
+    "name": "Gigabyte Aorus Men Tshirt",
+    "description": "The Gigabyte Aorus Men Tshirt is a cool and casual shirt for gaming enthusiasts. With the Aorus logo and sleek design, it's perfect for expressing your gaming style.",
+    "price": 2074,
+    "image": "https://cdn.dummyjson.com/product-images/mens-shirts/gigabyte-aorus-men-tshirt/thumbnail.webp",
+    "category": "mens-shirts",
+    "brand": "Gigabyte",
+    "tags": [
+      "clothing",
+      "men's t-shirts"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "S",
+        "price": 2074
+      },
+      {
+        "label": "M",
+        "price": 2074
+      },
+      {
+        "label": "L",
+        "price": 2074
+      },
+      {
+        "label": "XL",
+        "price": 2178
+      },
+      {
+        "label": "XXL",
+        "price": 2178
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-85",
+    "name": "Man Plaid Shirt",
+    "description": "The Man Plaid Shirt is a timeless and versatile men's shirt with a classic plaid pattern. Its comfortable fit and casual style make it a wardrobe essential for various occasions.",
+    "price": 2904,
+    "image": "https://cdn.dummyjson.com/product-images/mens-shirts/man-plaid-shirt/thumbnail.webp",
+    "category": "mens-shirts",
+    "brand": "Classic Wear",
+    "tags": [
+      "clothing",
+      "men's shirts"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "S",
+        "price": 2904
+      },
+      {
+        "label": "M",
+        "price": 2904
+      },
+      {
+        "label": "L",
+        "price": 2904
+      },
+      {
+        "label": "XL",
+        "price": 3049
+      },
+      {
+        "label": "XXL",
+        "price": 3049
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-86",
+    "name": "Man Short Sleeve Shirt",
+    "description": "The Man Short Sleeve Shirt is a breezy and stylish option for warm days. With a comfortable fit and short sleeves, it's perfect for a laid-back yet polished look.",
+    "price": 1659,
+    "image": "https://cdn.dummyjson.com/product-images/mens-shirts/man-short-sleeve-shirt/thumbnail.webp",
+    "category": "mens-shirts",
+    "brand": "Casual Comfort",
+    "tags": [
+      "clothing",
+      "men's shirts"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "S",
+        "price": 1659
+      },
+      {
+        "label": "M",
+        "price": 1659
+      },
+      {
+        "label": "L",
+        "price": 1659
+      },
+      {
+        "label": "XL",
+        "price": 1742
+      },
+      {
+        "label": "XXL",
+        "price": 1742
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-87",
+    "name": "Men Check Shirt",
+    "description": "The Men Check Shirt is a classic and versatile shirt featuring a stylish check pattern. Suitable for various occasions, it adds a smart and polished touch to your wardrobe.",
+    "price": 2323,
+    "image": "https://cdn.dummyjson.com/product-images/mens-shirts/men-check-shirt/thumbnail.webp",
+    "category": "mens-shirts",
+    "brand": "Urban Chic",
+    "tags": [
+      "clothing",
+      "men's shirts"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "S",
+        "price": 2323
+      },
+      {
+        "label": "M",
+        "price": 2323
+      },
+      {
+        "label": "L",
+        "price": 2323
+      },
+      {
+        "label": "XL",
+        "price": 2439
+      },
+      {
+        "label": "XXL",
+        "price": 2439
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-88",
+    "name": "Nike Air Jordan 1 Red And Black",
+    "description": "The Nike Air Jordan 1 in Red and Black is an iconic basketball sneaker known for its stylish design and high-performance features, making it a favorite among sneaker enthusiasts and athletes.",
+    "price": 12449,
+    "image": "https://cdn.dummyjson.com/product-images/mens-shoes/nike-air-jordan-1-red-and-black/thumbnail.webp",
+    "category": "mens-shoes",
+    "brand": "Nike",
+    "tags": [
+      "footwear",
+      "athletic shoes"
+    ],
+    "isBestSeller": true,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "UK 6",
+        "price": 12449
+      },
+      {
+        "label": "UK 7",
+        "price": 12449
+      },
+      {
+        "label": "UK 8",
+        "price": 12449
+      },
+      {
+        "label": "UK 9",
+        "price": 12449
+      },
+      {
+        "label": "UK 10",
+        "price": 12449
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-89",
+    "name": "Nike Baseball Cleats",
+    "description": "Nike Baseball Cleats are designed for maximum traction and performance on the baseball field. They provide stability and support for players during games and practices.",
+    "price": 6639,
+    "image": "https://cdn.dummyjson.com/product-images/mens-shoes/nike-baseball-cleats/thumbnail.webp",
+    "category": "mens-shoes",
+    "brand": "Nike",
+    "tags": [
+      "footwear",
+      "sports cleats"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "UK 6",
+        "price": 6639
+      },
+      {
+        "label": "UK 7",
+        "price": 6639
+      },
+      {
+        "label": "UK 8",
+        "price": 6639
+      },
+      {
+        "label": "UK 9",
+        "price": 6639
+      },
+      {
+        "label": "UK 10",
+        "price": 6639
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-90",
+    "name": "Puma Future Rider Trainers",
+    "description": "The Puma Future Rider Trainers offer a blend of retro style and modern comfort. Perfect for casual wear, these trainers provide a fashionable and comfortable option for everyday use.",
+    "price": 7469,
+    "image": "https://cdn.dummyjson.com/product-images/mens-shoes/puma-future-rider-trainers/thumbnail.webp",
+    "category": "mens-shoes",
+    "brand": "Puma",
+    "tags": [
+      "footwear",
+      "casual shoes"
+    ],
+    "isBestSeller": true,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "UK 6",
+        "price": 7469
+      },
+      {
+        "label": "UK 7",
+        "price": 7469
+      },
+      {
+        "label": "UK 8",
+        "price": 7469
+      },
+      {
+        "label": "UK 9",
+        "price": 7469
+      },
+      {
+        "label": "UK 10",
+        "price": 7469
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-91",
+    "name": "Sports Sneakers Off White & Red",
+    "description": "The Sports Sneakers in Off White and Red combine style and functionality, making them a fashionable choice for sports enthusiasts. The red and off-white color combination adds a bold and energetic touch.",
+    "price": 9959,
+    "image": "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-&-red/thumbnail.webp",
+    "category": "mens-shoes",
+    "brand": "Off White",
+    "tags": [
+      "footwear",
+      "athletic shoes"
+    ],
+    "isBestSeller": true,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "UK 6",
+        "price": 9959
+      },
+      {
+        "label": "UK 7",
+        "price": 9959
+      },
+      {
+        "label": "UK 8",
+        "price": 9959
+      },
+      {
+        "label": "UK 9",
+        "price": 9959
+      },
+      {
+        "label": "UK 10",
+        "price": 9959
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-92",
+    "name": "Sports Sneakers Off White Red",
+    "description": "Another variant of the Sports Sneakers in Off White Red, featuring a unique design. These sneakers offer style and comfort for casual occasions.",
+    "price": 9129,
+    "image": "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-red/thumbnail.webp",
+    "category": "mens-shoes",
+    "brand": "Off White",
+    "tags": [
+      "footwear",
+      "casual shoes"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "UK 6",
+        "price": 9129
+      },
+      {
+        "label": "UK 7",
+        "price": 9129
+      },
+      {
+        "label": "UK 8",
+        "price": 9129
+      },
+      {
+        "label": "UK 9",
+        "price": 9129
+      },
+      {
+        "label": "UK 10",
+        "price": 9129
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-93",
+    "name": "Brown Leather Belt Watch",
+    "description": "The Brown Leather Belt Watch is a stylish timepiece with a classic design. Featuring a genuine leather strap and a sleek dial, it adds a touch of sophistication to your look.",
+    "price": 7469,
+    "image": "https://cdn.dummyjson.com/product-images/mens-watches/brown-leather-belt-watch/thumbnail.webp",
+    "category": "mens-watches",
+    "brand": "Fashion Timepieces",
+    "tags": [
+      "watches",
+      "leather watches"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 7469
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-94",
+    "name": "Longines Master Collection",
+    "description": "The Longines Master Collection is an elegant and refined watch known for its precision and craftsmanship. With a timeless design, it's a symbol of luxury and sophistication.",
+    "price": 124499,
+    "image": "https://cdn.dummyjson.com/product-images/mens-watches/longines-master-collection/thumbnail.webp",
+    "category": "mens-watches",
+    "brand": "Longines",
+    "tags": [
+      "watches",
+      "luxury watches"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 124499
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-95",
+    "name": "Rolex Cellini Date Black Dial",
+    "description": "The Rolex Cellini Date with Black Dial is a classic and prestigious watch. With a black dial and date complication, it exudes sophistication and is a symbol of Rolex's heritage.",
+    "price": 746999,
+    "image": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-cellini-date-black-dial/thumbnail.webp",
+    "category": "mens-watches",
+    "brand": "Rolex",
+    "tags": [
+      "watches",
+      "luxury watches"
+    ],
+    "isBestSeller": true,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 746999
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-96",
+    "name": "Rolex Cellini Moonphase",
+    "description": "The Rolex Cellini Moonphase is a masterpiece of horology, featuring a moon phase complication and exquisite design. It reflects Rolex's commitment to precision and elegance.",
+    "price": 1078999,
+    "image": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-cellini-moonphase/thumbnail.webp",
+    "category": "mens-watches",
+    "brand": "Rolex",
+    "tags": [
+      "watches",
+      "luxury watches"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 1078999
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-97",
+    "name": "Rolex Datejust",
+    "description": "The Rolex Datejust is an iconic and versatile timepiece with a date window. Known for its timeless design and reliability, it's a symbol of Rolex's watchmaking excellence.",
+    "price": 912999,
+    "image": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-datejust/thumbnail.webp",
+    "category": "mens-watches",
+    "brand": "Rolex",
+    "tags": [
+      "watches",
+      "luxury watches"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 912999
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-98",
+    "name": "Rolex Submariner Watch",
+    "description": "The Rolex Submariner is a legendary dive watch with a rich history. Known for its durability and water resistance, it's a symbol of adventure and exploration.",
+    "price": 1161999,
+    "image": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-submariner-watch/thumbnail.webp",
+    "category": "mens-watches",
+    "brand": "Rolex",
+    "tags": [
+      "watches",
+      "luxury watches"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 1161999
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-99",
+    "name": "Amazon Echo Plus",
+    "description": "The Amazon Echo Plus is a smart speaker with built-in Alexa voice control. It features premium sound quality and serves as a hub for controlling smart home devices.",
+    "price": 8299,
+    "image": "https://cdn.dummyjson.com/product-images/mobile-accessories/amazon-echo-plus/thumbnail.webp",
+    "category": "mobile-accessories",
+    "brand": "Amazon",
+    "tags": [
+      "electronics",
+      "smart speakers"
+    ],
+    "isBestSeller": true,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 8299
+      },
+      {
+        "label": "2 Pack",
+        "price": 14108,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 29047,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-100",
+    "name": "Apple Airpods",
+    "description": "The Apple Airpods offer a seamless wireless audio experience. With easy pairing, high-quality sound, and Siri integration, they are perfect for on-the-go listening.",
+    "price": 10789,
+    "image": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods/thumbnail.webp",
+    "category": "mobile-accessories",
+    "brand": "Apple",
+    "tags": [
+      "electronics",
+      "wireless earphones"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 10789
+      },
+      {
+        "label": "2 Pack",
+        "price": 18341,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 37762,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-101",
+    "name": "Apple AirPods Max Silver",
+    "description": "The Apple AirPods Max in Silver are premium over-ear headphones with high-fidelity audio, adaptive EQ, and active noise cancellation. Experience immersive sound in style.",
+    "price": 45649,
+    "image": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods-max-silver/thumbnail.webp",
+    "category": "mobile-accessories",
+    "brand": "Apple",
+    "tags": [
+      "electronics",
+      "over-ear headphones"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 45649
+      },
+      {
+        "label": "2 Pack",
+        "price": 77603,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 159772,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-102",
+    "name": "Apple Airpower Wireless Charger",
+    "description": "The Apple AirPower Wireless Charger provides a convenient way to charge your compatible Apple devices wirelessly. Simply place your devices on the charging mat for effortless charging.",
+    "price": 6639,
+    "image": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpower-wireless-charger/thumbnail.webp",
+    "category": "mobile-accessories",
+    "brand": "Apple",
+    "tags": [
+      "electronics",
+      "wireless chargers"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 6639
+      },
+      {
+        "label": "2 Pack",
+        "price": 11286,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 23237,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-103",
+    "name": "Apple HomePod Mini Cosmic Grey",
+    "description": "The Apple HomePod Mini in Cosmic Grey is a compact smart speaker that delivers impressive audio and integrates seamlessly with the Apple ecosystem for a smart home experience.",
+    "price": 8299,
+    "image": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-homepod-mini-cosmic-grey/thumbnail.webp",
+    "category": "mobile-accessories",
+    "brand": "Apple",
+    "tags": [
+      "electronics",
+      "smart speakers"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 8299
+      },
+      {
+        "label": "2 Pack",
+        "price": 14108,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 29047,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-104",
+    "name": "Apple iPhone Charger",
+    "description": "The Apple iPhone Charger is a high-quality charger designed for fast and efficient charging of your iPhone. Ensure your device stays powered up and ready to go.",
+    "price": 1659,
+    "image": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-iphone-charger/thumbnail.webp",
+    "category": "mobile-accessories",
+    "brand": "Apple",
+    "tags": [
+      "electronics",
+      "chargers"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 1659
+      },
+      {
+        "label": "2 Pack",
+        "price": 2820,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 5807,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-105",
+    "name": "Apple MagSafe Battery Pack",
+    "description": "The Apple MagSafe Battery Pack is a portable and convenient way to add extra battery life to your MagSafe-compatible iPhone. Attach it magnetically for a secure connection.",
+    "price": 8299,
+    "image": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-magsafe-battery-pack/thumbnail.webp",
+    "category": "mobile-accessories",
+    "brand": "Apple",
+    "tags": [
+      "electronics",
+      "power banks"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 8299
+      },
+      {
+        "label": "2 Pack",
+        "price": 14108,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 29047,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-106",
+    "name": "Apple Watch Series 4 Gold",
+    "description": "The Apple Watch Series 4 in Gold is a stylish and advanced smartwatch with features like heart rate monitoring, fitness tracking, and a beautiful Retina display.",
+    "price": 29049,
+    "image": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-watch-series-4-gold/thumbnail.webp",
+    "category": "mobile-accessories",
+    "brand": "Apple",
+    "tags": [
+      "electronics",
+      "smartwatches"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 29049
+      },
+      {
+        "label": "2 Pack",
+        "price": 49383,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 101672,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-107",
+    "name": "Beats Flex Wireless Earphones",
+    "description": "The Beats Flex Wireless Earphones offer a comfortable and versatile audio experience. With magnetic earbuds and up to 12 hours of battery life, they are ideal for everyday use.",
+    "price": 4149,
+    "image": "https://cdn.dummyjson.com/product-images/mobile-accessories/beats-flex-wireless-earphones/thumbnail.webp",
+    "category": "mobile-accessories",
+    "brand": "Beats",
+    "tags": [
+      "electronics",
+      "wireless earphones"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 4149
+      },
+      {
+        "label": "2 Pack",
+        "price": 7053,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 14522,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-108",
+    "name": "iPhone 12 Silicone Case with MagSafe Plum",
+    "description": "The iPhone 12 Silicone Case with MagSafe in Plum is a stylish and protective case designed for the iPhone 12. It features MagSafe technology for easy attachment of accessories.",
+    "price": 2489,
+    "image": "https://cdn.dummyjson.com/product-images/mobile-accessories/iphone-12-silicone-case-with-magsafe-plum/thumbnail.webp",
+    "category": "mobile-accessories",
+    "brand": "Apple",
+    "tags": [
+      "electronics",
+      "phone accessories"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 2489
+      },
+      {
+        "label": "2 Pack",
+        "price": 4231,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 8712,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-109",
+    "name": "Monopod",
+    "description": "The Monopod is a versatile camera accessory for stable and adjustable shooting. Perfect for capturing selfies, group photos, and videos with ease.",
+    "price": 1659,
+    "image": "https://cdn.dummyjson.com/product-images/mobile-accessories/monopod/thumbnail.webp",
+    "category": "mobile-accessories",
+    "brand": "TechGear",
+    "tags": [
+      "electronics",
+      "camera accessories"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 1659
+      },
+      {
+        "label": "2 Pack",
+        "price": 2820,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 5807,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-110",
+    "name": "Selfie Lamp with iPhone",
+    "description": "The Selfie Lamp with iPhone is a portable and adjustable LED light designed to enhance your selfies and video calls. Attach it to your iPhone for well-lit photos.",
+    "price": 1244,
+    "image": "https://cdn.dummyjson.com/product-images/mobile-accessories/selfie-lamp-with-iphone/thumbnail.webp",
+    "category": "mobile-accessories",
+    "brand": "GadgetMaster",
+    "tags": [
+      "electronics",
+      "selfie accessories"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 1244
+      },
+      {
+        "label": "2 Pack",
+        "price": 2115,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 4354,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-111",
+    "name": "Selfie Stick Monopod",
+    "description": "The Selfie Stick Monopod is a extendable and foldable device for capturing the perfect selfie or group photo. Compatible with smartphones and cameras.",
+    "price": 1078,
+    "image": "https://cdn.dummyjson.com/product-images/mobile-accessories/selfie-stick-monopod/thumbnail.webp",
+    "category": "mobile-accessories",
+    "brand": "SnapTech",
+    "tags": [
+      "electronics",
+      "selfie accessories"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 1078
+      },
+      {
+        "label": "2 Pack",
+        "price": 1833,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 3773,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-112",
+    "name": "TV Studio Camera Pedestal",
+    "description": "The TV Studio Camera Pedestal is a professional-grade camera support system for smooth and precise camera movements in a studio setting. Ideal for broadcast and production.",
+    "price": 41499,
+    "image": "https://cdn.dummyjson.com/product-images/mobile-accessories/tv-studio-camera-pedestal/thumbnail.webp",
+    "category": "mobile-accessories",
+    "brand": "ProVision",
+    "tags": [
+      "electronics",
+      "camera accessories"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 41499
+      },
+      {
+        "label": "2 Pack",
+        "price": 70548,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 145247,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-113",
+    "name": "Generic Motorcycle",
+    "description": "The Generic Motorcycle is a versatile and reliable bike suitable for various riding preferences. With a balanced design, it provides a comfortable and efficient riding experience.",
+    "price": 331999,
+    "image": "https://cdn.dummyjson.com/product-images/motorcycle/generic-motorcycle/thumbnail.webp",
+    "category": "motorcycle",
+    "brand": "Generic Motors",
+    "tags": [
+      "motorcycles"
+    ],
+    "isBestSeller": true,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1x",
+        "price": 331999
+      },
+      {
+        "label": "2x Pack",
+        "price": 580998,
+        "discount": "12% off"
+      },
+      {
+        "label": "5x Pack",
+        "price": 1261596,
+        "discount": "24% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-114",
+    "name": "Kawasaki Z800",
+    "description": "The Kawasaki Z800 is a powerful and agile sportbike known for its striking design and performance. It's equipped with advanced features, making it a favorite among motorcycle enthusiasts.",
+    "price": 746999,
+    "image": "https://cdn.dummyjson.com/product-images/motorcycle/kawasaki-z800/thumbnail.webp",
+    "category": "motorcycle",
+    "brand": "Kawasaki",
+    "tags": [
+      "motorcycles",
+      "sportbikes"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1x",
+        "price": 746999
+      },
+      {
+        "label": "2x Pack",
+        "price": 1307248,
+        "discount": "12% off"
+      },
+      {
+        "label": "5x Pack",
+        "price": 2838596,
+        "discount": "24% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-115",
+    "name": "MotoGP CI.H1",
+    "description": "The MotoGP CI.H1 is a high-performance motorcycle inspired by MotoGP racing technology. It offers cutting-edge features and precision engineering for an exhilarating riding experience.",
+    "price": 1244999,
+    "image": "https://cdn.dummyjson.com/product-images/motorcycle/motogp-ci.h1/thumbnail.webp",
+    "category": "motorcycle",
+    "brand": "MotoGP",
+    "tags": [
+      "motorcycles",
+      "sportbikes"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1x",
+        "price": 1244999
+      },
+      {
+        "label": "2x Pack",
+        "price": 2178748,
+        "discount": "12% off"
+      },
+      {
+        "label": "5x Pack",
+        "price": 4730996,
+        "discount": "24% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-116",
+    "name": "Scooter Motorcycle",
+    "description": "The Scooter Motorcycle is a practical and fuel-efficient bike ideal for urban commuting. It features a step-through design and user-friendly controls for easy maneuverability.",
+    "price": 248999,
+    "image": "https://cdn.dummyjson.com/product-images/motorcycle/scooter-motorcycle/thumbnail.webp",
+    "category": "motorcycle",
+    "brand": "ScootMaster",
+    "tags": [
+      "motorcycles",
+      "scooters"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1x",
+        "price": 248999
+      },
+      {
+        "label": "2x Pack",
+        "price": 435748,
+        "discount": "12% off"
+      },
+      {
+        "label": "5x Pack",
+        "price": 946196,
+        "discount": "24% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-117",
+    "name": "Sportbike Motorcycle",
+    "description": "The Sportbike Motorcycle is designed for speed and agility, with a sleek and aerodynamic profile. It's suitable for riders looking for a dynamic and thrilling riding experience.",
+    "price": 622499,
+    "image": "https://cdn.dummyjson.com/product-images/motorcycle/sportbike-motorcycle/thumbnail.webp",
+    "category": "motorcycle",
+    "brand": "SpeedMaster",
+    "tags": [
+      "motorcycles",
+      "sportbikes"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1x",
+        "price": 622499
+      },
+      {
+        "label": "2x Pack",
+        "price": 1089373,
+        "discount": "12% off"
+      },
+      {
+        "label": "5x Pack",
+        "price": 2365496,
+        "discount": "24% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-118",
+    "name": "Attitude Super Leaves Hand Soap",
+    "description": "Attitude Super Leaves Hand Soap is a natural and nourishing hand soap enriched with the goodness of super leaves. It cleanses and moisturizes your hands, leaving them feeling fresh and soft.",
+    "price": 746,
+    "image": "https://cdn.dummyjson.com/product-images/skin-care/attitude-super-leaves-hand-soap/thumbnail.webp",
+    "category": "skin-care",
+    "brand": "Attitude",
+    "tags": [
+      "personal care",
+      "hand soap"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "30ml",
+        "price": 373
+      },
+      {
+        "label": "75ml",
+        "price": 746
+      },
+      {
+        "label": "150ml",
+        "price": 1268,
+        "discount": "10% off"
+      },
+      {
+        "label": "300ml",
+        "price": 2163,
+        "discount": "18% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-119",
+    "name": "Olay Ultra Moisture Shea Butter Body Wash",
+    "description": "Olay Ultra Moisture Shea Butter Body Wash is a luxurious body wash that hydrates and nourishes your skin with the moisturizing power of shea butter. Enjoy a rich lather and silky-smooth skin.",
+    "price": 1078,
+    "image": "https://cdn.dummyjson.com/product-images/skin-care/olay-ultra-moisture-shea-butter-body-wash/thumbnail.webp",
+    "category": "skin-care",
+    "brand": "Olay",
+    "tags": [
+      "personal care",
+      "body wash"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "30ml",
+        "price": 539
+      },
+      {
+        "label": "75ml",
+        "price": 1078
+      },
+      {
+        "label": "150ml",
+        "price": 1833,
+        "discount": "10% off"
+      },
+      {
+        "label": "300ml",
+        "price": 3126,
+        "discount": "18% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-120",
+    "name": "Vaseline Men Body and Face Lotion",
+    "description": "Vaseline Men Body and Face Lotion is a specially formulated lotion designed to provide long-lasting moisture to men's skin. It absorbs quickly and helps keep the skin hydrated and healthy.",
+    "price": 829,
+    "image": "https://cdn.dummyjson.com/product-images/skin-care/vaseline-men-body-and-face-lotion/thumbnail.webp",
+    "category": "skin-care",
+    "brand": "Vaseline",
+    "tags": [
+      "personal care",
+      "body lotion"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "30ml",
+        "price": 415
+      },
+      {
+        "label": "75ml",
+        "price": 829
+      },
+      {
+        "label": "150ml",
+        "price": 1409,
+        "discount": "10% off"
+      },
+      {
+        "label": "300ml",
+        "price": 2404,
+        "discount": "18% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-137",
+    "name": "American Football",
+    "description": "The American Football is a classic ball used in American football games. It is designed for throwing and catching, making it an essential piece of equipment for the sport.",
+    "price": 1659,
+    "image": "https://cdn.dummyjson.com/product-images/sports-accessories/american-football/thumbnail.webp",
+    "category": "sports-accessories",
+    "brand": "Generic",
+    "tags": [
+      "sports equipment",
+      "american football"
+    ],
+    "isBestSeller": true,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 1659
+      },
+      {
+        "label": "2 Pack",
+        "price": 2820,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 5807,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-138",
+    "name": "Baseball Ball",
+    "description": "The Baseball Ball is a standard baseball used in baseball games. It features a durable leather cover and is designed for pitching, hitting, and fielding in the game of baseball.",
+    "price": 746,
+    "image": "https://cdn.dummyjson.com/product-images/sports-accessories/baseball-ball/thumbnail.webp",
+    "category": "sports-accessories",
+    "brand": "Generic",
+    "tags": [
+      "sports equipment",
+      "baseball"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 746
+      },
+      {
+        "label": "2 Pack",
+        "price": 1268,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 2611,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-139",
+    "name": "Baseball Glove",
+    "description": "The Baseball Glove is a protective glove worn by baseball players. It is designed to catch and field the baseball, providing players with comfort and control during the game.",
+    "price": 2074,
+    "image": "https://cdn.dummyjson.com/product-images/sports-accessories/baseball-glove/thumbnail.webp",
+    "category": "sports-accessories",
+    "brand": "Generic",
+    "tags": [
+      "sports equipment",
+      "baseball"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 2074
+      },
+      {
+        "label": "2 Pack",
+        "price": 3526,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 7259,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-140",
+    "name": "Basketball",
+    "description": "The Basketball is a standard ball used in basketball games. It is designed for dribbling, shooting, and passing in the game of basketball, suitable for both indoor and outdoor play.",
+    "price": 1244,
+    "image": "https://cdn.dummyjson.com/product-images/sports-accessories/basketball/thumbnail.webp",
+    "category": "sports-accessories",
+    "brand": "Generic",
+    "tags": [
+      "sports equipment",
+      "basketball"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 1244
+      },
+      {
+        "label": "2 Pack",
+        "price": 2115,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 4354,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-141",
+    "name": "Basketball Rim",
+    "description": "The Basketball Rim is a sturdy hoop and net assembly mounted on a basketball backboard. It provides a target for shooting and scoring in the game of basketball.",
+    "price": 3319,
+    "image": "https://cdn.dummyjson.com/product-images/sports-accessories/basketball-rim/thumbnail.webp",
+    "category": "sports-accessories",
+    "brand": "Generic",
+    "tags": [
+      "sports equipment",
+      "basketball"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 3319
+      },
+      {
+        "label": "2 Pack",
+        "price": 5642,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 11617,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-142",
+    "name": "Cricket Ball",
+    "description": "The Cricket Ball is a hard leather ball used in the sport of cricket. It is bowled and batted in the game, and its hardness and seam contribute to the dynamics of cricket play.",
+    "price": 1078,
+    "image": "https://cdn.dummyjson.com/product-images/sports-accessories/cricket-ball/thumbnail.webp",
+    "category": "sports-accessories",
+    "brand": "Generic",
+    "tags": [
+      "sports equipment",
+      "cricket"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 1078
+      },
+      {
+        "label": "2 Pack",
+        "price": 1833,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 3773,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-143",
+    "name": "Cricket Bat",
+    "description": "The Cricket Bat is an essential piece of cricket equipment used by batsmen to hit the cricket ball. It is made of wood and comes in various sizes and designs.",
+    "price": 2489,
+    "image": "https://cdn.dummyjson.com/product-images/sports-accessories/cricket-bat/thumbnail.webp",
+    "category": "sports-accessories",
+    "brand": "Generic",
+    "tags": [
+      "sports equipment",
+      "cricket"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 2489
+      },
+      {
+        "label": "2 Pack",
+        "price": 4231,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 8712,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-144",
+    "name": "Cricket Helmet",
+    "description": "The Cricket Helmet is a protective headgear worn by cricket players, especially batsmen and wicketkeepers. It provides protection against fast bowling and bouncers.",
+    "price": 3734,
+    "image": "https://cdn.dummyjson.com/product-images/sports-accessories/cricket-helmet/thumbnail.webp",
+    "category": "sports-accessories",
+    "brand": "Generic",
+    "tags": [
+      "sports equipment",
+      "cricket"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 3734
+      },
+      {
+        "label": "2 Pack",
+        "price": 6348,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 13069,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-145",
+    "name": "Cricket Wicket",
+    "description": "The Cricket Wicket is a set of three stumps and two bails, forming a wicket used in the sport of cricket. Batsmen aim to protect the wicket while scoring runs.",
+    "price": 2489,
+    "image": "https://cdn.dummyjson.com/product-images/sports-accessories/cricket-wicket/thumbnail.webp",
+    "category": "sports-accessories",
+    "brand": "Generic",
+    "tags": [
+      "sports equipment",
+      "cricket"
+    ],
+    "isBestSeller": true,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 2489
+      },
+      {
+        "label": "2 Pack",
+        "price": 4231,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 8712,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-146",
+    "name": "Feather Shuttlecock",
+    "description": "The Feather Shuttlecock is used in the sport of badminton. It features natural feathers and is designed for high-speed play, providing stability and accuracy during matches.",
+    "price": 497,
+    "image": "https://cdn.dummyjson.com/product-images/sports-accessories/feather-shuttlecock/thumbnail.webp",
+    "category": "sports-accessories",
+    "brand": "Generic",
+    "tags": [
+      "sports equipment",
+      "badminton"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 497
+      },
+      {
+        "label": "2 Pack",
+        "price": 845,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 1740,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-147",
+    "name": "Football",
+    "description": "The Football, also known as a soccer ball, is the standard ball used in the sport of football (soccer). It is designed for kicking and passing in the game.",
+    "price": 1493,
+    "image": "https://cdn.dummyjson.com/product-images/sports-accessories/football/thumbnail.webp",
+    "category": "sports-accessories",
+    "brand": "Generic",
+    "tags": [
+      "sports equipment",
+      "football"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 1493
+      },
+      {
+        "label": "2 Pack",
+        "price": 2538,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 5226,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-148",
+    "name": "Golf Ball",
+    "description": "The Golf Ball is a small ball used in the sport of golf. It features dimples on its surface, providing aerodynamic lift and distance when struck by a golf club.",
+    "price": 829,
+    "image": "https://cdn.dummyjson.com/product-images/sports-accessories/golf-ball/thumbnail.webp",
+    "category": "sports-accessories",
+    "brand": "Generic",
+    "tags": [
+      "sports equipment",
+      "golf"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 829
+      },
+      {
+        "label": "2 Pack",
+        "price": 1409,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 2902,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-149",
+    "name": "Iron Golf",
+    "description": "The Iron Golf is a type of golf club designed for various golf shots. It features a solid metal head and is used for approach shots, chipping, and other golfing techniques.",
+    "price": 4149,
+    "image": "https://cdn.dummyjson.com/product-images/sports-accessories/iron-golf/thumbnail.webp",
+    "category": "sports-accessories",
+    "brand": "Generic",
+    "tags": [
+      "sports equipment",
+      "golf"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 4149
+      },
+      {
+        "label": "2 Pack",
+        "price": 7053,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 14522,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-150",
+    "name": "Metal Baseball Bat",
+    "description": "The Metal Baseball Bat is a durable and lightweight baseball bat made from metal alloys. It is commonly used in baseball games for hitting and batting practice.",
+    "price": 2489,
+    "image": "https://cdn.dummyjson.com/product-images/sports-accessories/metal-baseball-bat/thumbnail.webp",
+    "category": "sports-accessories",
+    "brand": "Generic",
+    "tags": [
+      "sports equipment",
+      "baseball"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 2489
+      },
+      {
+        "label": "2 Pack",
+        "price": 4231,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 8712,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-151",
+    "name": "Tennis Ball",
+    "description": "The Tennis Ball is a standard ball used in the sport of tennis. It is designed for bouncing and hitting with tennis rackets during matches or practice sessions.",
+    "price": 580,
+    "image": "https://cdn.dummyjson.com/product-images/sports-accessories/tennis-ball/thumbnail.webp",
+    "category": "sports-accessories",
+    "brand": "Generic",
+    "tags": [
+      "sports equipment",
+      "tennis"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 580
+      },
+      {
+        "label": "2 Pack",
+        "price": 986,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 2030,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-152",
+    "name": "Tennis Racket",
+    "description": "The Tennis Racket is an essential piece of equipment used in the sport of tennis. It features a frame with strings and a grip, allowing players to hit the tennis ball.",
+    "price": 4149,
+    "image": "https://cdn.dummyjson.com/product-images/sports-accessories/tennis-racket/thumbnail.webp",
+    "category": "sports-accessories",
+    "brand": "Generic",
+    "tags": [
+      "sports equipment",
+      "tennis"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 4149
+      },
+      {
+        "label": "2 Pack",
+        "price": 7053,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 14522,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-153",
+    "name": "Volleyball",
+    "description": "The Volleyball is a standard ball used in the sport of volleyball. It is designed for passing, setting, and spiking over the net during volleyball matches.",
+    "price": 995,
+    "image": "https://cdn.dummyjson.com/product-images/sports-accessories/volleyball/thumbnail.webp",
+    "category": "sports-accessories",
+    "brand": "Generic",
+    "tags": [
+      "sports equipment",
+      "volleyball"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 995
+      },
+      {
+        "label": "2 Pack",
+        "price": 1692,
+        "discount": "15% off"
+      },
+      {
+        "label": "5 Pack",
+        "price": 3483,
+        "discount": "30% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-154",
+    "name": "Black Sun Glasses",
+    "description": "The Black Sun Glasses are a classic and stylish choice, featuring a sleek black frame and tinted lenses. They provide both UV protection and a fashionable look.",
+    "price": 2489,
+    "image": "https://cdn.dummyjson.com/product-images/sunglasses/black-sun-glasses/thumbnail.webp",
+    "category": "sunglasses",
+    "brand": "Fashion Shades",
+    "tags": [
+      "eyewear",
+      "sunglasses"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 2489
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-155",
+    "name": "Classic Sun Glasses",
+    "description": "The Classic Sun Glasses offer a timeless design with a neutral frame and UV-protected lenses. These sunglasses are versatile and suitable for various occasions.",
+    "price": 2074,
+    "image": "https://cdn.dummyjson.com/product-images/sunglasses/classic-sun-glasses/thumbnail.webp",
+    "category": "sunglasses",
+    "brand": "Fashion Shades",
+    "tags": [
+      "eyewear",
+      "sunglasses"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 2074
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-156",
+    "name": "Green and Black Glasses",
+    "description": "The Green and Black Glasses feature a bold combination of green and black colors, adding a touch of vibrancy to your eyewear collection. They are both stylish and eye-catching.",
+    "price": 2904,
+    "image": "https://cdn.dummyjson.com/product-images/sunglasses/green-and-black-glasses/thumbnail.webp",
+    "category": "sunglasses",
+    "brand": "Fashion Shades",
+    "tags": [
+      "eyewear",
+      "sunglasses"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 2904
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-157",
+    "name": "Party Glasses",
+    "description": "The Party Glasses are designed to add flair to your party outfit. With unique shapes or colorful frames, they're perfect for adding a playful touch to your look during celebrations.",
+    "price": 1659,
+    "image": "https://cdn.dummyjson.com/product-images/sunglasses/party-glasses/thumbnail.webp",
+    "category": "sunglasses",
+    "brand": "Fashion Fun",
+    "tags": [
+      "eyewear",
+      "party glasses"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 1659
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-158",
+    "name": "Sunglasses",
+    "description": "The Sunglasses offer a classic and simple design with a focus on functionality. These sunglasses provide essential UV protection while maintaining a timeless look.",
+    "price": 1908,
+    "image": "https://cdn.dummyjson.com/product-images/sunglasses/sunglasses/thumbnail.webp",
+    "category": "sunglasses",
+    "brand": "Fashion Shades",
+    "tags": [
+      "eyewear",
+      "sunglasses"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 1908
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-159",
+    "name": "iPad Mini 2021 Starlight",
+    "description": "The iPad Mini 2021 in Starlight is a compact and powerful tablet from Apple. Featuring a stunning Retina display, powerful A-series chip, and a sleek design, it offers a premium tablet experience.",
+    "price": 41499,
+    "image": "https://cdn.dummyjson.com/product-images/tablets/ipad-mini-2021-starlight/thumbnail.webp",
+    "category": "tablets",
+    "brand": "Apple",
+    "tags": [
+      "electronics",
+      "tablets"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "128GB",
+        "price": 41499
+      },
+      {
+        "label": "256GB",
+        "price": 48969
+      },
+      {
+        "label": "512GB",
+        "price": 58099,
+        "discount": "8% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-160",
+    "name": "Samsung Galaxy Tab S8 Plus Grey",
+    "description": "The Samsung Galaxy Tab S8 Plus in Grey is a high-performance Android tablet by Samsung. With a large AMOLED display, powerful processor, and S Pen support, it's ideal for productivity and entertainment.",
+    "price": 49799,
+    "image": "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-s8-plus-grey/thumbnail.webp",
+    "category": "tablets",
+    "brand": "Samsung",
+    "tags": [
+      "electronics",
+      "tablets"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "128GB",
+        "price": 49799
+      },
+      {
+        "label": "256GB",
+        "price": 58763
+      },
+      {
+        "label": "512GB",
+        "price": 69719,
+        "discount": "8% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-161",
+    "name": "Samsung Galaxy Tab White",
+    "description": "The Samsung Galaxy Tab in White is a sleek and versatile Android tablet. With a vibrant display, long-lasting battery, and a range of features, it offers a great user experience for various tasks.",
+    "price": 29049,
+    "image": "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-white/thumbnail.webp",
+    "category": "tablets",
+    "brand": "Samsung",
+    "tags": [
+      "electronics",
+      "tablets"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "128GB",
+        "price": 29049
+      },
+      {
+        "label": "256GB",
+        "price": 34278
+      },
+      {
+        "label": "512GB",
+        "price": 40669,
+        "discount": "8% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-162",
+    "name": "Blue Frock",
+    "description": "The Blue Frock is a charming and stylish dress for various occasions. With a vibrant blue color and a comfortable design, it adds a touch of elegance to your wardrobe.",
+    "price": 2489,
+    "image": "https://cdn.dummyjson.com/product-images/tops/blue-frock/thumbnail.webp",
+    "category": "tops",
+    "brand": "Generic",
+    "tags": [
+      "clothing",
+      "dresses"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "S",
+        "price": 2489
+      },
+      {
+        "label": "M",
+        "price": 2489
+      },
+      {
+        "label": "L",
+        "price": 2489
+      },
+      {
+        "label": "XL",
+        "price": 2613
+      },
+      {
+        "label": "XXL",
+        "price": 2613
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-163",
+    "name": "Girl Summer Dress",
+    "description": "The Girl Summer Dress is a cute and breezy dress designed for warm weather. With playful patterns and lightweight fabric, it's perfect for keeping cool and stylish during the summer.",
+    "price": 1659,
+    "image": "https://cdn.dummyjson.com/product-images/tops/girl-summer-dress/thumbnail.webp",
+    "category": "tops",
+    "brand": "Generic",
+    "tags": [
+      "clothing",
+      "girls' dresses"
+    ],
+    "isBestSeller": true,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "S",
+        "price": 1659
+      },
+      {
+        "label": "M",
+        "price": 1659
+      },
+      {
+        "label": "L",
+        "price": 1659
+      },
+      {
+        "label": "XL",
+        "price": 1742
+      },
+      {
+        "label": "XXL",
+        "price": 1742
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-164",
+    "name": "Gray Dress",
+    "description": "The Gray Dress is a versatile and chic option for various occasions. With a neutral gray color, it can be dressed up or down, making it a wardrobe staple for any fashion-forward individual.",
+    "price": 2904,
+    "image": "https://cdn.dummyjson.com/product-images/tops/gray-dress/thumbnail.webp",
+    "category": "tops",
+    "brand": "Generic",
+    "tags": [
+      "clothing",
+      "dresses"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "S",
+        "price": 2904
+      },
+      {
+        "label": "M",
+        "price": 2904
+      },
+      {
+        "label": "L",
+        "price": 2904
+      },
+      {
+        "label": "XL",
+        "price": 3049
+      },
+      {
+        "label": "XXL",
+        "price": 3049
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-165",
+    "name": "Short Frock",
+    "description": "The Short Frock is a playful and trendy dress with a shorter length. Ideal for casual outings or special occasions, it combines style and comfort for a fashionable look.",
+    "price": 2074,
+    "image": "https://cdn.dummyjson.com/product-images/tops/short-frock/thumbnail.webp",
+    "category": "tops",
+    "brand": "Generic",
+    "tags": [
+      "clothing",
+      "dresses"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "S",
+        "price": 2074
+      },
+      {
+        "label": "M",
+        "price": 2074
+      },
+      {
+        "label": "L",
+        "price": 2074
+      },
+      {
+        "label": "XL",
+        "price": 2178
+      },
+      {
+        "label": "XXL",
+        "price": 2178
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-166",
+    "name": "Tartan Dress",
+    "description": "The Tartan Dress features a classic tartan pattern, bringing a timeless and sophisticated touch to your wardrobe. Perfect for fall and winter, it adds a hint of traditional charm.",
+    "price": 3319,
+    "image": "https://cdn.dummyjson.com/product-images/tops/tartan-dress/thumbnail.webp",
+    "category": "tops",
+    "brand": "Generic",
+    "tags": [
+      "clothing",
+      "dresses"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "S",
+        "price": 3319
+      },
+      {
+        "label": "M",
+        "price": 3319
+      },
+      {
+        "label": "L",
+        "price": 3319
+      },
+      {
+        "label": "XL",
+        "price": 3485
+      },
+      {
+        "label": "XXL",
+        "price": 3485
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-167",
+    "name": "300 Touring",
+    "description": "The 300 Touring is a stylish and comfortable sedan, known for its luxurious features and smooth performance.",
+    "price": 2406999,
+    "image": "https://cdn.dummyjson.com/product-images/vehicle/300-touring/thumbnail.webp",
+    "category": "vehicle",
+    "brand": "Chrysler",
+    "tags": [
+      "sedans",
+      "vehicles"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1x",
+        "price": 2406999
+      },
+      {
+        "label": "2x Pack",
+        "price": 4212248,
+        "discount": "12% off"
+      },
+      {
+        "label": "5x Pack",
+        "price": 9146596,
+        "discount": "24% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-168",
+    "name": "Charger SXT RWD",
+    "description": "The Charger SXT RWD is a powerful and sporty rear-wheel-drive sedan, offering a blend of performance and practicality.",
+    "price": 2738999,
+    "image": "https://cdn.dummyjson.com/product-images/vehicle/charger-sxt-rwd/thumbnail.webp",
+    "category": "vehicle",
+    "brand": "Dodge",
+    "tags": [
+      "sedans",
+      "sports cars",
+      "vehicles"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1x",
+        "price": 2738999
+      },
+      {
+        "label": "2x Pack",
+        "price": 4793248,
+        "discount": "12% off"
+      },
+      {
+        "label": "5x Pack",
+        "price": 10408196,
+        "discount": "24% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-169",
+    "name": "Dodge Hornet GT Plus",
+    "description": "The Dodge Hornet GT Plus is a compact and agile hatchback, perfect for urban driving with a touch of sportiness.",
+    "price": 2074999,
+    "image": "https://cdn.dummyjson.com/product-images/vehicle/dodge-hornet-gt-plus/thumbnail.webp",
+    "category": "vehicle",
+    "brand": "Dodge",
+    "tags": [
+      "hatchbacks",
+      "compact cars",
+      "vehicles"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1x",
+        "price": 2074999
+      },
+      {
+        "label": "2x Pack",
+        "price": 3631248,
+        "discount": "12% off"
+      },
+      {
+        "label": "5x Pack",
+        "price": 7884996,
+        "discount": "24% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-170",
+    "name": "Durango SXT RWD",
+    "description": "The Durango SXT RWD is a spacious and versatile SUV, known for its strong performance and family-friendly features.",
+    "price": 3070999,
+    "image": "https://cdn.dummyjson.com/product-images/vehicle/durango-sxt-rwd/thumbnail.webp",
+    "category": "vehicle",
+    "brand": "Dodge",
+    "tags": [
+      "suvs",
+      "vehicles"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1x",
+        "price": 3070999
+      },
+      {
+        "label": "2x Pack",
+        "price": 5374248,
+        "discount": "12% off"
+      },
+      {
+        "label": "5x Pack",
+        "price": 11669796,
+        "discount": "24% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-171",
+    "name": "Pacifica Touring",
+    "description": "The Pacifica Touring is a stylish and well-equipped minivan, offering comfort and convenience for family journeys.",
+    "price": 2655999,
+    "image": "https://cdn.dummyjson.com/product-images/vehicle/pacifica-touring/thumbnail.webp",
+    "category": "vehicle",
+    "brand": "Chrysler",
+    "tags": [
+      "minivans",
+      "vehicles"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1x",
+        "price": 2655999
+      },
+      {
+        "label": "2x Pack",
+        "price": 4647998,
+        "discount": "12% off"
+      },
+      {
+        "label": "5x Pack",
+        "price": 10092796,
+        "discount": "24% off"
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-172",
+    "name": "Blue Women's Handbag",
+    "description": "The Blue Women's Handbag is a stylish and spacious accessory for everyday use. With a vibrant blue color and multiple compartments, it combines fashion and functionality.",
+    "price": 4149,
+    "image": "https://cdn.dummyjson.com/product-images/womens-bags/blue-women's-handbag/thumbnail.webp",
+    "category": "womens-bags",
+    "brand": "Fashionista",
+    "tags": [
+      "fashion accessories",
+      "handbags"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 4149
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-173",
+    "name": "Heshe Women's Leather Bag",
+    "description": "The Heshe Women's Leather Bag is a luxurious and high-quality leather bag for the sophisticated woman. With a timeless design and durable craftsmanship, it's a versatile accessory.",
+    "price": 10789,
+    "image": "https://cdn.dummyjson.com/product-images/womens-bags/heshe-women's-leather-bag/thumbnail.webp",
+    "category": "womens-bags",
+    "brand": "Heshe",
+    "tags": [
+      "fashion accessories",
+      "leather bags"
+    ],
+    "isBestSeller": true,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 10789
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-174",
+    "name": "Prada Women Bag",
+    "description": "The Prada Women Bag is an iconic designer bag that exudes elegance and luxury. Crafted with precision and featuring the Prada logo, it's a statement piece for fashion enthusiasts.",
+    "price": 49799,
+    "image": "https://cdn.dummyjson.com/product-images/womens-bags/prada-women-bag/thumbnail.webp",
+    "category": "womens-bags",
+    "brand": "Prada",
+    "tags": [
+      "fashion accessories",
+      "designer bags"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 49799
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-175",
+    "name": "White Faux Leather Backpack",
+    "description": "The White Faux Leather Backpack is a trendy and practical backpack for the modern woman. With a sleek white design and ample storage space, it's perfect for both casual and on-the-go styles.",
+    "price": 3319,
+    "image": "https://cdn.dummyjson.com/product-images/womens-bags/white-faux-leather-backpack/thumbnail.webp",
+    "category": "womens-bags",
+    "brand": "Urban Chic",
+    "tags": [
+      "fashion accessories",
+      "backpacks"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 3319
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-176",
+    "name": "Women Handbag Black",
+    "description": "The Women Handbag in Black is a classic and versatile accessory that complements various outfits. With a timeless black color and functional design, it's a must-have in every woman's wardrobe.",
+    "price": 4979,
+    "image": "https://cdn.dummyjson.com/product-images/womens-bags/women-handbag-black/thumbnail.webp",
+    "category": "womens-bags",
+    "brand": "Elegance Collection",
+    "tags": [
+      "fashion accessories",
+      "handbags"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 4979
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-177",
+    "name": "Black Women's Gown",
+    "description": "The Black Women's Gown is an elegant and timeless evening gown. With a sleek black design, it's perfect for formal events and special occasions, exuding sophistication and style.",
+    "price": 10789,
+    "image": "https://cdn.dummyjson.com/product-images/womens-dresses/black-women's-gown/thumbnail.webp",
+    "category": "womens-dresses",
+    "brand": "Generic",
+    "tags": [
+      "clothing",
+      "gowns"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "S",
+        "price": 10789
+      },
+      {
+        "label": "M",
+        "price": 10789
+      },
+      {
+        "label": "L",
+        "price": 10789
+      },
+      {
+        "label": "XL",
+        "price": 11328
+      },
+      {
+        "label": "XXL",
+        "price": 11328
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-178",
+    "name": "Corset Leather With Skirt",
+    "description": "The Corset Leather With Skirt is a bold and edgy ensemble that combines a stylish corset with a matching skirt. Ideal for fashion-forward individuals, it makes a statement at any event.",
+    "price": 7469,
+    "image": "https://cdn.dummyjson.com/product-images/womens-dresses/corset-leather-with-skirt/thumbnail.webp",
+    "category": "womens-dresses",
+    "brand": "Generic",
+    "tags": [
+      "clothing",
+      "corsets",
+      "skirts"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "S",
+        "price": 7469
+      },
+      {
+        "label": "M",
+        "price": 7469
+      },
+      {
+        "label": "L",
+        "price": 7469
+      },
+      {
+        "label": "XL",
+        "price": 7842
+      },
+      {
+        "label": "XXL",
+        "price": 7842
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-179",
+    "name": "Corset With Black Skirt",
+    "description": "The Corset With Black Skirt is a chic and versatile outfit that pairs a fashionable corset with a classic black skirt. It offers a trendy and coordinated look for various occasions.",
+    "price": 6639,
+    "image": "https://cdn.dummyjson.com/product-images/womens-dresses/corset-with-black-skirt/thumbnail.webp",
+    "category": "womens-dresses",
+    "brand": "Generic",
+    "tags": [
+      "clothing",
+      "corsets",
+      "skirts"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "S",
+        "price": 6639
+      },
+      {
+        "label": "M",
+        "price": 6639
+      },
+      {
+        "label": "L",
+        "price": 6639
+      },
+      {
+        "label": "XL",
+        "price": 6971
+      },
+      {
+        "label": "XXL",
+        "price": 6971
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-180",
+    "name": "Dress Pea",
+    "description": "The Dress Pea is a stylish and comfortable dress with a pea pattern. Perfect for casual outings, it adds a playful and fun element to your wardrobe, making it a great choice for day-to-day wear.",
+    "price": 4149,
+    "image": "https://cdn.dummyjson.com/product-images/womens-dresses/dress-pea/thumbnail.webp",
+    "category": "womens-dresses",
+    "brand": "Generic",
+    "tags": [
+      "clothing",
+      "dresses"
+    ],
+    "isBestSeller": true,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "S",
+        "price": 4149
+      },
+      {
+        "label": "M",
+        "price": 4149
+      },
+      {
+        "label": "L",
+        "price": 4149
+      },
+      {
+        "label": "XL",
+        "price": 4356
+      },
+      {
+        "label": "XXL",
+        "price": 4356
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-181",
+    "name": "Marni Red & Black Suit",
+    "description": "The Marni Red & Black Suit is a sophisticated and fashion-forward suit ensemble. With a combination of red and black tones, it showcases a modern design for a bold and confident look.",
+    "price": 14939,
+    "image": "https://cdn.dummyjson.com/product-images/womens-dresses/marni-red-&-black-suit/thumbnail.webp",
+    "category": "womens-dresses",
+    "brand": "Generic",
+    "tags": [
+      "clothing",
+      "suits"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "S",
+        "price": 14939
+      },
+      {
+        "label": "M",
+        "price": 14939
+      },
+      {
+        "label": "L",
+        "price": 14939
+      },
+      {
+        "label": "XL",
+        "price": 15686
+      },
+      {
+        "label": "XXL",
+        "price": 15686
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-182",
+    "name": "Green Crystal Earring",
+    "description": "The Green Crystal Earring is a dazzling accessory that features a vibrant green crystal. With a classic design, it adds a touch of elegance to your ensemble, perfect for formal or special occasions.",
+    "price": 2489,
+    "image": "https://cdn.dummyjson.com/product-images/womens-jewellery/green-crystal-earring/thumbnail.webp",
+    "category": "womens-jewellery",
+    "brand": "Generic",
+    "tags": [
+      "fashion accessories",
+      "earrings"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 2489
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-183",
+    "name": "Green Oval Earring",
+    "description": "The Green Oval Earring is a stylish and versatile accessory with a unique oval shape. Whether for casual or dressy occasions, its green hue and contemporary design make it a standout piece.",
+    "price": 2074,
+    "image": "https://cdn.dummyjson.com/product-images/womens-jewellery/green-oval-earring/thumbnail.webp",
+    "category": "womens-jewellery",
+    "brand": "Generic",
+    "tags": [
+      "fashion accessories",
+      "earrings"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 2074
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-184",
+    "name": "Tropical Earring",
+    "description": "The Tropical Earring is a fun and playful accessory inspired by tropical elements. Featuring vibrant colors and a lively design, it's perfect for adding a touch of summer to your look.",
+    "price": 1659,
+    "image": "https://cdn.dummyjson.com/product-images/womens-jewellery/tropical-earring/thumbnail.webp",
+    "category": "womens-jewellery",
+    "brand": "Generic",
+    "tags": [
+      "fashion accessories",
+      "earrings"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 1659
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-185",
+    "name": "Black & Brown Slipper",
+    "description": "The Black & Brown Slipper is a comfortable and stylish choice for casual wear. Featuring a blend of black and brown colors, it adds a touch of sophistication to your relaxation.",
+    "price": 1659,
+    "image": "https://cdn.dummyjson.com/product-images/womens-shoes/black-&-brown-slipper/thumbnail.webp",
+    "category": "womens-shoes",
+    "brand": "Comfort Trends",
+    "tags": [
+      "footwear",
+      "slippers"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "UK 6",
+        "price": 1659
+      },
+      {
+        "label": "UK 7",
+        "price": 1659
+      },
+      {
+        "label": "UK 8",
+        "price": 1659
+      },
+      {
+        "label": "UK 9",
+        "price": 1659
+      },
+      {
+        "label": "UK 10",
+        "price": 1659
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-186",
+    "name": "Calvin Klein Heel Shoes",
+    "description": "Calvin Klein Heel Shoes are elegant and sophisticated, designed for formal occasions. With a classic design and high-quality materials, they complement your stylish ensemble.",
+    "price": 6639,
+    "image": "https://cdn.dummyjson.com/product-images/womens-shoes/calvin-klein-heel-shoes/thumbnail.webp",
+    "category": "womens-shoes",
+    "brand": "Calvin Klein",
+    "tags": [
+      "footwear",
+      "heel shoes"
+    ],
+    "isBestSeller": true,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "UK 6",
+        "price": 6639
+      },
+      {
+        "label": "UK 7",
+        "price": 6639
+      },
+      {
+        "label": "UK 8",
+        "price": 6639
+      },
+      {
+        "label": "UK 9",
+        "price": 6639
+      },
+      {
+        "label": "UK 10",
+        "price": 6639
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-187",
+    "name": "Golden Shoes Woman",
+    "description": "The Golden Shoes for Women are a glamorous choice for special occasions. Featuring a golden hue and stylish design, they add a touch of luxury to your outfit.",
+    "price": 4149,
+    "image": "https://cdn.dummyjson.com/product-images/womens-shoes/golden-shoes-woman/thumbnail.webp",
+    "category": "womens-shoes",
+    "brand": "Fashion Diva",
+    "tags": [
+      "footwear",
+      "women's shoes"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "UK 6",
+        "price": 4149
+      },
+      {
+        "label": "UK 7",
+        "price": 4149
+      },
+      {
+        "label": "UK 8",
+        "price": 4149
+      },
+      {
+        "label": "UK 9",
+        "price": 4149
+      },
+      {
+        "label": "UK 10",
+        "price": 4149
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-188",
+    "name": "Pampi Shoes",
+    "description": "Pampi Shoes offer a blend of comfort and style for everyday use. With a versatile design, they are suitable for various casual occasions, providing a trendy and relaxed look.",
+    "price": 2489,
+    "image": "https://cdn.dummyjson.com/product-images/womens-shoes/pampi-shoes/thumbnail.webp",
+    "category": "womens-shoes",
+    "brand": "Pampi",
+    "tags": [
+      "footwear",
+      "casual shoes"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "UK 6",
+        "price": 2489
+      },
+      {
+        "label": "UK 7",
+        "price": 2489
+      },
+      {
+        "label": "UK 8",
+        "price": 2489
+      },
+      {
+        "label": "UK 9",
+        "price": 2489
+      },
+      {
+        "label": "UK 10",
+        "price": 2489
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-189",
+    "name": "Red Shoes",
+    "description": "The Red Shoes make a bold statement with their vibrant red color. Whether for a party or a casual outing, these shoes add a pop of color and style to your wardrobe.",
+    "price": 2904,
+    "image": "https://cdn.dummyjson.com/product-images/womens-shoes/red-shoes/thumbnail.webp",
+    "category": "womens-shoes",
+    "brand": "Fashion Express",
+    "tags": [
+      "footwear",
+      "women's shoes"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "UK 6",
+        "price": 2904
+      },
+      {
+        "label": "UK 7",
+        "price": 2904
+      },
+      {
+        "label": "UK 8",
+        "price": 2904
+      },
+      {
+        "label": "UK 9",
+        "price": 2904
+      },
+      {
+        "label": "UK 10",
+        "price": 2904
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-190",
+    "name": "IWC Ingenieur Automatic Steel",
+    "description": "The IWC Ingenieur Automatic Steel watch is a durable and sophisticated timepiece. With a stainless steel case and automatic movement, it combines precision and style for watch enthusiasts.",
+    "price": 414999,
+    "image": "https://cdn.dummyjson.com/product-images/womens-watches/iwc-ingenieur-automatic-steel/thumbnail.webp",
+    "category": "womens-watches",
+    "brand": "IWC",
+    "tags": [
+      "watches",
+      "luxury watches"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 414999
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-191",
+    "name": "Rolex Cellini Moonphase",
+    "description": "The Rolex Cellini Moonphase watch is a masterpiece of horology. Featuring a moon phase complication, it showcases the craftsmanship and elegance that Rolex is renowned for.",
+    "price": 1327999,
+    "image": "https://cdn.dummyjson.com/product-images/womens-watches/rolex-cellini-moonphase/thumbnail.webp",
+    "category": "womens-watches",
+    "brand": "Rolex",
+    "tags": [
+      "watches",
+      "luxury watches"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 1327999
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-192",
+    "name": "Rolex Datejust Women",
+    "description": "The Rolex Datejust Women's watch is an iconic timepiece designed for women. With a timeless design and a date complication, it offers both elegance and functionality.",
+    "price": 912999,
+    "image": "https://cdn.dummyjson.com/product-images/womens-watches/rolex-datejust-women/thumbnail.webp",
+    "category": "womens-watches",
+    "brand": "Rolex",
+    "tags": [
+      "watches",
+      "luxury watches",
+      "women's watches"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 912999
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-193",
+    "name": "Watch Gold for Women",
+    "description": "The Gold Women's Watch is a stunning accessory that combines luxury and style. Featuring a gold-plated case and a chic design, it adds a touch of glamour to any outfit.",
+    "price": 66399,
+    "image": "https://cdn.dummyjson.com/product-images/womens-watches/watch-gold-for-women/thumbnail.webp",
+    "category": "womens-watches",
+    "brand": "Fashion Gold",
+    "tags": [
+      "watches",
+      "women's watches"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 66399
+      }
+    ]
+  },
+  {
+    "id": "prod-gen-194",
+    "name": "Women's Wrist Watch",
+    "description": "The Women's Wrist Watch is a versatile and fashionable timepiece for everyday wear. With a comfortable strap and a simple yet elegant design, it complements various styles.",
+    "price": 10789,
+    "image": "https://cdn.dummyjson.com/product-images/womens-watches/women's-wrist-watch/thumbnail.webp",
+    "category": "womens-watches",
+    "brand": "Fashion Co.",
+    "tags": [
+      "watches",
+      "women's watches"
+    ],
+    "isBestSeller": false,
+    "isNewArrival": false,
+    "variants": [
+      {
+        "label": "1 Piece",
+        "price": 10789
+      }
     ]
   }
 ]

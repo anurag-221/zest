@@ -8,18 +8,27 @@ export interface City {
   displayName?: string; // For granular location (e.g. "Tilak Nagar, New Delhi")
 }
 
+export interface ProductVariant {
+  label: string;   // e.g. '500ml', 'XL Pack', 'Premium Edition'
+  price: number;
+  discount?: string; // e.g. '16% off' shown as badge on chip
+}
+
 export interface Product {
   id: string;
   name: string;
   description: string;
-  price: number; // Base price, might be overridden by inventory
+  price: number; // Base price (default / first variant)
   image: string;
   category: string;
   brand?: string;
   tags: string[];
   isBestSeller?: boolean;
   isNewArrival?: boolean;
+  isTrending?: boolean;
   stock?: number;
+  variants?: ProductVariant[];
+  colors?: string[]; // hex codes e.g. ['#1a1a1a', '#f5f5f0']
 }
 
 export interface InventoryItem {
@@ -69,7 +78,8 @@ export interface Order {
   id: string;
   items: OrderItem[];
   total: number;
-  status: 'pending' | 'processing' | 'out-for-delivery' | 'delivered' | 'cancelled';
+  status: 'pending' | 'processing' | 'packed' | 'shipped' | 'out-for-delivery' | 'delivered' | 'cancelled';
+  statusHistory?: { status: string; timestamp: string }[];
   createdAt: string;
   cityId: string;
   userId?: string;
@@ -85,4 +95,24 @@ export interface Order {
     tip?: number;
   };
   paymentMethod?: string;
+}
+
+export interface Coupon {
+  code: string;
+  type: 'flat' | 'percentage' | 'shipping';
+  value: number;
+  maxDiscount?: number;
+  minOrderValue: number;
+  description: string;
+}
+
+export interface GlobalSettings {
+  storeName: string;
+  supportEmail: string;
+  currency: string;
+  deliveryFee: number;
+  freeDeliveryThreshold: number;
+  handlingFee: number;
+  platformFee: number;
+  adminPasswordHash: string;
 }

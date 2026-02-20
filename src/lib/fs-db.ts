@@ -1,6 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
-import { AppEvent, Product, Inventory, City, Order } from '@/types';
+import { AppEvent, Product, Inventory, City, Order, Coupon, GlobalSettings } from '@/types';
 
 const DATA_DIR = path.join(process.cwd(), 'data');
 
@@ -59,5 +59,25 @@ export const db = {
         orders.unshift(order); // Add to top
         await db.orders.saveAll(orders);
     }
+  },
+  coupons: {
+    getAll: () => readJsonFile<Coupon[]>('coupons.json', []),
+    saveAll: (coupons: Coupon[]) => writeJsonFile('coupons.json', coupons),
+  },
+  settings: {
+    get: async () => {
+        const defaultSettings: GlobalSettings = {
+            storeName: 'Zest Hyperlocal',
+            supportEmail: 'support@zest.com',
+            currency: 'INR',
+            deliveryFee: 35,
+            freeDeliveryThreshold: 499,
+            handlingFee: 5,
+            platformFee: 2,
+            adminPasswordHash: 'Zest@2026' // In a real app, this should be a bcrypt hash
+        };
+        return readJsonFile<GlobalSettings>('settings.json', defaultSettings);
+    },
+    save: (settings: GlobalSettings) => writeJsonFile('settings.json', settings),
   }
 };

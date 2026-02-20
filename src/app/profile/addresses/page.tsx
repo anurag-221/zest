@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useAuthStore, Address } from '@/store/auth-store';
 import Header from '@/components/Header';
-import { Plus, MapPin, Trash2, Home, Briefcase, Map } from 'lucide-react';
+import { Plus, MapPin, Trash2, Home, Briefcase, Map, Navigation, Loader2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 
@@ -14,6 +14,7 @@ export default function AddressesPage() {
   
   // New Address State
   const [newAddr, setNewAddr] = useState<Partial<Address>>({ type: 'Home' });
+  const [isDetecting, setIsDetecting] = useState(false);
 
   // Redirect if not logged in
   useEffect(() => {
@@ -23,6 +24,62 @@ export default function AddressesPage() {
   }, [user, router]);
 
   if (!user) return null;
+
+  const handleDetectLocation = () => {
+      if (!navigator.geolocation) {
+          toast.error('Geolocation is not supported by your browser');
+          return;
+      }
+
+      setIsDetecting(true);
+      navigator.geolocation.getCurrentPosition(
+          async (position) => {
+              try {
+                  const { latitude, longitude } = position.coords;
+                  const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`);
+                  
+                  if (!response.ok) throw new Error('Failed to fetch address');
+                  
+                  const data = await response.json();
+                  
+                  if (data && data.address) {
+                      const address = data.address;
+                      
+                      const line1Arr = [address.house_number, address.building, address.road].filter(Boolean);
+                      const line1 = line1Arr.length > 0 ? line1Arr.join(', ') : address.propertyName || '';
+                      
+                      const line2Arr = [address.neighbourhood, address.suburb, address.village, address.county, address.district].filter(Boolean);
+                      const line2 = line2Arr.length > 0 ? line2Arr.join(', ') : '';
+                      
+                      const city = address.city || address.town || address.state_district || address.state || '';
+                      const zip = address.postcode || '';
+
+                      setNewAddr(prev => ({
+                          ...prev,
+                          line1: line1 || (data.display_name ? data.display_name.split(',')[0] : ''),
+                          line2: line2 || (data.display_name ? data.display_name.split(',').slice(1,3).join(',').trim() : ''),
+                          city,
+                          zip
+                      }));
+                      toast.success('Location auto-filled successfully!');
+                  } else {
+                      toast.error('Could not resolve location address');
+                  }
+              } catch (error) {
+                  console.error("Location detection error:", error);
+                  toast.error('Failed to detect location address');
+              } finally {
+                  setIsDetecting(false);
+              }
+          },
+          (error) => {
+              console.error("Geolocation error:", error);
+              toast.error('Failed to get your location. Please check permissions.');
+              setIsDetecting(false);
+          },
+          { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+      );
+  };
 
   const handleAdd = (e: React.FormEvent) => {
       e.preventDefault();
@@ -114,6 +171,16 @@ export default function AddressesPage() {
                                 </button>
                             ))}
                         </div>
+
+                        <button
+                            type="button"
+                            onClick={handleDetectLocation}
+                            disabled={isDetecting}
+                            className="w-full flex items-center justify-center gap-2 py-3 bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-900/30 dark:hover:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300 font-bold rounded-xl transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                        >
+                            {isDetecting ? <Loader2 size={18} className="animate-spin" /> : <Navigation size={18} className="text-indigo-600 dark:text-indigo-400" />}
+                            {isDetecting ? 'Detecting Location...' : 'Use Current Location'}
+                        </button>
 
                         <input 
                             placeholder="Flat / House No / Building" 

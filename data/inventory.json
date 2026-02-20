@@ -35,11 +35,823 @@
     "prod-1771435245999": {
       "stock": 8,
       "price": 25
+    },
+    "prod-gen-1": {
+      "stock": 62,
+      "price": 829
+    },
+    "prod-gen-2": {
+      "stock": 74,
+      "price": 1659
+    },
+    "prod-gen-3": {
+      "stock": 26,
+      "price": 1244
+    },
+    "prod-gen-4": {
+      "stock": 95,
+      "price": 1078
+    },
+    "prod-gen-5": {
+      "stock": 62,
+      "price": 746
+    },
+    "prod-gen-6": {
+      "stock": 11,
+      "price": 4149
+    },
+    "prod-gen-7": {
+      "stock": 27,
+      "price": 10789
+    },
+    "prod-gen-8": {
+      "stock": 56,
+      "price": 7469
+    },
+    "prod-gen-9": {
+      "stock": 66,
+      "price": 5809
+    },
+    "prod-gen-10": {
+      "stock": 30,
+      "price": 6639
+    },
+    "prod-gen-11": {
+      "stock": 86,
+      "price": 157699
+    },
+    "prod-gen-12": {
+      "stock": 71,
+      "price": 207499
+    },
+    "prod-gen-13": {
+      "stock": 49,
+      "price": 24899
+    },
+    "prod-gen-14": {
+      "stock": 112,
+      "price": 41499
+    },
+    "prod-gen-15": {
+      "stock": 98,
+      "price": 66399
+    },
+    "prod-gen-16": {
+      "stock": 46,
+      "price": 165
+    },
+    "prod-gen-17": {
+      "stock": 14,
+      "price": 1078
+    },
+    "prod-gen-18": {
+      "stock": 45,
+      "price": 746
+    },
+    "prod-gen-19": {
+      "stock": 88,
+      "price": 829
+    },
+    "prod-gen-20": {
+      "stock": 41,
+      "price": 414
+    },
+    "prod-gen-21": {
+      "stock": 104,
+      "price": 124
+    },
+    "prod-gen-22": {
+      "stock": 105,
+      "price": 912
+    },
+    "prod-gen-23": {
+      "stock": 50,
+      "price": 248
+    },
+    "prod-gen-24": {
+      "stock": 113,
+      "price": 1244
+    },
+    "prod-gen-25": {
+      "stock": 121,
+      "price": 107
+    },
+    "prod-gen-26": {
+      "stock": 49,
+      "price": 82
+    },
+    "prod-gen-27": {
+      "stock": 21,
+      "price": 580
+    },
+    "prod-gen-28": {
+      "stock": 90,
+      "price": 456
+    },
+    "prod-gen-29": {
+      "stock": 77,
+      "price": 331
+    },
+    "prod-gen-30": {
+      "stock": 12,
+      "price": 207
+    },
+    "prod-gen-31": {
+      "stock": 84,
+      "price": 66
+    },
+    "prod-gen-32": {
+      "stock": 7,
+      "price": 290
+    },
+    "prod-gen-33": {
+      "stock": 47,
+      "price": 414
+    },
+    "prod-gen-34": {
+      "stock": 21,
+      "price": 663
+    },
+    "prod-gen-35": {
+      "stock": 91,
+      "price": 190
+    },
+    "prod-gen-36": {
+      "stock": 101,
+      "price": 1659
+    },
+    "prod-gen-37": {
+      "stock": 114,
+      "price": 165
+    },
+    "prod-gen-38": {
+      "stock": 93,
+      "price": 497
+    },
+    "prod-gen-39": {
+      "stock": 123,
+      "price": 165
+    },
+    "prod-gen-40": {
+      "stock": 46,
+      "price": 331
+    },
+    "prod-gen-41": {
+      "stock": 123,
+      "price": 207
+    },
+    "prod-gen-42": {
+      "stock": 79,
+      "price": 82
+    },
+    "prod-gen-43": {
+      "stock": 70,
+      "price": 4979
+    },
+    "prod-gen-44": {
+      "stock": 16,
+      "price": 2489
+    },
+    "prod-gen-45": {
+      "stock": 68,
+      "price": 3319
+    },
+    "prod-gen-46": {
+      "stock": 29,
+      "price": 1244
+    },
+    "prod-gen-47": {
+      "stock": 99,
+      "price": 4149
+    },
+    "prod-gen-48": {
+      "stock": 72,
+      "price": 663
+    },
+    "prod-gen-49": {
+      "stock": 54,
+      "price": 497
+    },
+    "prod-gen-50": {
+      "stock": 104,
+      "price": 829
+    },
+    "prod-gen-51": {
+      "stock": 91,
+      "price": 3319
+    },
+    "prod-gen-52": {
+      "stock": 58,
+      "price": 2489
+    },
+    "prod-gen-53": {
+      "stock": 112,
+      "price": 1078
+    },
+    "prod-gen-54": {
+      "stock": 123,
+      "price": 746
+    },
+    "prod-gen-55": {
+      "stock": 54,
+      "price": 580
+    },
+    "prod-gen-56": {
+      "stock": 49,
+      "price": 4149
+    },
+    "prod-gen-57": {
+      "stock": 28,
+      "price": 829
+    },
+    "prod-gen-58": {
+      "stock": 90,
+      "price": 331
+    },
+    "prod-gen-59": {
+      "stock": 81,
+      "price": 414
+    },
+    "prod-gen-60": {
+      "stock": 118,
+      "price": 912
+    },
+    "prod-gen-61": {
+      "stock": 34,
+      "price": 2904
+    },
+    "prod-gen-62": {
+      "stock": 116,
+      "price": 497
+    },
+    "prod-gen-63": {
+      "stock": 17,
+      "price": 663
+    },
+    "prod-gen-64": {
+      "stock": 36,
+      "price": 1244
+    },
+    "prod-gen-65": {
+      "stock": 62,
+      "price": 1078
+    },
+    "prod-gen-66": {
+      "stock": 81,
+      "price": 7469
+    },
+    "prod-gen-67": {
+      "stock": 93,
+      "price": 1327
+    },
+    "prod-gen-68": {
+      "stock": 17,
+      "price": 2074
+    },
+    "prod-gen-69": {
+      "stock": 45,
+      "price": 331
+    },
+    "prod-gen-70": {
+      "stock": 79,
+      "price": 580
+    },
+    "prod-gen-71": {
+      "stock": 105,
+      "price": 3319
+    },
+    "prod-gen-72": {
+      "stock": 64,
+      "price": 746
+    },
+    "prod-gen-73": {
+      "stock": 46,
+      "price": 1659
+    },
+    "prod-gen-74": {
+      "stock": 36,
+      "price": 414
+    },
+    "prod-gen-75": {
+      "stock": 32,
+      "price": 1410
+    },
+    "prod-gen-76": {
+      "stock": 68,
+      "price": 995
+    },
+    "prod-gen-77": {
+      "stock": 20,
+      "price": 497
+    },
+    "prod-gen-78": {
+      "stock": 31,
+      "price": 165999
+    },
+    "prod-gen-79": {
+      "stock": 37,
+      "price": 149399
+    },
+    "prod-gen-80": {
+      "stock": 54,
+      "price": 116199
+    },
+    "prod-gen-81": {
+      "stock": 21,
+      "price": 91299
+    },
+    "prod-gen-82": {
+      "stock": 19,
+      "price": 124499
+    },
+    "prod-gen-83": {
+      "stock": 30,
+      "price": 2489
+    },
+    "prod-gen-84": {
+      "stock": 119,
+      "price": 2074
+    },
+    "prod-gen-85": {
+      "stock": 28,
+      "price": 2904
+    },
+    "prod-gen-86": {
+      "stock": 10,
+      "price": 1659
+    },
+    "prod-gen-87": {
+      "stock": 71,
+      "price": 2323
+    },
+    "prod-gen-88": {
+      "stock": 6,
+      "price": 12449
+    },
+    "prod-gen-89": {
+      "stock": 77,
+      "price": 6639
+    },
+    "prod-gen-90": {
+      "stock": 85,
+      "price": 7469
+    },
+    "prod-gen-91": {
+      "stock": 81,
+      "price": 9959
+    },
+    "prod-gen-92": {
+      "stock": 14,
+      "price": 9129
+    },
+    "prod-gen-93": {
+      "stock": 57,
+      "price": 7469
+    },
+    "prod-gen-94": {
+      "stock": 88,
+      "price": 124499
+    },
+    "prod-gen-95": {
+      "stock": 113,
+      "price": 746999
+    },
+    "prod-gen-96": {
+      "stock": 66,
+      "price": 1078999
+    },
+    "prod-gen-97": {
+      "stock": 89,
+      "price": 912999
+    },
+    "prod-gen-98": {
+      "stock": 104,
+      "price": 1161999
+    },
+    "prod-gen-99": {
+      "stock": 15,
+      "price": 8299
+    },
+    "prod-gen-100": {
+      "stock": 40,
+      "price": 10789
+    },
+    "prod-gen-101": {
+      "stock": 59,
+      "price": 45649
+    },
+    "prod-gen-102": {
+      "stock": 11,
+      "price": 6639
+    },
+    "prod-gen-103": {
+      "stock": 37,
+      "price": 8299
+    },
+    "prod-gen-104": {
+      "stock": 82,
+      "price": 1659
+    },
+    "prod-gen-105": {
+      "stock": 124,
+      "price": 8299
+    },
+    "prod-gen-106": {
+      "stock": 26,
+      "price": 29049
+    },
+    "prod-gen-107": {
+      "stock": 39,
+      "price": 4149
+    },
+    "prod-gen-108": {
+      "stock": 8,
+      "price": 2489
+    },
+    "prod-gen-109": {
+      "stock": 114,
+      "price": 1659
+    },
+    "prod-gen-110": {
+      "stock": 63,
+      "price": 1244
+    },
+    "prod-gen-111": {
+      "stock": 87,
+      "price": 1078
+    },
+    "prod-gen-112": {
+      "stock": 6,
+      "price": 41499
+    },
+    "prod-gen-113": {
+      "stock": 101,
+      "price": 331999
+    },
+    "prod-gen-114": {
+      "stock": 123,
+      "price": 746999
+    },
+    "prod-gen-115": {
+      "stock": 61,
+      "price": 1244999
+    },
+    "prod-gen-116": {
+      "stock": 77,
+      "price": 248999
+    },
+    "prod-gen-117": {
+      "stock": 19,
+      "price": 622499
+    },
+    "prod-gen-118": {
+      "stock": 51,
+      "price": 746
+    },
+    "prod-gen-119": {
+      "stock": 92,
+      "price": 1078
+    },
+    "prod-gen-120": {
+      "stock": 17,
+      "price": 829
+    },
+    "prod-gen-121": {
+      "stock": 114,
+      "price": 16599
+    },
+    "prod-gen-122": {
+      "stock": 5,
+      "price": 24899
+    },
+    "prod-gen-123": {
+      "stock": 104,
+      "price": 91299
+    },
+    "prod-gen-124": {
+      "stock": 16,
+      "price": 74699
+    },
+    "prod-gen-125": {
+      "stock": 88,
+      "price": 20749
+    },
+    "prod-gen-126": {
+      "stock": 107,
+      "price": 33199
+    },
+    "prod-gen-127": {
+      "stock": 30,
+      "price": 24899
+    },
+    "prod-gen-128": {
+      "stock": 32,
+      "price": 12449
+    },
+    "prod-gen-129": {
+      "stock": 23,
+      "price": 24899
+    },
+    "prod-gen-130": {
+      "stock": 58,
+      "price": 29049
+    },
+    "prod-gen-131": {
+      "stock": 41,
+      "price": 24899
+    },
+    "prod-gen-132": {
+      "stock": 67,
+      "price": 41499
+    },
+    "prod-gen-133": {
+      "stock": 80,
+      "price": 58099
+    },
+    "prod-gen-134": {
+      "stock": 117,
+      "price": 20749
+    },
+    "prod-gen-135": {
+      "stock": 48,
+      "price": 24899
+    },
+    "prod-gen-136": {
+      "stock": 36,
+      "price": 41499
+    },
+    "prod-gen-137": {
+      "stock": 26,
+      "price": 1659
+    },
+    "prod-gen-138": {
+      "stock": 5,
+      "price": 746
+    },
+    "prod-gen-139": {
+      "stock": 94,
+      "price": 2074
+    },
+    "prod-gen-140": {
+      "stock": 38,
+      "price": 1244
+    },
+    "prod-gen-141": {
+      "stock": 32,
+      "price": 3319
+    },
+    "prod-gen-142": {
+      "stock": 79,
+      "price": 1078
+    },
+    "prod-gen-143": {
+      "stock": 77,
+      "price": 2489
+    },
+    "prod-gen-144": {
+      "stock": 73,
+      "price": 3734
+    },
+    "prod-gen-145": {
+      "stock": 86,
+      "price": 2489
+    },
+    "prod-gen-146": {
+      "stock": 41,
+      "price": 497
+    },
+    "prod-gen-147": {
+      "stock": 90,
+      "price": 1493
+    },
+    "prod-gen-148": {
+      "stock": 31,
+      "price": 829
+    },
+    "prod-gen-149": {
+      "stock": 87,
+      "price": 4149
+    },
+    "prod-gen-150": {
+      "stock": 32,
+      "price": 2489
+    },
+    "prod-gen-151": {
+      "stock": 50,
+      "price": 580
+    },
+    "prod-gen-152": {
+      "stock": 20,
+      "price": 4149
+    },
+    "prod-gen-153": {
+      "stock": 62,
+      "price": 995
+    },
+    "prod-gen-154": {
+      "stock": 114,
+      "price": 2489
+    },
+    "prod-gen-155": {
+      "stock": 48,
+      "price": 2074
+    },
+    "prod-gen-156": {
+      "stock": 110,
+      "price": 2904
+    },
+    "prod-gen-157": {
+      "stock": 88,
+      "price": 1659
+    },
+    "prod-gen-158": {
+      "stock": 73,
+      "price": 1908
+    },
+    "prod-gen-159": {
+      "stock": 67,
+      "price": 41499
+    },
+    "prod-gen-160": {
+      "stock": 11,
+      "price": 49799
+    },
+    "prod-gen-161": {
+      "stock": 65,
+      "price": 29049
+    },
+    "prod-gen-162": {
+      "stock": 115,
+      "price": 2489
+    },
+    "prod-gen-163": {
+      "stock": 19,
+      "price": 1659
+    },
+    "prod-gen-164": {
+      "stock": 58,
+      "price": 2904
+    },
+    "prod-gen-165": {
+      "stock": 77,
+      "price": 2074
+    },
+    "prod-gen-166": {
+      "stock": 23,
+      "price": 3319
+    },
+    "prod-gen-167": {
+      "stock": 104,
+      "price": 2406999
+    },
+    "prod-gen-168": {
+      "stock": 54,
+      "price": 2738999
+    },
+    "prod-gen-169": {
+      "stock": 65,
+      "price": 2074999
+    },
+    "prod-gen-170": {
+      "stock": 120,
+      "price": 3070999
+    },
+    "prod-gen-171": {
+      "stock": 30,
+      "price": 2655999
+    },
+    "prod-gen-172": {
+      "stock": 88,
+      "price": 4149
+    },
+    "prod-gen-173": {
+      "stock": 74,
+      "price": 10789
+    },
+    "prod-gen-174": {
+      "stock": 112,
+      "price": 49799
+    },
+    "prod-gen-175": {
+      "stock": 86,
+      "price": 3319
+    },
+    "prod-gen-176": {
+      "stock": 71,
+      "price": 4979
+    },
+    "prod-gen-177": {
+      "stock": 115,
+      "price": 10789
+    },
+    "prod-gen-178": {
+      "stock": 120,
+      "price": 7469
+    },
+    "prod-gen-179": {
+      "stock": 89,
+      "price": 6639
+    },
+    "prod-gen-180": {
+      "stock": 40,
+      "price": 4149
+    },
+    "prod-gen-181": {
+      "stock": 16,
+      "price": 14939
+    },
+    "prod-gen-182": {
+      "stock": 66,
+      "price": 2489
+    },
+    "prod-gen-183": {
+      "stock": 55,
+      "price": 2074
+    },
+    "prod-gen-184": {
+      "stock": 109,
+      "price": 1659
+    },
+    "prod-gen-185": {
+      "stock": 78,
+      "price": 1659
+    },
+    "prod-gen-186": {
+      "stock": 31,
+      "price": 6639
+    },
+    "prod-gen-187": {
+      "stock": 16,
+      "price": 4149
+    },
+    "prod-gen-188": {
+      "stock": 5,
+      "price": 2489
+    },
+    "prod-gen-189": {
+      "stock": 124,
+      "price": 2904
+    },
+    "prod-gen-190": {
+      "stock": 30,
+      "price": 414999
+    },
+    "prod-gen-191": {
+      "stock": 121,
+      "price": 1327999
+    },
+    "prod-gen-192": {
+      "stock": 107,
+      "price": 912999
+    },
+    "prod-gen-193": {
+      "stock": 88,
+      "price": 66399
+    },
+    "prod-gen-194": {
+      "stock": 24,
+      "price": 10789
+    },
+    "phone-iphone-16-pro-max": {
+      "stock": 19,
+      "price": 144900
+    },
+    "phone-iphone-16-pro": {
+      "stock": 15,
+      "price": 119900
+    },
+    "phone-iphone-16": {
+      "stock": 16,
+      "price": 79900
+    },
+    "phone-samsung-s25-ultra": {
+      "stock": 24,
+      "price": 129999
+    },
+    "phone-samsung-s25-plus": {
+      "stock": 32,
+      "price": 99999
+    },
+    "phone-samsung-s25": {
+      "stock": 44,
+      "price": 79999
+    },
+    "phone-pixel-9-pro-xl": {
+      "stock": 26,
+      "price": 108999
+    },
+    "phone-pixel-9-pro": {
+      "stock": 31,
+      "price": 89999
+    },
+    "phone-pixel-9": {
+      "stock": 10,
+      "price": 69999
     }
   },
   "del-1": {
     "p-1": {
-      "stock": 7,
+      "stock": 0,
       "price": 280
     },
     "p-2": {
@@ -51,11 +863,11 @@
       "price": 25
     },
     "p-4": {
-      "stock": 5,
+      "stock": 0,
       "price": 550
     },
     "p-5": {
-      "stock": 25,
+      "stock": 24,
       "price": 65
     },
     "p-6": {
@@ -73,6 +885,818 @@
     "prod-1771435245999": {
       "stock": 1,
       "price": 30
+    },
+    "prod-gen-1": {
+      "stock": 117,
+      "price": 829
+    },
+    "prod-gen-2": {
+      "stock": 49,
+      "price": 1659
+    },
+    "prod-gen-3": {
+      "stock": 37,
+      "price": 1244
+    },
+    "prod-gen-4": {
+      "stock": 34,
+      "price": 1078
+    },
+    "prod-gen-5": {
+      "stock": 51,
+      "price": 746
+    },
+    "prod-gen-6": {
+      "stock": 103,
+      "price": 4149
+    },
+    "prod-gen-7": {
+      "stock": 48,
+      "price": 10789
+    },
+    "prod-gen-8": {
+      "stock": 43,
+      "price": 7469
+    },
+    "prod-gen-9": {
+      "stock": 19,
+      "price": 5809
+    },
+    "prod-gen-10": {
+      "stock": 56,
+      "price": 6639
+    },
+    "prod-gen-11": {
+      "stock": 85,
+      "price": 157699
+    },
+    "prod-gen-12": {
+      "stock": 110,
+      "price": 207499
+    },
+    "prod-gen-13": {
+      "stock": 77,
+      "price": 24899
+    },
+    "prod-gen-14": {
+      "stock": 79,
+      "price": 41499
+    },
+    "prod-gen-15": {
+      "stock": 107,
+      "price": 66399
+    },
+    "prod-gen-16": {
+      "stock": 72,
+      "price": 165
+    },
+    "prod-gen-17": {
+      "stock": 7,
+      "price": 1078
+    },
+    "prod-gen-18": {
+      "stock": 109,
+      "price": 746
+    },
+    "prod-gen-19": {
+      "stock": 11,
+      "price": 829
+    },
+    "prod-gen-20": {
+      "stock": 17,
+      "price": 414
+    },
+    "prod-gen-21": {
+      "stock": 41,
+      "price": 124
+    },
+    "prod-gen-22": {
+      "stock": 5,
+      "price": 912
+    },
+    "prod-gen-23": {
+      "stock": 17,
+      "price": 248
+    },
+    "prod-gen-24": {
+      "stock": 46,
+      "price": 1244
+    },
+    "prod-gen-25": {
+      "stock": 84,
+      "price": 107
+    },
+    "prod-gen-26": {
+      "stock": 21,
+      "price": 82
+    },
+    "prod-gen-27": {
+      "stock": 18,
+      "price": 580
+    },
+    "prod-gen-28": {
+      "stock": 65,
+      "price": 456
+    },
+    "prod-gen-29": {
+      "stock": 85,
+      "price": 331
+    },
+    "prod-gen-30": {
+      "stock": 59,
+      "price": 207
+    },
+    "prod-gen-31": {
+      "stock": 113,
+      "price": 66
+    },
+    "prod-gen-32": {
+      "stock": 28,
+      "price": 290
+    },
+    "prod-gen-33": {
+      "stock": 57,
+      "price": 414
+    },
+    "prod-gen-34": {
+      "stock": 69,
+      "price": 663
+    },
+    "prod-gen-35": {
+      "stock": 40,
+      "price": 190
+    },
+    "prod-gen-36": {
+      "stock": 57,
+      "price": 1659
+    },
+    "prod-gen-37": {
+      "stock": 104,
+      "price": 165
+    },
+    "prod-gen-38": {
+      "stock": 40,
+      "price": 497
+    },
+    "prod-gen-39": {
+      "stock": 28,
+      "price": 165
+    },
+    "prod-gen-40": {
+      "stock": 77,
+      "price": 331
+    },
+    "prod-gen-41": {
+      "stock": 7,
+      "price": 207
+    },
+    "prod-gen-42": {
+      "stock": 58,
+      "price": 82
+    },
+    "prod-gen-43": {
+      "stock": 89,
+      "price": 4979
+    },
+    "prod-gen-44": {
+      "stock": 81,
+      "price": 2489
+    },
+    "prod-gen-45": {
+      "stock": 7,
+      "price": 3319
+    },
+    "prod-gen-46": {
+      "stock": 77,
+      "price": 1244
+    },
+    "prod-gen-47": {
+      "stock": 79,
+      "price": 4149
+    },
+    "prod-gen-48": {
+      "stock": 42,
+      "price": 663
+    },
+    "prod-gen-49": {
+      "stock": 63,
+      "price": 497
+    },
+    "prod-gen-50": {
+      "stock": 12,
+      "price": 829
+    },
+    "prod-gen-51": {
+      "stock": 26,
+      "price": 3319
+    },
+    "prod-gen-52": {
+      "stock": 79,
+      "price": 2489
+    },
+    "prod-gen-53": {
+      "stock": 65,
+      "price": 1078
+    },
+    "prod-gen-54": {
+      "stock": 116,
+      "price": 746
+    },
+    "prod-gen-55": {
+      "stock": 92,
+      "price": 580
+    },
+    "prod-gen-56": {
+      "stock": 53,
+      "price": 4149
+    },
+    "prod-gen-57": {
+      "stock": 43,
+      "price": 829
+    },
+    "prod-gen-58": {
+      "stock": 6,
+      "price": 331
+    },
+    "prod-gen-59": {
+      "stock": 107,
+      "price": 414
+    },
+    "prod-gen-60": {
+      "stock": 113,
+      "price": 912
+    },
+    "prod-gen-61": {
+      "stock": 64,
+      "price": 2904
+    },
+    "prod-gen-62": {
+      "stock": 61,
+      "price": 497
+    },
+    "prod-gen-63": {
+      "stock": 43,
+      "price": 663
+    },
+    "prod-gen-64": {
+      "stock": 90,
+      "price": 1244
+    },
+    "prod-gen-65": {
+      "stock": 87,
+      "price": 1078
+    },
+    "prod-gen-66": {
+      "stock": 9,
+      "price": 7469
+    },
+    "prod-gen-67": {
+      "stock": 94,
+      "price": 1327
+    },
+    "prod-gen-68": {
+      "stock": 25,
+      "price": 2074
+    },
+    "prod-gen-69": {
+      "stock": 101,
+      "price": 331
+    },
+    "prod-gen-70": {
+      "stock": 70,
+      "price": 580
+    },
+    "prod-gen-71": {
+      "stock": 61,
+      "price": 3319
+    },
+    "prod-gen-72": {
+      "stock": 7,
+      "price": 746
+    },
+    "prod-gen-73": {
+      "stock": 58,
+      "price": 1659
+    },
+    "prod-gen-74": {
+      "stock": 107,
+      "price": 414
+    },
+    "prod-gen-75": {
+      "stock": 92,
+      "price": 1410
+    },
+    "prod-gen-76": {
+      "stock": 13,
+      "price": 995
+    },
+    "prod-gen-77": {
+      "stock": 52,
+      "price": 497
+    },
+    "prod-gen-78": {
+      "stock": 79,
+      "price": 165999
+    },
+    "prod-gen-79": {
+      "stock": 101,
+      "price": 149399
+    },
+    "prod-gen-80": {
+      "stock": 52,
+      "price": 116199
+    },
+    "prod-gen-81": {
+      "stock": 46,
+      "price": 91299
+    },
+    "prod-gen-82": {
+      "stock": 48,
+      "price": 124499
+    },
+    "prod-gen-83": {
+      "stock": 63,
+      "price": 2489
+    },
+    "prod-gen-84": {
+      "stock": 87,
+      "price": 2074
+    },
+    "prod-gen-85": {
+      "stock": 51,
+      "price": 2904
+    },
+    "prod-gen-86": {
+      "stock": 19,
+      "price": 1659
+    },
+    "prod-gen-87": {
+      "stock": 84,
+      "price": 2323
+    },
+    "prod-gen-88": {
+      "stock": 89,
+      "price": 12449
+    },
+    "prod-gen-89": {
+      "stock": 84,
+      "price": 6639
+    },
+    "prod-gen-90": {
+      "stock": 80,
+      "price": 7469
+    },
+    "prod-gen-91": {
+      "stock": 19,
+      "price": 9959
+    },
+    "prod-gen-92": {
+      "stock": 102,
+      "price": 9129
+    },
+    "prod-gen-93": {
+      "stock": 121,
+      "price": 7469
+    },
+    "prod-gen-94": {
+      "stock": 104,
+      "price": 124499
+    },
+    "prod-gen-95": {
+      "stock": 16,
+      "price": 746999
+    },
+    "prod-gen-96": {
+      "stock": 87,
+      "price": 1078999
+    },
+    "prod-gen-97": {
+      "stock": 76,
+      "price": 912999
+    },
+    "prod-gen-98": {
+      "stock": 38,
+      "price": 1161999
+    },
+    "prod-gen-99": {
+      "stock": 41,
+      "price": 8299
+    },
+    "prod-gen-100": {
+      "stock": 26,
+      "price": 10789
+    },
+    "prod-gen-101": {
+      "stock": 91,
+      "price": 45649
+    },
+    "prod-gen-102": {
+      "stock": 83,
+      "price": 6639
+    },
+    "prod-gen-103": {
+      "stock": 38,
+      "price": 8299
+    },
+    "prod-gen-104": {
+      "stock": 63,
+      "price": 1659
+    },
+    "prod-gen-105": {
+      "stock": 76,
+      "price": 8299
+    },
+    "prod-gen-106": {
+      "stock": 43,
+      "price": 29049
+    },
+    "prod-gen-107": {
+      "stock": 115,
+      "price": 4149
+    },
+    "prod-gen-108": {
+      "stock": 105,
+      "price": 2489
+    },
+    "prod-gen-109": {
+      "stock": 78,
+      "price": 1659
+    },
+    "prod-gen-110": {
+      "stock": 98,
+      "price": 1244
+    },
+    "prod-gen-111": {
+      "stock": 102,
+      "price": 1078
+    },
+    "prod-gen-112": {
+      "stock": 79,
+      "price": 41499
+    },
+    "prod-gen-113": {
+      "stock": 42,
+      "price": 331999
+    },
+    "prod-gen-114": {
+      "stock": 90,
+      "price": 746999
+    },
+    "prod-gen-115": {
+      "stock": 19,
+      "price": 1244999
+    },
+    "prod-gen-116": {
+      "stock": 26,
+      "price": 248999
+    },
+    "prod-gen-117": {
+      "stock": 6,
+      "price": 622499
+    },
+    "prod-gen-118": {
+      "stock": 5,
+      "price": 746
+    },
+    "prod-gen-119": {
+      "stock": 9,
+      "price": 1078
+    },
+    "prod-gen-120": {
+      "stock": 82,
+      "price": 829
+    },
+    "prod-gen-121": {
+      "stock": 71,
+      "price": 16599
+    },
+    "prod-gen-122": {
+      "stock": 43,
+      "price": 24899
+    },
+    "prod-gen-123": {
+      "stock": 88,
+      "price": 91299
+    },
+    "prod-gen-124": {
+      "stock": 90,
+      "price": 74699
+    },
+    "prod-gen-125": {
+      "stock": 87,
+      "price": 20749
+    },
+    "prod-gen-126": {
+      "stock": 32,
+      "price": 33199
+    },
+    "prod-gen-127": {
+      "stock": 12,
+      "price": 24899
+    },
+    "prod-gen-128": {
+      "stock": 105,
+      "price": 12449
+    },
+    "prod-gen-129": {
+      "stock": 65,
+      "price": 24899
+    },
+    "prod-gen-130": {
+      "stock": 10,
+      "price": 29049
+    },
+    "prod-gen-131": {
+      "stock": 75,
+      "price": 24899
+    },
+    "prod-gen-132": {
+      "stock": 60,
+      "price": 41499
+    },
+    "prod-gen-133": {
+      "stock": 110,
+      "price": 58099
+    },
+    "prod-gen-134": {
+      "stock": 44,
+      "price": 20749
+    },
+    "prod-gen-135": {
+      "stock": 113,
+      "price": 24899
+    },
+    "prod-gen-136": {
+      "stock": 12,
+      "price": 41499
+    },
+    "prod-gen-137": {
+      "stock": 88,
+      "price": 1659
+    },
+    "prod-gen-138": {
+      "stock": 27,
+      "price": 746
+    },
+    "prod-gen-139": {
+      "stock": 36,
+      "price": 2074
+    },
+    "prod-gen-140": {
+      "stock": 75,
+      "price": 1244
+    },
+    "prod-gen-141": {
+      "stock": 58,
+      "price": 3319
+    },
+    "prod-gen-142": {
+      "stock": 70,
+      "price": 1078
+    },
+    "prod-gen-143": {
+      "stock": 23,
+      "price": 2489
+    },
+    "prod-gen-144": {
+      "stock": 59,
+      "price": 3734
+    },
+    "prod-gen-145": {
+      "stock": 93,
+      "price": 2489
+    },
+    "prod-gen-146": {
+      "stock": 67,
+      "price": 497
+    },
+    "prod-gen-147": {
+      "stock": 118,
+      "price": 1493
+    },
+    "prod-gen-148": {
+      "stock": 24,
+      "price": 829
+    },
+    "prod-gen-149": {
+      "stock": 88,
+      "price": 4149
+    },
+    "prod-gen-150": {
+      "stock": 68,
+      "price": 2489
+    },
+    "prod-gen-151": {
+      "stock": 104,
+      "price": 580
+    },
+    "prod-gen-152": {
+      "stock": 121,
+      "price": 4149
+    },
+    "prod-gen-153": {
+      "stock": 51,
+      "price": 995
+    },
+    "prod-gen-154": {
+      "stock": 53,
+      "price": 2489
+    },
+    "prod-gen-155": {
+      "stock": 86,
+      "price": 2074
+    },
+    "prod-gen-156": {
+      "stock": 76,
+      "price": 2904
+    },
+    "prod-gen-157": {
+      "stock": 45,
+      "price": 1659
+    },
+    "prod-gen-158": {
+      "stock": 24,
+      "price": 1908
+    },
+    "prod-gen-159": {
+      "stock": 83,
+      "price": 41499
+    },
+    "prod-gen-160": {
+      "stock": 13,
+      "price": 49799
+    },
+    "prod-gen-161": {
+      "stock": 37,
+      "price": 29049
+    },
+    "prod-gen-162": {
+      "stock": 73,
+      "price": 2489
+    },
+    "prod-gen-163": {
+      "stock": 23,
+      "price": 1659
+    },
+    "prod-gen-164": {
+      "stock": 75,
+      "price": 2904
+    },
+    "prod-gen-165": {
+      "stock": 97,
+      "price": 2074
+    },
+    "prod-gen-166": {
+      "stock": 10,
+      "price": 3319
+    },
+    "prod-gen-167": {
+      "stock": 121,
+      "price": 2406999
+    },
+    "prod-gen-168": {
+      "stock": 97,
+      "price": 2738999
+    },
+    "prod-gen-169": {
+      "stock": 82,
+      "price": 2074999
+    },
+    "prod-gen-170": {
+      "stock": 108,
+      "price": 3070999
+    },
+    "prod-gen-171": {
+      "stock": 43,
+      "price": 2655999
+    },
+    "prod-gen-172": {
+      "stock": 56,
+      "price": 4149
+    },
+    "prod-gen-173": {
+      "stock": 104,
+      "price": 10789
+    },
+    "prod-gen-174": {
+      "stock": 79,
+      "price": 49799
+    },
+    "prod-gen-175": {
+      "stock": 20,
+      "price": 3319
+    },
+    "prod-gen-176": {
+      "stock": 53,
+      "price": 4979
+    },
+    "prod-gen-177": {
+      "stock": 37,
+      "price": 10789
+    },
+    "prod-gen-178": {
+      "stock": 89,
+      "price": 7469
+    },
+    "prod-gen-179": {
+      "stock": 41,
+      "price": 6639
+    },
+    "prod-gen-180": {
+      "stock": 123,
+      "price": 4149
+    },
+    "prod-gen-181": {
+      "stock": 10,
+      "price": 14939
+    },
+    "prod-gen-182": {
+      "stock": 11,
+      "price": 2489
+    },
+    "prod-gen-183": {
+      "stock": 100,
+      "price": 2074
+    },
+    "prod-gen-184": {
+      "stock": 39,
+      "price": 1659
+    },
+    "prod-gen-185": {
+      "stock": 92,
+      "price": 1659
+    },
+    "prod-gen-186": {
+      "stock": 94,
+      "price": 6639
+    },
+    "prod-gen-187": {
+      "stock": 59,
+      "price": 4149
+    },
+    "prod-gen-188": {
+      "stock": 89,
+      "price": 2489
+    },
+    "prod-gen-189": {
+      "stock": 109,
+      "price": 2904
+    },
+    "prod-gen-190": {
+      "stock": 114,
+      "price": 414999
+    },
+    "prod-gen-191": {
+      "stock": 73,
+      "price": 1327999
+    },
+    "prod-gen-192": {
+      "stock": 71,
+      "price": 912999
+    },
+    "prod-gen-193": {
+      "stock": 26,
+      "price": 66399
+    },
+    "prod-gen-194": {
+      "stock": 25,
+      "price": 10789
+    },
+    "phone-iphone-16-pro-max": {
+      "stock": 30,
+      "price": 144900
+    },
+    "phone-iphone-16-pro": {
+      "stock": 18,
+      "price": 119900
+    },
+    "phone-iphone-16": {
+      "stock": 34,
+      "price": 79900
+    },
+    "phone-samsung-s25-ultra": {
+      "stock": 8,
+      "price": 129999
+    },
+    "phone-samsung-s25-plus": {
+      "stock": 16,
+      "price": 99999
+    },
+    "phone-samsung-s25": {
+      "stock": 32,
+      "price": 79999
+    },
+    "phone-pixel-9-pro-xl": {
+      "stock": 12,
+      "price": 108999
+    },
+    "phone-pixel-9-pro": {
+      "stock": 34,
+      "price": 89999
+    },
+    "phone-pixel-9": {
+      "stock": 18,
+      "price": 69999
     }
   },
   "blr-1": {
@@ -91,6 +1715,818 @@
     "p-6": {
       "stock": 0,
       "price": 350
+    },
+    "prod-gen-1": {
+      "stock": 112,
+      "price": 829
+    },
+    "prod-gen-2": {
+      "stock": 43,
+      "price": 1659
+    },
+    "prod-gen-3": {
+      "stock": 49,
+      "price": 1244
+    },
+    "prod-gen-4": {
+      "stock": 32,
+      "price": 1078
+    },
+    "prod-gen-5": {
+      "stock": 69,
+      "price": 746
+    },
+    "prod-gen-6": {
+      "stock": 118,
+      "price": 4149
+    },
+    "prod-gen-7": {
+      "stock": 31,
+      "price": 10789
+    },
+    "prod-gen-8": {
+      "stock": 74,
+      "price": 7469
+    },
+    "prod-gen-9": {
+      "stock": 49,
+      "price": 5809
+    },
+    "prod-gen-10": {
+      "stock": 36,
+      "price": 6639
+    },
+    "prod-gen-11": {
+      "stock": 73,
+      "price": 157699
+    },
+    "prod-gen-12": {
+      "stock": 26,
+      "price": 207499
+    },
+    "prod-gen-13": {
+      "stock": 103,
+      "price": 24899
+    },
+    "prod-gen-14": {
+      "stock": 110,
+      "price": 41499
+    },
+    "prod-gen-15": {
+      "stock": 108,
+      "price": 66399
+    },
+    "prod-gen-16": {
+      "stock": 10,
+      "price": 165
+    },
+    "prod-gen-17": {
+      "stock": 87,
+      "price": 1078
+    },
+    "prod-gen-18": {
+      "stock": 106,
+      "price": 746
+    },
+    "prod-gen-19": {
+      "stock": 107,
+      "price": 829
+    },
+    "prod-gen-20": {
+      "stock": 74,
+      "price": 414
+    },
+    "prod-gen-21": {
+      "stock": 101,
+      "price": 124
+    },
+    "prod-gen-22": {
+      "stock": 22,
+      "price": 912
+    },
+    "prod-gen-23": {
+      "stock": 73,
+      "price": 248
+    },
+    "prod-gen-24": {
+      "stock": 101,
+      "price": 1244
+    },
+    "prod-gen-25": {
+      "stock": 57,
+      "price": 107
+    },
+    "prod-gen-26": {
+      "stock": 57,
+      "price": 82
+    },
+    "prod-gen-27": {
+      "stock": 78,
+      "price": 580
+    },
+    "prod-gen-28": {
+      "stock": 15,
+      "price": 456
+    },
+    "prod-gen-29": {
+      "stock": 46,
+      "price": 331
+    },
+    "prod-gen-30": {
+      "stock": 80,
+      "price": 207
+    },
+    "prod-gen-31": {
+      "stock": 21,
+      "price": 66
+    },
+    "prod-gen-32": {
+      "stock": 12,
+      "price": 290
+    },
+    "prod-gen-33": {
+      "stock": 27,
+      "price": 414
+    },
+    "prod-gen-34": {
+      "stock": 16,
+      "price": 663
+    },
+    "prod-gen-35": {
+      "stock": 117,
+      "price": 190
+    },
+    "prod-gen-36": {
+      "stock": 106,
+      "price": 1659
+    },
+    "prod-gen-37": {
+      "stock": 29,
+      "price": 165
+    },
+    "prod-gen-38": {
+      "stock": 39,
+      "price": 497
+    },
+    "prod-gen-39": {
+      "stock": 67,
+      "price": 165
+    },
+    "prod-gen-40": {
+      "stock": 70,
+      "price": 331
+    },
+    "prod-gen-41": {
+      "stock": 70,
+      "price": 207
+    },
+    "prod-gen-42": {
+      "stock": 87,
+      "price": 82
+    },
+    "prod-gen-43": {
+      "stock": 71,
+      "price": 4979
+    },
+    "prod-gen-44": {
+      "stock": 121,
+      "price": 2489
+    },
+    "prod-gen-45": {
+      "stock": 72,
+      "price": 3319
+    },
+    "prod-gen-46": {
+      "stock": 95,
+      "price": 1244
+    },
+    "prod-gen-47": {
+      "stock": 112,
+      "price": 4149
+    },
+    "prod-gen-48": {
+      "stock": 85,
+      "price": 663
+    },
+    "prod-gen-49": {
+      "stock": 64,
+      "price": 497
+    },
+    "prod-gen-50": {
+      "stock": 18,
+      "price": 829
+    },
+    "prod-gen-51": {
+      "stock": 69,
+      "price": 3319
+    },
+    "prod-gen-52": {
+      "stock": 44,
+      "price": 2489
+    },
+    "prod-gen-53": {
+      "stock": 87,
+      "price": 1078
+    },
+    "prod-gen-54": {
+      "stock": 40,
+      "price": 746
+    },
+    "prod-gen-55": {
+      "stock": 72,
+      "price": 580
+    },
+    "prod-gen-56": {
+      "stock": 47,
+      "price": 4149
+    },
+    "prod-gen-57": {
+      "stock": 28,
+      "price": 829
+    },
+    "prod-gen-58": {
+      "stock": 36,
+      "price": 331
+    },
+    "prod-gen-59": {
+      "stock": 124,
+      "price": 414
+    },
+    "prod-gen-60": {
+      "stock": 39,
+      "price": 912
+    },
+    "prod-gen-61": {
+      "stock": 117,
+      "price": 2904
+    },
+    "prod-gen-62": {
+      "stock": 86,
+      "price": 497
+    },
+    "prod-gen-63": {
+      "stock": 19,
+      "price": 663
+    },
+    "prod-gen-64": {
+      "stock": 80,
+      "price": 1244
+    },
+    "prod-gen-65": {
+      "stock": 123,
+      "price": 1078
+    },
+    "prod-gen-66": {
+      "stock": 44,
+      "price": 7469
+    },
+    "prod-gen-67": {
+      "stock": 11,
+      "price": 1327
+    },
+    "prod-gen-68": {
+      "stock": 98,
+      "price": 2074
+    },
+    "prod-gen-69": {
+      "stock": 117,
+      "price": 331
+    },
+    "prod-gen-70": {
+      "stock": 109,
+      "price": 580
+    },
+    "prod-gen-71": {
+      "stock": 61,
+      "price": 3319
+    },
+    "prod-gen-72": {
+      "stock": 48,
+      "price": 746
+    },
+    "prod-gen-73": {
+      "stock": 35,
+      "price": 1659
+    },
+    "prod-gen-74": {
+      "stock": 111,
+      "price": 414
+    },
+    "prod-gen-75": {
+      "stock": 44,
+      "price": 1410
+    },
+    "prod-gen-76": {
+      "stock": 37,
+      "price": 995
+    },
+    "prod-gen-77": {
+      "stock": 50,
+      "price": 497
+    },
+    "prod-gen-78": {
+      "stock": 28,
+      "price": 165999
+    },
+    "prod-gen-79": {
+      "stock": 64,
+      "price": 149399
+    },
+    "prod-gen-80": {
+      "stock": 80,
+      "price": 116199
+    },
+    "prod-gen-81": {
+      "stock": 6,
+      "price": 91299
+    },
+    "prod-gen-82": {
+      "stock": 72,
+      "price": 124499
+    },
+    "prod-gen-83": {
+      "stock": 40,
+      "price": 2489
+    },
+    "prod-gen-84": {
+      "stock": 124,
+      "price": 2074
+    },
+    "prod-gen-85": {
+      "stock": 35,
+      "price": 2904
+    },
+    "prod-gen-86": {
+      "stock": 16,
+      "price": 1659
+    },
+    "prod-gen-87": {
+      "stock": 26,
+      "price": 2323
+    },
+    "prod-gen-88": {
+      "stock": 68,
+      "price": 12449
+    },
+    "prod-gen-89": {
+      "stock": 47,
+      "price": 6639
+    },
+    "prod-gen-90": {
+      "stock": 89,
+      "price": 7469
+    },
+    "prod-gen-91": {
+      "stock": 70,
+      "price": 9959
+    },
+    "prod-gen-92": {
+      "stock": 68,
+      "price": 9129
+    },
+    "prod-gen-93": {
+      "stock": 91,
+      "price": 7469
+    },
+    "prod-gen-94": {
+      "stock": 36,
+      "price": 124499
+    },
+    "prod-gen-95": {
+      "stock": 63,
+      "price": 746999
+    },
+    "prod-gen-96": {
+      "stock": 44,
+      "price": 1078999
+    },
+    "prod-gen-97": {
+      "stock": 61,
+      "price": 912999
+    },
+    "prod-gen-98": {
+      "stock": 62,
+      "price": 1161999
+    },
+    "prod-gen-99": {
+      "stock": 24,
+      "price": 8299
+    },
+    "prod-gen-100": {
+      "stock": 102,
+      "price": 10789
+    },
+    "prod-gen-101": {
+      "stock": 117,
+      "price": 45649
+    },
+    "prod-gen-102": {
+      "stock": 58,
+      "price": 6639
+    },
+    "prod-gen-103": {
+      "stock": 61,
+      "price": 8299
+    },
+    "prod-gen-104": {
+      "stock": 115,
+      "price": 1659
+    },
+    "prod-gen-105": {
+      "stock": 90,
+      "price": 8299
+    },
+    "prod-gen-106": {
+      "stock": 44,
+      "price": 29049
+    },
+    "prod-gen-107": {
+      "stock": 7,
+      "price": 4149
+    },
+    "prod-gen-108": {
+      "stock": 18,
+      "price": 2489
+    },
+    "prod-gen-109": {
+      "stock": 114,
+      "price": 1659
+    },
+    "prod-gen-110": {
+      "stock": 50,
+      "price": 1244
+    },
+    "prod-gen-111": {
+      "stock": 29,
+      "price": 1078
+    },
+    "prod-gen-112": {
+      "stock": 17,
+      "price": 41499
+    },
+    "prod-gen-113": {
+      "stock": 36,
+      "price": 331999
+    },
+    "prod-gen-114": {
+      "stock": 19,
+      "price": 746999
+    },
+    "prod-gen-115": {
+      "stock": 27,
+      "price": 1244999
+    },
+    "prod-gen-116": {
+      "stock": 48,
+      "price": 248999
+    },
+    "prod-gen-117": {
+      "stock": 14,
+      "price": 622499
+    },
+    "prod-gen-118": {
+      "stock": 19,
+      "price": 746
+    },
+    "prod-gen-119": {
+      "stock": 43,
+      "price": 1078
+    },
+    "prod-gen-120": {
+      "stock": 11,
+      "price": 829
+    },
+    "prod-gen-121": {
+      "stock": 62,
+      "price": 16599
+    },
+    "prod-gen-122": {
+      "stock": 12,
+      "price": 24899
+    },
+    "prod-gen-123": {
+      "stock": 111,
+      "price": 91299
+    },
+    "prod-gen-124": {
+      "stock": 103,
+      "price": 74699
+    },
+    "prod-gen-125": {
+      "stock": 91,
+      "price": 20749
+    },
+    "prod-gen-126": {
+      "stock": 100,
+      "price": 33199
+    },
+    "prod-gen-127": {
+      "stock": 101,
+      "price": 24899
+    },
+    "prod-gen-128": {
+      "stock": 47,
+      "price": 12449
+    },
+    "prod-gen-129": {
+      "stock": 108,
+      "price": 24899
+    },
+    "prod-gen-130": {
+      "stock": 31,
+      "price": 29049
+    },
+    "prod-gen-131": {
+      "stock": 74,
+      "price": 24899
+    },
+    "prod-gen-132": {
+      "stock": 41,
+      "price": 41499
+    },
+    "prod-gen-133": {
+      "stock": 103,
+      "price": 58099
+    },
+    "prod-gen-134": {
+      "stock": 8,
+      "price": 20749
+    },
+    "prod-gen-135": {
+      "stock": 89,
+      "price": 24899
+    },
+    "prod-gen-136": {
+      "stock": 83,
+      "price": 41499
+    },
+    "prod-gen-137": {
+      "stock": 36,
+      "price": 1659
+    },
+    "prod-gen-138": {
+      "stock": 73,
+      "price": 746
+    },
+    "prod-gen-139": {
+      "stock": 40,
+      "price": 2074
+    },
+    "prod-gen-140": {
+      "stock": 67,
+      "price": 1244
+    },
+    "prod-gen-141": {
+      "stock": 6,
+      "price": 3319
+    },
+    "prod-gen-142": {
+      "stock": 8,
+      "price": 1078
+    },
+    "prod-gen-143": {
+      "stock": 98,
+      "price": 2489
+    },
+    "prod-gen-144": {
+      "stock": 12,
+      "price": 3734
+    },
+    "prod-gen-145": {
+      "stock": 49,
+      "price": 2489
+    },
+    "prod-gen-146": {
+      "stock": 113,
+      "price": 497
+    },
+    "prod-gen-147": {
+      "stock": 70,
+      "price": 1493
+    },
+    "prod-gen-148": {
+      "stock": 76,
+      "price": 829
+    },
+    "prod-gen-149": {
+      "stock": 65,
+      "price": 4149
+    },
+    "prod-gen-150": {
+      "stock": 36,
+      "price": 2489
+    },
+    "prod-gen-151": {
+      "stock": 7,
+      "price": 580
+    },
+    "prod-gen-152": {
+      "stock": 95,
+      "price": 4149
+    },
+    "prod-gen-153": {
+      "stock": 78,
+      "price": 995
+    },
+    "prod-gen-154": {
+      "stock": 124,
+      "price": 2489
+    },
+    "prod-gen-155": {
+      "stock": 15,
+      "price": 2074
+    },
+    "prod-gen-156": {
+      "stock": 73,
+      "price": 2904
+    },
+    "prod-gen-157": {
+      "stock": 122,
+      "price": 1659
+    },
+    "prod-gen-158": {
+      "stock": 6,
+      "price": 1908
+    },
+    "prod-gen-159": {
+      "stock": 40,
+      "price": 41499
+    },
+    "prod-gen-160": {
+      "stock": 48,
+      "price": 49799
+    },
+    "prod-gen-161": {
+      "stock": 23,
+      "price": 29049
+    },
+    "prod-gen-162": {
+      "stock": 83,
+      "price": 2489
+    },
+    "prod-gen-163": {
+      "stock": 44,
+      "price": 1659
+    },
+    "prod-gen-164": {
+      "stock": 88,
+      "price": 2904
+    },
+    "prod-gen-165": {
+      "stock": 57,
+      "price": 2074
+    },
+    "prod-gen-166": {
+      "stock": 110,
+      "price": 3319
+    },
+    "prod-gen-167": {
+      "stock": 59,
+      "price": 2406999
+    },
+    "prod-gen-168": {
+      "stock": 29,
+      "price": 2738999
+    },
+    "prod-gen-169": {
+      "stock": 31,
+      "price": 2074999
+    },
+    "prod-gen-170": {
+      "stock": 77,
+      "price": 3070999
+    },
+    "prod-gen-171": {
+      "stock": 50,
+      "price": 2655999
+    },
+    "prod-gen-172": {
+      "stock": 8,
+      "price": 4149
+    },
+    "prod-gen-173": {
+      "stock": 57,
+      "price": 10789
+    },
+    "prod-gen-174": {
+      "stock": 115,
+      "price": 49799
+    },
+    "prod-gen-175": {
+      "stock": 91,
+      "price": 3319
+    },
+    "prod-gen-176": {
+      "stock": 113,
+      "price": 4979
+    },
+    "prod-gen-177": {
+      "stock": 106,
+      "price": 10789
+    },
+    "prod-gen-178": {
+      "stock": 72,
+      "price": 7469
+    },
+    "prod-gen-179": {
+      "stock": 105,
+      "price": 6639
+    },
+    "prod-gen-180": {
+      "stock": 33,
+      "price": 4149
+    },
+    "prod-gen-181": {
+      "stock": 19,
+      "price": 14939
+    },
+    "prod-gen-182": {
+      "stock": 111,
+      "price": 2489
+    },
+    "prod-gen-183": {
+      "stock": 90,
+      "price": 2074
+    },
+    "prod-gen-184": {
+      "stock": 104,
+      "price": 1659
+    },
+    "prod-gen-185": {
+      "stock": 54,
+      "price": 1659
+    },
+    "prod-gen-186": {
+      "stock": 109,
+      "price": 6639
+    },
+    "prod-gen-187": {
+      "stock": 41,
+      "price": 4149
+    },
+    "prod-gen-188": {
+      "stock": 62,
+      "price": 2489
+    },
+    "prod-gen-189": {
+      "stock": 56,
+      "price": 2904
+    },
+    "prod-gen-190": {
+      "stock": 118,
+      "price": 414999
+    },
+    "prod-gen-191": {
+      "stock": 88,
+      "price": 1327999
+    },
+    "prod-gen-192": {
+      "stock": 40,
+      "price": 912999
+    },
+    "prod-gen-193": {
+      "stock": 10,
+      "price": 66399
+    },
+    "prod-gen-194": {
+      "stock": 70,
+      "price": 10789
+    },
+    "phone-iphone-16-pro-max": {
+      "stock": 30,
+      "price": 144900
+    },
+    "phone-iphone-16-pro": {
+      "stock": 18,
+      "price": 119900
+    },
+    "phone-iphone-16": {
+      "stock": 40,
+      "price": 79900
+    },
+    "phone-samsung-s25-ultra": {
+      "stock": 15,
+      "price": 129999
+    },
+    "phone-samsung-s25-plus": {
+      "stock": 7,
+      "price": 99999
+    },
+    "phone-samsung-s25": {
+      "stock": 10,
+      "price": 79999
+    },
+    "phone-pixel-9-pro-xl": {
+      "stock": 28,
+      "price": 108999
+    },
+    "phone-pixel-9-pro": {
+      "stock": 15,
+      "price": 89999
+    },
+    "phone-pixel-9": {
+      "stock": 37,
+      "price": 69999
     }
   }
 }

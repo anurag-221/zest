@@ -1,5 +1,152 @@
 [
   {
+    "id": "ORD-1771613641004",
+    "items": [
+      {
+        "id": "prod-gen-29",
+        "name": "Juice",
+        "quantity": 54,
+        "price": 331
+      },
+      {
+        "id": "prod-gen-34",
+        "name": "Nescafe Coffee",
+        "quantity": 1,
+        "price": 663
+      },
+      {
+        "id": "prod-gen-39",
+        "name": "Soft Drinks",
+        "quantity": 9,
+        "price": 165
+      },
+      {
+        "id": "p-5",
+        "name": "Haldiram's Aloo Bhujia",
+        "quantity": 1,
+        "price": 65
+      },
+      {
+        "id": "prod-gen-11",
+        "name": "Annibale Colombo Bed",
+        "quantity": 12,
+        "price": 157699
+      }
+    ],
+    "total": 1912475,
+    "status": "out-for-delivery",
+    "statusHistory": [
+      {
+        "status": "pending",
+        "timestamp": "2026-02-20T18:54:01.004Z"
+      },
+      {
+        "status": "out-for-delivery",
+        "timestamp": "2026-02-20T18:54:42.865Z"
+      }
+    ],
+    "createdAt": "2026-02-20T18:54:01.004Z",
+    "cityId": "del-1"
+  },
+  {
+    "id": "ORD-1771609068799",
+    "items": [
+      {
+        "id": "p-1",
+        "name": "Amul Butter (500g)",
+        "quantity": 6,
+        "price": 280
+      }
+    ],
+    "total": 1680,
+    "status": "delivered",
+    "statusHistory": [
+      {
+        "status": "pending",
+        "timestamp": "2026-02-20T17:37:48.799Z"
+      },
+      {
+        "status": "delivered",
+        "timestamp": "2026-02-20T17:42:20.157Z"
+      }
+    ],
+    "createdAt": "2026-02-20T17:37:48.799Z",
+    "cityId": "del-1"
+  },
+  {
+    "id": "ORD-1771608792600",
+    "items": [
+      {
+        "id": "p-4",
+        "name": "Davidoff Coffee (100g)",
+        "quantity": 3,
+        "price": 550
+      }
+    ],
+    "total": 1650,
+    "status": "out-for-delivery",
+    "statusHistory": [
+      {
+        "status": "pending",
+        "timestamp": "2026-02-20T17:33:12.600Z"
+      },
+      {
+        "status": "out-for-delivery",
+        "timestamp": "2026-02-20T17:34:27.529Z"
+      }
+    ],
+    "createdAt": "2026-02-20T17:33:12.600Z",
+    "cityId": "del-1"
+  },
+  {
+    "id": "ORD-1771608129046",
+    "items": [
+      {
+        "id": "p-4",
+        "name": "Davidoff Coffee (100g)",
+        "quantity": 1,
+        "price": 550
+      },
+      {
+        "id": "p-1",
+        "name": "Amul Butter (500g)",
+        "quantity": 1,
+        "price": 280
+      }
+    ],
+    "total": 830,
+    "status": "pending",
+    "statusHistory": [
+      {
+        "status": "pending",
+        "timestamp": "2026-02-20T17:22:09.046Z"
+      }
+    ],
+    "createdAt": "2026-02-20T17:22:09.046Z",
+    "cityId": "del-1"
+  },
+  {
+    "id": "ORD-1771607351852",
+    "items": [
+      {
+        "id": "p-4",
+        "name": "Davidoff Coffee (100g)",
+        "quantity": 1,
+        "price": 550
+      }
+    ],
+    "total": 550,
+    "status": "pending",
+    "statusHistory": [
+      {
+        "status": "pending",
+        "timestamp": "2026-02-20T17:09:11.852Z"
+      }
+    ],
+    "createdAt": "2026-02-20T17:09:11.852Z",
+    "cityId": "del-1"
+  },
+  {
     "id": "ORD-1771520779057",
     "items": [
       {
@@ -10,9 +157,27 @@
       }
     ],
     "total": 280,
-    "status": "processing",
+    "status": "cancelled",
     "createdAt": "2026-02-19T17:06:19.058Z",
-    "cityId": "blr-1"
+    "cityId": "blr-1",
+    "statusHistory": [
+      {
+        "status": "out-for-delivery",
+        "timestamp": "2026-02-20T17:04:39.498Z"
+      },
+      {
+        "status": "processing",
+        "timestamp": "2026-02-20T17:04:56.776Z"
+      },
+      {
+        "status": "pending",
+        "timestamp": "2026-02-20T17:04:59.126Z"
+      },
+      {
+        "status": "cancelled",
+        "timestamp": "2026-02-20T17:05:01.353Z"
+      }
+    ]
   },
   {
     "id": "ORD-1771517351917",

@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { useParams } from 'next/navigation';
+import { useViewedStore } from '@/store/viewed-store';
 import Header from '@/components/Header';
 import { ProductService } from '@/services/product-service'; // Assuming client-safe
 import { useCartStore } from '@/store/cart-store';
@@ -43,7 +44,14 @@ export default function ProductPage() {
 
     const cartItem = items.find(i => i.id === product.id);
     const quantity = cartItem ? cartItem.quantity : 0;
-    const relatedProducts = allProducts.filter(p => p.category === product.category && p.id !== product.id).slice(0, 5);
+    const relatedProducts = allProducts.filter(p => p.category === product.category && p.id !== product.id).slice(0, 10);
+
+    // Track View
+    useEffect(() => {
+        if (product) {
+            useViewedStore.getState().addViewedProduct(product.id);
+        }
+    }, [product?.id]);
 
     return (
         <main className="min-h-screen bg-white dark:bg-gray-950 pb-20 transition-colors">
@@ -78,9 +86,10 @@ export default function ProductPage() {
                         <h1 className="text-3xl lg:text-4xl font-extrabold text-gray-900 dark:text-white mb-2 leading-tight">
                             {product.name}
                         </h1>
-                        <div className="text-gray-500 dark:text-gray-400 mb-6 text-lg leading-relaxed">
-                            {product.description}
-                        </div>
+                        <div 
+                            className="prose prose-indigo dark:prose-invert max-w-none text-gray-500 dark:text-gray-400 mb-6 text-lg leading-relaxed"
+                            dangerouslySetInnerHTML={{ __html: product.description }}
+                        />
 
                         {/* Price & Rating */}
                         <div className="flex items-center gap-4 mb-8">
@@ -169,8 +178,13 @@ export default function ProductPage() {
                 </div>
 
                 {/* Related Products */}
-                <div className="mt-16 border-t border-gray-100 dark:border-gray-800 pt-10">
+                <div className="mt-16 border-t border-gray-100 dark:border-gray-800 pt-10 space-y-12">
                     <RecommendationRail title="Frequently Bought Together" products={RecommendationService.getSimilarProducts(product)} />
+                    {relatedProducts.length > 0 && (
+                        <div className="pt-4">
+                             <ProductRail title="Related Items" products={relatedProducts} />
+                        </div>
+                    )}
                 </div>
             </div>
         </main>

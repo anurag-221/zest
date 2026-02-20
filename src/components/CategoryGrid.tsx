@@ -4,14 +4,19 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const categories = [
-  { id: 'fruits-veg', name: 'Fruits & Veggies', image: 'https://cdn-icons-png.flaticon.com/512/1625/1625048.png', color: 'bg-green-100 dark:bg-green-900/30 dark:border-green-800' },
-  { id: 'dairy', name: 'Dairy, Bread & Eggs', image: 'https://cdn-icons-png.flaticon.com/512/3050/3050158.png', color: 'bg-yellow-100 dark:bg-yellow-900/30 dark:border-yellow-800' },
-  { id: 'snacks', name: 'Munchies', image: 'https://cdn-icons-png.flaticon.com/512/2553/2553691.png', color: 'bg-orange-100 dark:bg-orange-900/30 dark:border-orange-800' },
-  { id: 'drinks', name: 'Cold Drinks', image: 'https://cdn-icons-png.flaticon.com/512/2405/2405479.png', color: 'bg-blue-100 dark:bg-blue-900/30 dark:border-blue-800' },
-  { id: 'breakfast', name: 'Breakfast', image: 'https://cdn-icons-png.flaticon.com/512/887/887396.png', color: 'bg-red-100 dark:bg-red-900/30 dark:border-red-800' },
-  { id: 'tea', name: 'Tea & Coffee', image: 'https://cdn-icons-png.flaticon.com/512/924/924514.png', color: 'bg-brown-100 dark:bg-stone-800 dark:border-stone-700' },
-  { id: 'bakery', name: 'Bakery', image: 'https://cdn-icons-png.flaticon.com/512/992/992710.png', color: 'bg-pink-100 dark:bg-pink-900/30 dark:border-pink-800' },
-  { id: 'frozen', name: 'Frozen Food', image: 'https://cdn-icons-png.flaticon.com/512/2722/2722513.png', color: 'bg-cyan-100 dark:bg-cyan-900/30 dark:border-cyan-800' },
+  { id: 'smartphones', name: 'Smartphones', image: 'https://cdn-icons-png.flaticon.com/512/0/191.png', color: 'bg-gray-100 dark:bg-gray-900/30 dark:border-gray-800' },
+  { id: 'groceries', name: 'Groceries', image: 'https://cdn-icons-png.flaticon.com/512/3081/3081840.png', color: 'bg-green-100 dark:bg-green-900/30 dark:border-green-800' },
+  { id: 'beauty', name: 'Beauty', image: 'https://cdn-icons-png.flaticon.com/512/1940/1940922.png', color: 'bg-pink-100 dark:bg-pink-900/30 dark:border-pink-800' },
+  { id: 'fragrances', name: 'Fragrances', image: 'https://cdn-icons-png.flaticon.com/512/3596/3596009.png', color: 'bg-purple-100 dark:bg-purple-900/30 dark:border-purple-800' },
+  { id: 'furniture', name: 'Furniture', image: 'https://cdn-icons-png.flaticon.com/512/2611/2611026.png', color: 'bg-amber-100 dark:bg-amber-900/30 dark:border-amber-800' },
+  { id: 'home-decoration', name: 'Home Decor', image: 'https://cdn-icons-png.flaticon.com/512/4754/4754546.png', color: 'bg-rose-100 dark:bg-rose-900/30 dark:border-rose-800' },
+  { id: 'kitchen-accessories', name: 'Kitchen', image: 'https://cdn-icons-png.flaticon.com/512/1655/1655060.png', color: 'bg-orange-100 dark:bg-orange-900/30 dark:border-orange-800' },
+  { id: 'laptops', name: 'Laptops', image: 'https://cdn-icons-png.flaticon.com/512/428/428054.png', color: 'bg-slate-100 dark:bg-slate-900/30 dark:border-slate-800' },
+  { id: 'mobile-accessories', name: 'Mobile Acc.', image: 'https://cdn-icons-png.flaticon.com/512/3067/3067822.png', color: 'bg-blue-100 dark:bg-blue-900/30 dark:border-blue-800' },
+  { id: 'mens-shirts', name: 'Mens Shirts', image: 'https://cdn-icons-png.flaticon.com/512/2445/2445656.png', color: 'bg-cyan-100 dark:bg-cyan-900/30 dark:border-cyan-800' },
+  { id: 'mens-shoes', name: 'Mens Shoes', image: 'https://cdn-icons-png.flaticon.com/512/2742/2742638.png', color: 'bg-indigo-100 dark:bg-indigo-900/30 dark:border-indigo-800' },
+  { id: 'mens-watches', name: 'Mens Watches', image: 'https://cdn-icons-png.flaticon.com/512/2784/2784459.png', color: 'bg-stone-100 dark:bg-stone-900/30 dark:border-stone-800' },
+  { id: 'snacks', name: 'Snacks', image: 'https://cdn-icons-png.flaticon.com/512/2553/2553691.png', color: 'bg-yellow-100 dark:bg-yellow-900/30 dark:border-yellow-800' },
 ];
 
 export default function CategoryGrid() {

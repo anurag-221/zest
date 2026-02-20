@@ -14,11 +14,14 @@ function SearchResults() {
 
     useEffect(() => {
         if (query) {
+            const q = query.toLowerCase();
             const allProducts = ProductService.getAllProducts();
-            const filtered = allProducts.filter(p => 
-                p.name.toLowerCase().includes(query.toLowerCase()) || 
-                p.tags.some(t => t.toLowerCase().includes(query.toLowerCase())) ||
-                p.category.toLowerCase().includes(query.toLowerCase())
+            const filtered = allProducts.filter(p =>
+                p.name.toLowerCase().includes(q) ||
+                p.category.toLowerCase().includes(q) ||
+                (p.brand && p.brand.toLowerCase().includes(q)) ||
+                p.tags.some(t => t.toLowerCase().includes(q)) ||
+                p.description.toLowerCase().includes(q)
             );
             setResults(filtered);
         }
