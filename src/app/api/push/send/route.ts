@@ -2,11 +2,15 @@ import { NextRequest, NextResponse } from 'next/server';
 import webpush from 'web-push';
 import { getSubscriptions } from '../subscribe/route';
 
-webpush.setVapidDetails(
-  process.env.VAPID_EMAIL || 'mailto:admin@zest.app',
-  process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY as string,
-  process.env.VAPID_PRIVATE_KEY as string
-);
+if (process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY && process.env.VAPID_PRIVATE_KEY) {
+  webpush.setVapidDetails(
+    process.env.VAPID_EMAIL || 'mailto:anuragsrivastava695@gmail.com',
+    process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY as string,
+    process.env.VAPID_PRIVATE_KEY as string
+  );
+} else {
+  console.warn('[Push] VAPID keys are missing. Push notifications will not be fully initialized.');
+}
 
 export async function POST(req: NextRequest) {
   try {
