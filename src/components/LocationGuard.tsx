@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react';
 import { useLocationStore } from '@/store/location-store';
 import { CityService } from '@/services/city-service';
 import { City } from '@/types';
-import { MapPin, Search, X } from 'lucide-react';
+import { MapPin, Search, X, Crosshair, Loader2 } from 'lucide-react';
+import { toast } from 'sonner';
 
 export default function LocationGuard({ children }: { children: React.ReactNode }) {
   const { selectedCity, setCity, clearCity } = useLocationStore();
@@ -12,6 +13,7 @@ export default function LocationGuard({ children }: { children: React.ReactNode 
   const [searchQuery, setSearchQuery] = useState('');
   const [results, setResults] = useState<City[]>([]);
   const [mounted, setMounted] = useState(false);
+  const [detecting, setDetecting] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -50,6 +52,69 @@ export default function LocationGuard({ children }: { children: React.ReactNode 
     setShowModal(false);
   };
 
+  const handleDetectLocation = () => {
+    if (!navigator.geolocation) {
+        toast.error('Geolocation is not supported by your browser');
+        return;
+    }
+
+    setDetecting(true);
+    navigator.geolocation.getCurrentPosition(
+        async (position) => { // Async for API call
+            const { latitude, longitude } = position.coords;
+            const nearestCity = CityService.getNearestCity(latitude, longitude);
+
+            if (nearestCity) {
+                if (nearestCity.isActive) {
+                     // Reverse Geocoding for Granular Area
+                     try {
+                        const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=14`);
+                        if (response.ok) {
+                            const data = await response.json();
+                            const area = data.address.suburb || data.address.neighbourhood || data.address.residential || data.address.village || nearestCity.name;
+                            
+                            // Specific User Requirement: "Tilak Nagar, New Delhi"
+                            const granularName = area === nearestCity.name ? nearestCity.name : `${area}, ${nearestCity.name}`;
+                            
+                            toast.success(`Location detected: ${granularName}`);
+                            
+                            // We need to store this granular name in the store, 
+                            // but our City type is rigid. 
+                            // Ideally, we update the store to accept a "displayName" override.
+                            // For now, let's create a transient city object.
+                            handleSelectCity({
+                                ...nearestCity,
+                                displayName: granularName 
+                            });
+                        } else {
+                             // Fallback
+                             toast.success(`Location detected: ${nearestCity.name}`);
+                             handleSelectCity(nearestCity);
+                        }
+                     } catch (e) {
+                         console.error("Reverse geocoding failed", e);
+                         toast.success(`Location detected: ${nearestCity.name}`);
+                         handleSelectCity(nearestCity);
+                     }
+                } else {
+                    toast.error(`We are currently not operational in ${nearestCity.name}`);
+                }
+            } else {
+                toast.error('We do not deliver to your detected location yet.');
+            }
+            setDetecting(false);
+        },
+        (error) => {
+            setDetecting(false);
+            if (error.code === error.PERMISSION_DENIED) {
+                toast.error('Location permission denied. Please select manually.');
+            } else {
+                toast.error('Failed to detect location.');
+            }
+        }
+    );
+  };
+
   if (!mounted) return null;
 
   return (
@@ -70,7 +135,18 @@ export default function LocationGuard({ children }: { children: React.ReactNode 
             </div>
 
             <div className="relative mb-6">
-              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                <div className="flex gap-2 mb-4">
+                    <button 
+                        onClick={handleDetectLocation}
+                        disabled={detecting}
+                        className="flex-1 flex items-center justify-center gap-2 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-700 dark:text-indigo-400 py-3 rounded-xl font-medium hover:bg-indigo-100 dark:hover:bg-indigo-900/40 transition-colors disabled:opacity-50"
+                    >
+                        {detecting ? <Loader2 className="animate-spin" size={18} /> : <Crosshair size={18} />}
+                        {detecting ? 'Detecting...' : 'Detect my location'}
+                    </button>
+                </div>
+
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400 top-[60px]"> {/* Adjusted top for search icon */}
                 <Search size={20} />
               </div>
               <input
@@ -93,7 +169,7 @@ export default function LocationGuard({ children }: { children: React.ReactNode 
                         className="flex w-full items-center justify-between rounded-lg p-3 text-left hover:bg-indigo-50 dark:hover:bg-gray-800 transition-colors"
                       >
                         <div>
-                          <p className="font-semibold text-gray-900 dark:text-white">{city.name}</p>
+                          <p className="font-semibold text-gray-900 dark:text-white">{city.displayName || city.name}</p>
                           <p className="text-xs text-gray-500 dark:text-gray-400">Pincodes: {city.pincodes.join(', ')}</p>
                         </div>
                         <span className="text-indigo-600 dark:text-indigo-400 font-medium text-sm">Select</span>

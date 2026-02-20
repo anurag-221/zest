@@ -3,6 +3,9 @@ export interface City {
   name: string;
   pincodes: string[];
   isActive: boolean;
+  lat?: number;
+  lng?: number;
+  displayName?: string; // For granular location (e.g. "Tilak Nagar, New Delhi")
 }
 
 export interface Product {

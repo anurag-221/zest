@@ -63,17 +63,14 @@ export default function Header() {
                 Zest
                 </span>
             </Link>
-            <div className="flex flex-col cursor-pointer" onClick={() => setCity(null as any)}>
-                <span className="hidden md:flex text-[10px] font-bold text-gray-800 uppercase tracking-wider items-center gap-1">
-                    Collecting nearby
-                    <span className="bg-indigo-600 text-white px-1.5 py-0.5 rounded text-[10px]">10 MINS</span>
-                </span>
-                <div className="flex items-center gap-1 text-gray-900 dark:text-gray-100 group">
-                    <span className="text-sm font-bold truncate max-w-[120px] md:max-w-[140px] border-b border-dashed border-gray-400 pb-0.5">
-                        {selectedCity ? selectedCity.name : 'Select Location'}
-                    </span>
-                    <MapPin size={14} className="text-indigo-600 mb-0.5" />
+            <div className="flex items-center gap-1.5 cursor-pointer max-w-[140px] md:max-w-xs" onClick={() => setCity(null as any)}>
+                <div className="text-left overflow-hidden">
+                    <p className="text-[10px] text-gray-500 dark:text-gray-400 font-medium leading-none mb-0.5">Delivering to</p>
+                    <p className="text-sm font-bold text-gray-900 dark:text-gray-100 truncate leading-none">
+                    {selectedCity ? (selectedCity.displayName || selectedCity.name) : 'Select Location'}
+                    </p>
                 </div>
+                <ChevronDown size={14} className="text-indigo-600 flex-shrink-0" />
             </div>
             </div>
 

@@ -8,7 +8,9 @@
       "400069",
       "400099"
     ],
-    "isActive": true
+    "isActive": true,
+    "lat": 19.0760,
+    "lng": 72.8777
   },
   {
     "id": "del-1",
@@ -18,7 +20,9 @@
       "110010",
       "110020"
     ],
-    "isActive": true
+    "isActive": true,
+    "lat": 28.7041,
+    "lng": 77.1025
   },
   {
     "id": "blr-1",
@@ -28,6 +32,8 @@
       "560002",
       "560003"
     ],
-    "isActive": false
+    "isActive": false,
+    "lat": 12.9716,
+    "lng": 77.5946
   }
 ]

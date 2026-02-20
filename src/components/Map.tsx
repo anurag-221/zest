@@ -18,11 +18,28 @@ interface MapProps {
   onLocationSelect: (lat: number, lng: number) => void;
   initialLat?: number;
   initialLng?: number;
+  center?: [number, number];
 }
 
-function LocationMarker({ onLocationSelect, initialHasLocation }: { onLocationSelect: (lat: number, lng: number) => void, initialHasLocation: boolean }) {
+function MapUpdater({ center }: { center?: [number, number] }) {
+  const map = useMapEvents({});
+  useEffect(() => {
+    if (center) {
+      map.flyTo(center, 13);
+    }
+  }, [center, map]);
+  return null;
+}
+
+function LocationMarker({ onLocationSelect, initialHasLocation, center }: { onLocationSelect: (lat: number, lng: number) => void, initialHasLocation: boolean, center?: [number, number] }) {
   const [position, setPosition] = useState<L.LatLng | null>(initialHasLocation ? null : null);
   
+  useEffect(() => {
+    if (center) {
+        setPosition(new L.LatLng(center[0], center[1]));
+    }
+  }, [center]);
+
   const map = useMapEvents({
     click(e) {
       setPosition(e.latlng);
@@ -31,28 +48,23 @@ function LocationMarker({ onLocationSelect, initialHasLocation }: { onLocationSe
     },
   });
 
-  useEffect(() => {
-    if (initialHasLocation) {
-        // center map if needed
-    }
-  }, [initialHasLocation]);
-
   return position === null ? null : (
     <Marker position={position} icon={icon}></Marker>
   );
 }
 
-export default function Map({ onLocationSelect, initialLat = 18.5204, initialLng = 73.8567 }: MapProps) {
+export default function Map({ onLocationSelect, initialLat = 18.5204, initialLng = 73.8567, center }: MapProps) {
   // Default to Pune if no location
   return (
-    <MapContainer center={[initialLat, initialLng]} zoom={13} style={{ height: '100%', width: '100%' }}>
+    <MapContainer center={center || [initialLat, initialLng]} zoom={13} style={{ height: '100%', width: '100%' }}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <LocationMarker onLocationSelect={onLocationSelect} initialHasLocation={!!initialLat} />
-      {/* Initial marker if provided */}
-      <Marker position={[initialLat, initialLng]} icon={icon} />
+      <MapUpdater center={center} />
+      <LocationMarker onLocationSelect={onLocationSelect} initialHasLocation={!!initialLat} center={center} />
+      {/* Initial marker if provided and no center override */}
+      {!center && <Marker position={[initialLat, initialLng]} icon={icon} />}
     </MapContainer>
   );
 }

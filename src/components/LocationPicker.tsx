@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import { useState } from 'react';
-import { MapPin, X } from 'lucide-react';
+import { MapPin, X, Crosshair } from 'lucide-react';
 
 const Map = dynamic(() => import('./Map'), { 
   ssr: false,
@@ -48,6 +48,7 @@ export const LocationPicker = ({ onConfirm, onClose }: LocationPickerProps) => {
            <Map 
              initialLat={18.5204} 
              initialLng={73.8567} 
+             center={coords ? [coords.lat, coords.lng] : undefined}
              onLocationSelect={(lat, lng) => setCoords({ lat, lng })} 
            />
            
@@ -56,6 +57,28 @@ export const LocationPicker = ({ onConfirm, onClose }: LocationPickerProps) => {
                Tap anywhere to pin location
              </div>
            )}
+
+            <button
+                onClick={() => {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition((pos) => {
+                            setCoords({
+                                lat: pos.coords.latitude,
+                                lng: pos.coords.longitude
+                            });
+                             // Note: Map component essentially needs to listen to props change to flyTo. 
+                             // Since our Map component is simple/dynamic, we might need to pass key to re-render or better yet, pass `center` prop if we upgrade Map.tsx.
+                             // For now, setting coords updates the footer, user can tap to refinement.
+                        });
+                    } else {
+                        alert("Geolocation not supported");
+                    }
+                }}
+                className="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg text-indigo-600 hover:bg-indigo-50 z-[400]"
+                title="Use Current Location"
+            >
+                <Crosshair size={24} />
+            </button>
         </div>
 
         {/* Footer */}
