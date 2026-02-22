@@ -1,9 +1,11 @@
-import { db } from '@/lib/fs-db';
+
 import Link from 'next/link';
 import { Plus, Tag, Trash2, Edit } from 'lucide-react';
+import { supabaseAdmin } from '@/lib/supabase';
 
 export default async function AdminCouponsPage() {
-    const coupons = await db.coupons.getAll();
+    const { data: dbCoupons } = await supabaseAdmin.from('coupons').select('*').order('created_at', { ascending: false });
+    const coupons = dbCoupons || [];
 
     return (
         <div>
@@ -49,10 +51,10 @@ export default async function AdminCouponsPage() {
                                     </span>
                                 </td>
                                 <td className="px-6 py-4 font-medium text-gray-900">
-                                    {coupon.type === 'percentage' ? `${coupon.value}%${coupon.maxDiscount ? ` (Up to ₹${coupon.maxDiscount})` : ''}` : `₹${coupon.value}`}
+                                    {coupon.type === 'percentage' ? `${coupon.value}%${coupon.max_discount ? ` (Up to ₹${coupon.max_discount})` : ''}` : `₹${coupon.value}`}
                                 </td>
                                 <td className="px-6 py-4 font-medium text-gray-500">
-                                    ₹{coupon.minOrderValue}
+                                    ₹{coupon.min_order_value}
                                 </td>
                                 <td className="px-6 py-4 text-sm text-gray-500 max-w-xs truncate">
                                     {coupon.description}

@@ -1,21 +1,23 @@
 'use server';
 
-import { db } from '@/lib/fs-db';
 import { Coupon } from '@/types';
 import { revalidatePath } from 'next/cache';
+import { supabaseAdmin } from '@/lib/supabase';
 
 export async function saveCoupon(coupon: Coupon) {
     try {
-        const coupons = await db.coupons.getAll();
-        const existingIndex = coupons.findIndex(c => c.code.toUpperCase() === coupon.code.toUpperCase());
+        const { error } = await supabaseAdmin.from('coupons').upsert({
+            code: coupon.code,
+            type: coupon.type,
+            value: coupon.value,
+            min_order_value: coupon.minOrderValue,
+            max_discount: coupon.maxDiscount,
+            description: coupon.description,
+            is_active: coupon.isActive ?? true
+        });
         
-        if (existingIndex >= 0) {
-            coupons[existingIndex] = coupon;
-        } else {
-            coupons.push(coupon);
-        }
+        if (error) throw error;
 
-        await db.coupons.saveAll(coupons);
         revalidatePath('/admin/coupons');
         revalidatePath('/checkout');
         return { success: true };
@@ -27,10 +29,9 @@ export async function saveCoupon(coupon: Coupon) {
 
 export async function deleteCoupon(code: string) {
     try {
-        const coupons = await db.coupons.getAll();
-        const updatedCoupons = coupons.filter(c => c.code.toUpperCase() !== code.toUpperCase());
-        
-        await db.coupons.saveAll(updatedCoupons);
+        const { error } = await supabaseAdmin.from('coupons').delete().eq('code', code);
+        if (error) throw error;
+
         revalidatePath('/admin/coupons');
         revalidatePath('/checkout');
         return { success: true };

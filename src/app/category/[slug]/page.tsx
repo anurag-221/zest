@@ -3,8 +3,10 @@
 import { useParams } from 'next/navigation';
 import Header from '@/components/Header';
 import ProductRail from '@/components/ProductRail';
-import { ProductService } from '@/services/product-service'; // Assuming client-safe or mocked
+import { ProductService } from '@/services/product-service';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { Loader2 } from 'lucide-react';
 
 const categoryNames: Record<string, string> = {
   'fruits-veg': 'Fruits & Vegetables',
@@ -23,11 +25,22 @@ export default function CategoryPage() {
     const slug = params.slug as string;
     const categoryName = categoryNames[slug] || 'Category';
 
-    const categoryProducts = ProductService.getProductsByCategory(slug);
-    if (slug === 'pantry') {
-        const extra = ProductService.getProductsByCategory('pantry');
-        // Dedupe if needed, for now just simplistic
-    }
+    const [categoryProducts, setCategoryProducts] = useState<any[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        let isMounted = true;
+        setLoading(true);
+
+        ProductService.getProductsByCategory(slug).then(products => {
+            if (isMounted) {
+                setCategoryProducts(products);
+                setLoading(false);
+            }
+        });
+
+        return () => { isMounted = false; };
+    }, [slug]);
 
     return (
         <main className="min-h-screen bg-gray-50 dark:bg-black transition-colors">
@@ -42,7 +55,11 @@ export default function CategoryPage() {
             </div>
 
             <div className="container mx-auto px-4 pb-20">
-                {categoryProducts.length > 0 ? (
+                {loading ? (
+                     <div className="flex justify-center items-center py-20">
+                         <Loader2 className="animate-spin text-indigo-500" size={40} />
+                     </div>
+                ) : categoryProducts.length > 0 ? (
                     <ProductRail title={`All ${categoryName}`} products={categoryProducts} />
                 ) : (
                      <div className="flex flex-col items-center justify-center py-20 text-center">

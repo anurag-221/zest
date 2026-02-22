@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import webpush from 'web-push';
-import { getSubscriptions } from '../subscribe/route';
+import { supabaseAdmin } from '@/lib/supabase';
 
 if (process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY && process.env.VAPID_PRIVATE_KEY) {
   webpush.setVapidDetails(
@@ -29,10 +29,20 @@ export async function POST(req: NextRequest) {
         }
     });
 
-    const subscriptions = getSubscriptions();
+    // Fetch active subscriptions from Database
+    const { data: dbSubscriptions, error } = await supabaseAdmin
+        .from('push_subscriptions')
+        .select('*');
+
+    if (error) {
+        console.error('[Push DB Error]', error);
+        throw new Error('Failed to fetch subscriptions');
+    }
+
+    const subscriptions = dbSubscriptions || [];
     
     if (subscriptions.length === 0) {
-        return NextResponse.json({ message: 'No subscriptions found. Push not sent but API works.'});
+        return NextResponse.json({ message: 'No subscriptions found in DB. Push not sent but API works.'});
     }
 
     console.log(`[Push] Sending "${title}" to ${subscriptions.length} subscribers`);

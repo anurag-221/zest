@@ -1,9 +1,11 @@
-import { db } from '@/lib/fs-db';
+
+import { supabaseAdmin } from '@/lib/supabase';
 import { Package, Truck, CheckCircle, Clock } from 'lucide-react';
 import OrderStatusSelector from '@/components/admin/OrderStatusSelector';
 
 export default async function OrdersPage() {
-  const orders = await db.orders.getAll();
+  const { data: dbOrders } = await supabaseAdmin.from('orders').select('*');
+  const orders = dbOrders || [];
 
   const getStatusColor = (status: string) => {
     switch(status) {
@@ -44,7 +46,7 @@ export default async function OrdersPage() {
                     <tr key={order.id} className="hover:bg-gray-50 transition-colors">
                         <td className="p-4 align-top">
                             <span className="font-mono text-xs font-bold text-indigo-600 block mb-1">#{order.id}</span>
-                            <span className="text-xs text-gray-500">{new Date(order.createdAt).toLocaleString()}</span>
+                            <span className="text-xs text-gray-500">{new Date(order.created_at).toLocaleString()}</span>
                         </td>
                         <td className="p-4 align-top">
                             <p className="text-sm font-bold text-gray-900">{order.customer?.name || 'Guest'}</p>
@@ -55,7 +57,7 @@ export default async function OrdersPage() {
                         </td>
                         <td className="p-4 align-top">
                              <div className="space-y-1">
-                                {order.items.slice(0, 3).map((item, idx) => (
+                                {order.items.slice(0, 3).map((item: any, idx: number) => (
                                     <div key={idx} className="text-sm text-gray-700 flex justify-between gap-4 max-w-[200px]">
                                         <span className="truncate">{item.name}</span>
                                         <span className="text-gray-400 text-xs whitespace-nowrap">x{item.quantity}</span>

@@ -1,8 +1,9 @@
-import { db } from '@/lib/fs-db';
 import SettingsForm from '@/components/admin/SettingsForm';
+import { getSettings } from '@/actions/settings-actions';
 
 export default async function SettingsPage() {
-  const currentSettings = await db.settings.get();
+  const currentSettingsRes = await getSettings();
+  const currentSettings = currentSettingsRes.settings || { platformFee: 0, deliveryFee: 0, handlingFee: 0, freeDeliveryThreshold: 0 };
 
   return (
     <div className="max-w-5xl mx-auto">

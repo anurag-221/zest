@@ -30,10 +30,27 @@ export default function Header() {
   const [searchResults, setSearchResults] = useState<any[]>([]);
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const { viewedProductIds } = useViewedStore();
+  const [recentlyViewed, setRecentlyViewed] = useState<any[]>([]);
   const [mounted, setMounted] = useState(false);
 
-  // Separate mount effect — no interference with typewriter
   useEffect(() => { setMounted(true); }, []);
+
+  // Load recently viewed products
+  useEffect(() => {
+     let isMounted = true;
+     if (mounted && viewedProductIds.length > 0) {
+         ProductService.getAllProducts().then(allProducts => {
+            if (!isMounted) return;
+            const viewed = viewedProductIds
+                .map(id => allProducts.find(p => p.id === id))
+                .filter(Boolean);
+            setRecentlyViewed(viewed);
+         });
+     } else {
+         setRecentlyViewed([]);
+     }
+     return () => { isMounted = false; };
+  }, [mounted, viewedProductIds]);
 
   // Blinkit-style animated placeholder typewriter
   const [hintIndex, setHintIndex] = useState(0);
@@ -87,15 +104,16 @@ export default function Header() {
       setSearchQuery(query);
       if (query.trim().length > 1) {
           const q = query.toLowerCase();
-          const allProducts = ProductService.getAllProducts();
-          const filtered = allProducts.filter(p =>
-              p.name.toLowerCase().includes(q) ||
-              p.category.toLowerCase().includes(q) ||
-              (p.brand && p.brand.toLowerCase().includes(q)) ||
-              p.tags.some(t => t.toLowerCase().includes(q)) ||
-              p.description.toLowerCase().includes(q)
-          ).slice(0, 6);
-          setSearchResults(filtered);
+          ProductService.getAllProducts().then(allProducts => {
+              const filtered = allProducts.filter(p =>
+                  p.name.toLowerCase().includes(q) ||
+                  p.category.toLowerCase().includes(q) ||
+                  (p.brand && p.brand.toLowerCase().includes(q)) ||
+                  p.tags.some((t: string) => t.toLowerCase().includes(q)) ||
+                  p.description.toLowerCase().includes(q)
+              ).slice(0, 6);
+              setSearchResults(filtered);
+          });
       } else {
           setSearchResults([]);
       }
@@ -225,14 +243,12 @@ export default function Header() {
                                 </div>
                             )
                         ) : (
-                            mounted && viewedProductIds.length > 0 && (
+                            mounted && recentlyViewed.length > 0 && (
                                 <div className="p-2">
                                     <h3 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 px-2 flex items-center gap-1 mt-1">
                                         <Clock size={12} /> Recently Viewed
                                     </h3>
-                                    {viewedProductIds.slice(0, 5).map(id => {
-                                        const product = ProductService.getAllProducts().find(p => p.id === id);
-                                        if (!product) return null;
+                                    {recentlyViewed.slice(0, 5).map(product => {
                                         return (
                                             <Link 
                                                 key={product.id}

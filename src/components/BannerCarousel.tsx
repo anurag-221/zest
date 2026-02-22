@@ -31,13 +31,15 @@ export default function BannerCarousel({ events }: BannerCarouselProps) {
                         View Offers
                     </button>
                 </div>
-                {/* Actual Image */}
-                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img 
-                    src={event.assets.banner} 
-                    alt={event.name} 
-                    className="absolute inset-0 w-full h-full object-cover"
-                />
+                {/* Actual Image — only render if a banner URL is set */}
+                {event.assets.banner && (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                        src={event.assets.banner}
+                        alt={event.name}
+                        className="absolute inset-0 w-full h-full object-cover"
+                    />
+                )}
             </div>
         ))}
       </div>

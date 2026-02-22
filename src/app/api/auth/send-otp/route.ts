@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
   const serviceSid = process.env.TWILIO_VERIFY_SERVICE_SID;
 
   // ── MOCK MODE (no Twilio creds configured) ──────────────────────────────────
-  if (!accountSid || accountSid.startsWith('AC') && accountSid.length < 20 || !authToken || !serviceSid) {
+  if (!accountSid || accountSid.includes('xxx') || !authToken || authToken.includes('xxx') || !serviceSid || serviceSid.includes('xxx')) {
     // Generate a mock OTP and return it in the response for dev/demo
     const mockOtp = Math.floor(1000 + Math.random() * 9000).toString();
     console.log(`[Auth Mock] OTP for +91${phone} via ${channel}: ${mockOtp}`);
@@ -35,7 +35,29 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ success: true, mock: false });
   } catch (err: unknown) {
     console.error('[Auth] Twilio send-otp error:', err);
-    const message = err instanceof Error ? err.message : 'Failed to send OTP';
-    return NextResponse.json({ error: message }, { status: 500 });
+    
+    const errMessage = err instanceof Error ? err.message : String(err);
+    
+    // Twilio trial account limitations: unverified number, geo-permission, or invalid region
+    const isTwilioTrialError = 
+        errMessage.includes('unverified') || 
+        errMessage.includes('Trial account') ||
+        errMessage.includes('60605') ||
+        errMessage.includes('60200') ||
+        errMessage.includes('21608');
+        
+    if (isTwilioTrialError) {
+        // Auto-fallback to dev mock mode
+        const mockOtp = Math.floor(1000 + Math.random() * 9000).toString();
+        console.warn(`[Auth] Twilio trial limitation hit — falling back to DEV mock OTP: ${mockOtp}`);
+        return NextResponse.json({ 
+            success: true, 
+            mock: true, 
+            devOtp: mockOtp,
+            warning: 'Twilio trial mode: phone number not verified. Using dev OTP instead.'
+        });
+    }
+    
+    return NextResponse.json({ error: errMessage }, { status: 500 });
   }
 }

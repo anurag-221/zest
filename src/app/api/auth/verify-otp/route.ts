@@ -11,10 +11,17 @@ export async function POST(req: NextRequest) {
   const authToken = process.env.TWILIO_AUTH_TOKEN;
   const serviceSid = process.env.TWILIO_VERIFY_SERVICE_SID;
 
-  // ── MOCK MODE ────────────────────────────────────────────────────────────────
-  if (!accountSid || accountSid.startsWith('AC') && accountSid.length < 20 || !authToken || !serviceSid) {
-    const valid = mockExpectedOtp && otp === mockExpectedOtp;
+  // ── DEV/MOCK MODE (mockExpectedOtp was issued by send-otp fallback) ──────────
+  // If a mock OTP was generated (either no Twilio creds, or trial account fallback),
+  // validate it directly here regardless of Twilio credentials existing.
+  if (mockExpectedOtp) {
+    const valid = otp === mockExpectedOtp;
     return NextResponse.json({ valid });
+  }
+
+  // ── MOCK MODE (no Twilio creds at all) ───────────────────────────────────────
+  if (!accountSid || accountSid.includes('xxx') || !authToken || authToken.includes('xxx') || !serviceSid || serviceSid.includes('xxx')) {
+    return NextResponse.json({ valid: false });
   }
 
   // ── REAL TWILIO MODE ─────────────────────────────────────────────────────────

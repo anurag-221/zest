@@ -27,6 +27,8 @@ export default function CheckoutPage() {
     const { selectedCity } = useLocationStore();
     const [mounted, setMounted] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [isRedirecting, setIsRedirecting] = useState(false);
+    const [recommendations, setRecommendations] = useState<any[]>([]);
     
     // Auth Check
     const { isAuthenticated, user } = useAuthStore();
@@ -94,6 +96,17 @@ export default function CheckoutPage() {
         });
     }, []);
 
+    // Load recommendations
+    useEffect(() => {
+        let isMounted = true;
+        if (mounted && items.length > 0) {
+            RecommendationService.getCartRecommendations(items.map(i => i.id)).then(recs => {
+                if (isMounted) setRecommendations(recs);
+            });
+        }
+        return () => { isMounted = false; };
+    }, [mounted, items]);
+
     // Bill Calculations
     const deliveryFee = total > (settings?.freeDeliveryThreshold ?? 499) ? 0 : (settings?.deliveryFee ?? 35);
     const handlingFee = settings?.handlingFee ?? 5;
@@ -107,6 +120,16 @@ export default function CheckoutPage() {
     const grandTotal = Math.max(0, totalAfterCoupon - walletDeduction);
 
     if (!mounted) return null;
+
+    if (isRedirecting) {
+        return (
+            <div className="min-h-screen bg-gray-50 dark:bg-black flex flex-col items-center justify-center p-4 relative z-50">
+                <div className="animate-spin rounded-full h-12 w-12 border-4 border-indigo-200 border-t-indigo-600 mb-4"></div>
+                <h2 className="text-xl font-bold text-gray-900 dark:text-white">Confirming your order...</h2>
+                <p className="text-gray-500 mt-2">Please do not close this page.</p>
+            </div>
+        );
+    }
 
     if (items.length === 0) {
         return (
@@ -129,7 +152,20 @@ export default function CheckoutPage() {
 
         try {
             // 1. Call Server Action to Deduct Stock
-            const result = await placeOrder(selectedCity!.id, items.map(i => ({ id: i.id, quantity: i.quantity })));
+            const customerInfo = user ? {
+                name: user.name,
+                phone: user.phone,
+                address: activeAddress
+                    ? `${activeAddress.line1}${activeAddress.line2 ? ', ' + activeAddress.line2 : ''}, ${activeAddress.city} - ${activeAddress.zip}`
+                    : 'No address'
+            } : undefined;
+
+            const result = await placeOrder(
+                selectedCity!.id,
+                items.map(i => ({ id: i.id, quantity: i.quantity })),
+                user?.id,
+                customerInfo
+            );
             
             if (result.success) {
                 // Deduct from Wallet if used
@@ -138,25 +174,43 @@ export default function CheckoutPage() {
                 }
 
                 const newOrder = {
-                    id: result.orderId!, // Use ID from server
+                    id: result.orderId!,
+                    userId: user?.id,   // Include for local order store
                     items: [...items],
                     subtotal: total,
-                    discount, // Save discount
+                    discount,
                     deliveryFee,
                     handlingFee,
                     platformFee,
-                    tip, // Save tip
+                    tip,
                     total: grandTotal,
                     date: new Date().toISOString(),
                     status: 'pending' as const,
                     statusHistory: [{ status: 'pending', timestamp: new Date().toISOString() }],
-                    address: activeAddress ? `${activeAddress.line1}, ${activeAddress.city}` : 'Guest Address', 
-                    paymentMethod: method // Save method
+                    address: activeAddress ? `${activeAddress.line1}, ${activeAddress.city}` : 'Guest Address',
+                    paymentMethod: method
                 };
 
                 addOrder(newOrder);
+                setIsRedirecting(true);
                 clearCart();
                 toast.success('Order placed successfully! 🎉');
+                
+                // --- Trigger Order Push Notification ---
+                try {
+                    await fetch('/api/push/send', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            title: `Order Confirmed! 📦`,
+                            body: `Your order #${result.orderId} has been placed successfully.`,
+                            url: `/order-success/${result.orderId}`,
+                        })
+                    });
+                } catch (pushErr) {
+                    console.error('Failed to send push notification', pushErr);
+                }
+
                 router.push(`/order-success/${result.orderId}?fromCheckout=true`);
             }
         } catch (error: any) {
@@ -190,11 +244,11 @@ export default function CheckoutPage() {
             </header>
 
             {/* AI Recommendations */}
-            {items.length > 0 && (
+            {items.length > 0 && recommendations.length > 0 && (
                 <div className="container mx-auto px-4 py-8 max-w-6xl">
                     <RecommendationRail 
                         title="Complete Your Meal" 
-                        products={RecommendationService.getCartRecommendations(items.map(i => i.id))} 
+                        products={recommendations} 
                     />
                 </div>
             )}

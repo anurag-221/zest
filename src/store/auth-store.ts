@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { syncUserAddresses } from '@/actions/sync-actions';
 
 export interface Address {
   id: string;
@@ -39,11 +40,21 @@ export const useAuthStore = create<AuthState>()(
       logout: () => set({ user: null, isAuthenticated: false, isAdmin: false }),
       addAddress: (address) => set((state) => {
         if (!state.user) return state;
-        return { user: { ...state.user, addresses: [...(state.user.addresses || []), address] } };
+        const newAddresses = [...(state.user.addresses || []), address];
+        
+        // Background sync to Supabase
+        syncUserAddresses(state.user.id, newAddresses).catch(console.error);
+
+        return { user: { ...state.user, addresses: newAddresses } };
       }),
       removeAddress: (id) => set((state) => {
         if (!state.user) return state;
-        return { user: { ...state.user, addresses: state.user.addresses.filter(a => a.id !== id) } };
+        const newAddresses = state.user.addresses.filter(a => a.id !== id);
+        
+        // Background sync to Supabase
+        syncUserAddresses(state.user.id, newAddresses).catch(console.error);
+
+        return { user: { ...state.user, addresses: newAddresses } };
       }),
     }),
     {

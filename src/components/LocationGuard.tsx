@@ -12,6 +12,7 @@ export default function LocationGuard({ children }: { children: React.ReactNode 
   const [showModal, setShowModal] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [results, setResults] = useState<City[]>([]);
+  const [popularCities, setPopularCities] = useState<City[]>([]);
   const [mounted, setMounted] = useState(false);
   const [detecting, setDetecting] = useState(false);
 
@@ -20,31 +21,43 @@ export default function LocationGuard({ children }: { children: React.ReactNode 
   }, []);
 
   useEffect(() => {
+    let isMounted = true;
     if (mounted) {
       if (!selectedCity) {
         setShowModal(true);
+        // Fetch popular cities once
+        CityService.getAllCities().then(cities => {
+            if (isMounted) setPopularCities(cities.slice(0, 3));
+        });
       } else {
         // Validate if selected city is still active
-        const activeCities = CityService.getAllCities();
-        const isValid = activeCities.find(c => c.id === selectedCity.id);
-        
-        if (!isValid) {
-            // City became inactive or invalid
-            clearCity();
-            setShowModal(true);
-        } else {
-            setShowModal(false);
-        }
+        CityService.getAllCities().then(activeCities => {
+            if (!isMounted) return;
+            const isValid = activeCities.find(c => c.id === selectedCity.id);
+            
+            if (!isValid) {
+                // City became inactive or invalid
+                clearCity();
+                setShowModal(true);
+            } else {
+                setShowModal(false);
+            }
+        });
       }
     }
-  }, [selectedCity, mounted, setCity]);
+    return () => { isMounted = false; };
+  }, [selectedCity, mounted, clearCity, setCity]);
 
   useEffect(() => {
+    let isMounted = true;
     if (searchQuery.length > 1) {
-      setResults(CityService.searchCities(searchQuery));
+      CityService.searchCities(searchQuery).then(res => {
+          if (isMounted) setResults(res);
+      });
     } else {
       setResults([]);
     }
+    return () => { isMounted = false; };
   }, [searchQuery]);
 
   const handleSelectCity = (city: City) => {
@@ -62,13 +75,13 @@ export default function LocationGuard({ children }: { children: React.ReactNode 
     navigator.geolocation.getCurrentPosition(
         async (position) => { // Async for API call
             const { latitude, longitude } = position.coords;
-            const nearestCity = CityService.getNearestCity(latitude, longitude);
+            const nearestCity = await CityService.getNearestCity(latitude, longitude);
 
             if (nearestCity) {
                 if (nearestCity.isActive) {
                      // Reverse Geocoding for Granular Area
                      try {
-                        const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=14`);
+                        const response = await fetch(`/api/location/reverse?lat=${latitude}&lon=${longitude}&zoom=14`);
                         if (response.ok) {
                             const data = await response.json();
                             const area = data.address.suburb || data.address.neighbourhood || data.address.residential || data.address.village || nearestCity.name;
@@ -185,7 +198,7 @@ export default function LocationGuard({ children }: { children: React.ReactNode 
                     <div className="space-y-3">
                       <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">Popular Cities</p>
                       <div className="flex flex-wrap gap-2 justify-center">
-                        {CityService.getAllCities().slice(0, 3).map(city => (
+                        {popularCities.map(city => (
                            <button
                            key={city.id}
                            onClick={() => handleSelectCity(city)}

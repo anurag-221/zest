@@ -1,9 +1,10 @@
-import { db } from '@/lib/fs-db';
+import { supabaseAdmin } from '@/lib/supabase';
 import Link from 'next/link';
 import { Plus, Edit, MapPin } from 'lucide-react';
 
 export default async function CitiesPage() {
-  const cities = await db.cities.getAll();
+  const { data: dbCities } = await supabaseAdmin.from('cities').select('*');
+  const cities = dbCities || [];
 
   return (
     <div>
@@ -34,7 +35,7 @@ export default async function CitiesPage() {
                 <div className="mb-4">
                     <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Pincodes</p>
                     <div className="flex flex-wrap gap-1">
-                        {city.pincodes.slice(0, 5).map(pin => (
+                        {city.pincodes.slice(0, 5).map((pin: any) => (
                             <span key={pin} className="px-2 py-0.5 bg-gray-100 text-gray-600 text-xs rounded font-mono">
                                 {pin}
                             </span>
@@ -46,8 +47,8 @@ export default async function CitiesPage() {
                 </div>
 
                 <div className="flex items-center gap-2">
-                    <span className={`w-2 h-2 rounded-full ${city.isActive ? 'bg-green-500' : 'bg-red-500'}`}></span>
-                    <span className="text-sm text-gray-600">{city.isActive ? 'Active' : 'Inactive'}</span>
+                    <span className={`w-2 h-2 rounded-full ${city.is_active ? 'bg-green-500' : 'bg-red-500'}`}></span>
+                    <span className="text-sm text-gray-600">{city.is_active ? 'Active' : 'Inactive'}</span>
                 </div>
             </div>
         ))}

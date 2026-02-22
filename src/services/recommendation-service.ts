@@ -15,8 +15,8 @@ export const RecommendationService = {
     /**
      * Get recommendations based on a single product (for Product Details Page)
      */
-    getSimilarProducts: (product: Product, limit: number = 5): Product[] => {
-        const allProducts = ProductService.getAllProducts();
+    getSimilarProducts: async (product: Product, limit: number = 5): Promise<Product[]> => {
+        const allProducts = await ProductService.getAllProducts();
         
         // 1. Tag Scoring
         const scored = allProducts
@@ -58,14 +58,14 @@ export const RecommendationService = {
     /**
      * Get recommendations based on Cart contents (Cross-sell)
      */
-    getCartRecommendations: (cartItemIds: string[], limit: number = 6): Product[] => {
-        const allProducts = ProductService.getAllProducts();
+    getCartRecommendations: async (cartItemIds: string[], limit: number = 6): Promise<Product[]> => {
+        const allProducts = await ProductService.getAllProducts();
         const cartProducts = allProducts.filter(p => cartItemIds.includes(p.id));
         
         const recommendations = new Map<string, { product: Product, score: number }>();
 
-        cartProducts.forEach(source => {
-            const similar = RecommendationService.getSimilarProducts(source, 3);
+        for (const source of cartProducts) {
+            const similar = await RecommendationService.getSimilarProducts(source, 3);
             similar.forEach(rec => {
                 if (cartItemIds.includes(rec.id)) return; // Already in cart
                 
@@ -76,7 +76,7 @@ export const RecommendationService = {
                     recommendations.set(rec.id, { product: rec, score: 5 }); // Base score
                 }
             });
-        });
+        }
 
         return Array.from(recommendations.values())
             .sort((a, b) => b.score - a.score)

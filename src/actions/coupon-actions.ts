@@ -1,7 +1,5 @@
 'use server';
-
-import fs from 'fs/promises';
-import path from 'path';
+import { supabaseAdmin } from '@/lib/supabase';
 
 interface Coupon {
     code: string;
@@ -14,15 +12,25 @@ interface Coupon {
 
 export async function validateCoupon(code: string, orderTotal: number) {
     try {
-        const filePath = path.join(process.cwd(), 'data', 'coupons.json');
-        const fileData = await fs.readFile(filePath, 'utf-8');
-        const coupons: Coupon[] = JSON.parse(fileData);
+        const { data: dbCoupon, error } = await supabaseAdmin
+            .from('coupons')
+            .select('*')
+            .ilike('code', code)
+            .eq('is_active', true)
+            .single();
 
-        const coupon = coupons.find(c => c.code.toUpperCase() === code.toUpperCase());
-
-        if (!coupon) {
-            return { success: false, message: 'Invalid coupon code' };
+        if (error || !dbCoupon) {
+            return { success: false, message: 'Invalid or inactive coupon code' };
         }
+
+        const coupon: Coupon = {
+            code: dbCoupon.code,
+            type: dbCoupon.type as 'flat' | 'percentage' | 'shipping',
+            value: dbCoupon.value,
+            maxDiscount: dbCoupon.max_discount,
+            minOrderValue: dbCoupon.min_order_value,
+            description: dbCoupon.description
+        };
 
         if (orderTotal < coupon.minOrderValue) {
             return { success: false, message: `Minimum order value of ₹${coupon.minOrderValue} required` };

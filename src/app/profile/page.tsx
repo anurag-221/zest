@@ -4,40 +4,85 @@ import { useAuthStore } from '@/store/auth-store';
 import { useOrderStore } from '@/store/order-store';
 import Header from '@/components/Header';
 import Link from 'next/link';
-import { Package, MapPin, ChevronRight, LogOut, User } from 'lucide-react';
+import { Package, MapPin, ChevronRight, LogOut, User, Loader2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { supabaseClient } from '@/lib/supabase';
 
 export default function ProfilePage() {
   const { user, logout, isAuthenticated } = useAuthStore();
   const { orders, updateOrderStatusLocally } = useOrderStore();
   const router = useRouter();
 
+  const [dbOrders, setDbOrders] = useState<any[]>([]);
+  const [loadingOrders, setLoadingOrders] = useState(true);
+
+  // Fetch orders from DB on mount — only for the current logged-in user
+  useEffect(() => {
+    let isMounted = true;
+    
+    if (!isAuthenticated || !user?.id) {
+        setLoadingOrders(false);
+        return;
+    }
+
+    const fetchOrders = async () => {
+        setLoadingOrders(true);
+        try {
+            const { data, error } = await supabaseClient
+                .from('orders')
+                .select('*')
+                .eq('user_id', user.id)
+                .order('created_at', { ascending: false });
+                
+            if (error) throw error;
+            if (isMounted && data) {
+                setDbOrders(data);
+            }
+        } catch (err) {
+            console.error("Failed to fetch user orders", err);
+        } finally {
+            if (isMounted) setLoadingOrders(false);
+        }
+    };
+
+    fetchOrders();
+    
+    return () => { isMounted = false; };
+  }, [isAuthenticated, user?.id]);
+
+  // Sync active order statuses continuously
   useEffect(() => {
     let isMounted = true;
     
     const syncOrders = async () => {
-        const { getOrderById } = await import('@/actions/order-actions');
-        
-        for (const order of orders) {
-            // Skip finished orders
-            if (['delivered', 'cancelled'].includes(order.status)) continue;
+        const activeOrderIds = dbOrders
+            .filter(o => !['delivered', 'cancelled'].includes(o.status))
+            .map(o => o.id);
             
-            try {
-                const result = await getOrderById(order.id);
-                if (isMounted && result.success && result.order) {
-                    if (result.order.status !== order.status) {
-                        updateOrderStatusLocally(order.id, result.order.status);
-                    }
-                }
-            } catch (err) {
-                console.error("Failed to sync order", err);
+        if (activeOrderIds.length === 0) return;
+
+        try {
+            const { data, error } = await supabaseClient
+                .from('orders')
+                .select('id, status')
+                .in('id', activeOrderIds);
+                
+            if (error) throw error;
+            
+            if (isMounted && data && data.length > 0) {
+                setDbOrders(prev => prev.map(oldOrder => {
+                    const update = data.find(newOrder => newOrder.id === oldOrder.id);
+                    return update ? { ...oldOrder, status: update.status } : oldOrder;
+                }));
             }
+        } catch (err) {
+            console.error("Failed to sync orders", err);
         }
     };
 
-    if (isAuthenticated) {
-        syncOrders();
+    if (isAuthenticated && dbOrders.length > 0) {
+        // Only run the interval if we actually have orders loaded
         const interval = setInterval(syncOrders, 5000);
         return () => { 
             isMounted = false; 
@@ -46,7 +91,7 @@ export default function ProfilePage() {
     }
     
     return () => { isMounted = false; };
-  }, [orders, isAuthenticated, updateOrderStatusLocally]);
+  }, [isAuthenticated, dbOrders.length]);
 
   useEffect(() => {
     if (!isAuthenticated) {
@@ -56,10 +101,7 @@ export default function ProfilePage() {
 
   if (!user) return null;
 
-  // Filter orders for this user? 
-  // currently order-store is local-only, so all orders there "belong" to the device user.
-  // In a real app, we'd filter by user.id. For now, show all.
-  const myOrders = orders;
+  const myOrders = dbOrders;
 
   const getStatusColor = (status: string) => {
       switch(status) {
@@ -124,7 +166,11 @@ export default function ProfilePage() {
             Order History
         </h2>
 
-        {myOrders.length === 0 ? (
+        {loadingOrders ? (
+             <div className="flex justify-center items-center py-12">
+                 <Loader2 className="animate-spin text-indigo-500" size={32} />
+             </div>
+        ) : myOrders.length === 0 ? (
             <div className="text-center py-10 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800">
                 <div className="w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4 text-gray-400">
                     <Package size={24} />
@@ -157,7 +203,7 @@ export default function ProfilePage() {
                         </div>
                         
                         <div className="flex items-center gap-2 overflow-hidden">
-                            {order.items.slice(0, 3).map((item, idx) => (
+                            {order.items.slice(0, 3).map((item: any, idx: number) => (
                                 <div key={idx} className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded text-gray-600 dark:text-gray-300 truncate max-w-[100px]">
                                     {item.quantity}x {item.name}
                                 </div>

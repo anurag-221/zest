@@ -1,9 +1,10 @@
-import { db } from '@/lib/fs-db';
+import { supabaseAdmin } from '@/lib/supabase';
 import Link from 'next/link';
 import { Plus, Edit, Package } from 'lucide-react';
 
 export default async function ProductsPage() {
-  const products = await db.products.getAll();
+  const { data: dbProducts } = await supabaseAdmin.from('products').select('*');
+  const products = dbProducts || [];
 
   return (
     <div>
@@ -27,7 +28,7 @@ export default async function ProductsPage() {
                 </div>
                 <h3 className="font-bold text-gray-900 mb-1">{product.name}</h3>
                 <div className="flex flex-wrap gap-1 mb-3">
-                    {product.tags?.map(tag => (
+                    {product.tags?.map((tag: string) => (
                         <span key={tag} className="px-2 py-0.5 bg-gray-100 text-gray-600 text-[10px] uppercase font-bold tracking-wider rounded">
                             {tag}
                         </span>

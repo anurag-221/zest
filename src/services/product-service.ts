@@ -1,79 +1,103 @@
-import { Product, Inventory } from '../types';
-import productsData from '../../data/products.json';
-import inventoryData from '../../data/inventory.json';
-
-import { BrandService } from './brand-service';
-
-const enrichProduct = (product: Product): Product => {
-    // Simple heuristic: check if brand name is in product name
-    const brands = BrandService.getAllBrands();
-    const foundBrand = brands.find(b => product.name.toLowerCase().includes(b.name.toLowerCase()));
-    
-    return {
-        ...product,
-        brand: foundBrand ? foundBrand.id : undefined
-    };
-};
+import { supabaseClient } from '@/lib/supabase';
+import { Product } from '../types';
 
 export const ProductService = {
-  // Simple in-memory cache
-  _cache: null as Product[] | null,
-
   clearCache: () => {
-    ProductService._cache = null;
+    // No-op for now as we are moving to direct DB queries
+    // In production, we'd invalidate SWR or React Query caches here
   },
 
-  getAllProducts: (): Product[] => {
-    if (ProductService._cache) {
-        return ProductService._cache;
-    }
-    const enriched = (productsData as Product[]).map(enrichProduct);
-    ProductService._cache = enriched;
-    return enriched;
+  getAllProducts: async (): Promise<Product[]> => {
+    const { data: products } = await supabaseClient.from('products').select('*');
+    return (products || []).map(p => ({
+        ...p,
+        isBestSeller: p.is_best_seller,
+        isNewArrival: p.is_new_arrival,
+        isTrending: p.is_trending
+    }));
   },
 
-  getProductsByCity: (cityId: string): (Product & { stock: number; price: number })[] => {
-    const cityInventory = (inventoryData as Inventory)[cityId];
-    if (!cityInventory) return [];
+  getProductsByCity: async (cityId: string): Promise<(Product & { stock: number; price: number })[]> => {
+    // Join inventory with products table
+    const { data: inventoryRecords, error } = await supabaseClient
+        .from('inventory')
+        .select(`
+            stock, 
+            price, 
+            products (*)
+        `)
+        .eq('city_id', cityId);
 
-    return (productsData as Product[])
-      .map(enrichProduct) // Enrich first
-      .filter(product => cityInventory[product.id])
-      .map(product => ({
-        ...product,
-        stock: cityInventory[product.id].stock,
-        price: cityInventory[product.id].price
-      }));
+    if (error || !inventoryRecords) return [];
+
+    return inventoryRecords
+        .filter(record => record.products) // Ensure product exists
+        .map(record => {
+            const p: any = record.products;
+            return {
+                ...p,
+                isBestSeller: p.is_best_seller,
+                isNewArrival: p.is_new_arrival,
+                isTrending: p.is_trending,
+                stock: record.stock,
+                price: record.price
+            };
+        });
   },
 
-  getProductById: (id: string, cityId?: string): Product & { stock?: number; currentPrice?: number } | undefined => {
-    const allProducts = ProductService.getAllProducts(); // Use cache
-    const product = allProducts.find(p => p.id === id);
-    
-    if (!product) return undefined;
-    // Already enriched by getAllProducts cache
-
+  getProductById: async (id: string, cityId?: string): Promise<Product & { stock?: number; currentPrice?: number } | undefined> => {
     if (cityId) {
-      const cityInventory = (inventoryData as Inventory)[cityId];
-      if (cityInventory && cityInventory[id]) {
-        return {
-          ...product,
-          stock: cityInventory[id].stock,
-          currentPrice: cityInventory[id].price
-        };
-      }
-    }
+        const { data: record } = await supabaseClient
+            .from('inventory')
+            .select(`stock, price, products (*)`)
+            .eq('city_id', cityId)
+            .eq('product_id', id)
+            .single();
 
-    return product;
+        if (!record || !record.products) return undefined;
+        
+        const p: any = record.products;
+        return {
+            ...p,
+            isBestSeller: p.is_best_seller,
+            isNewArrival: p.is_new_arrival,
+            isTrending: p.is_trending,
+            stock: record.stock,
+            currentPrice: record.price // Mapping price to currentPrice based on interface
+        };
+    } else {
+        const { data: p } = await supabaseClient
+            .from('products')
+            .select('*')
+            .eq('id', id)
+            .single();
+            
+        if (!p) return undefined;
+        return {
+             ...p,
+             isBestSeller: p.is_best_seller,
+             isNewArrival: p.is_new_arrival,
+             isTrending: p.is_trending
+        };
+    }
   },
 
-  getProductsByBrand: (brandId: string, cityId: string): (Product & { stock: number; price: number })[] => {
-    const products = ProductService.getProductsByCity(cityId); // Already enriched
+  getProductsByBrand: async (brandId: string, cityId: string): Promise<(Product & { stock: number; price: number })[]> => {
+    const products = await ProductService.getProductsByCity(cityId); 
     return products.filter(p => p.brand === brandId);
   },
 
-  getProductsByCategory: (category: string): Product[] => {
-      const all = ProductService.getAllProducts(); // Uses cache
-      return all.filter(p => p.category === category);
+  getProductsByCategory: async (category: string): Promise<Product[]> => {
+      const { data: products } = await supabaseClient
+          .from('products')
+          .select('*')
+          .eq('category', category);
+          
+      return (products || []).map(p => ({
+            ...p,
+            isBestSeller: p.is_best_seller,
+            isNewArrival: p.is_new_arrival,
+            isTrending: p.is_trending
+      }));
   }
 };

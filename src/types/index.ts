@@ -104,6 +104,7 @@ export interface Coupon {
   maxDiscount?: number;
   minOrderValue: number;
   description: string;
+  isActive?: boolean;
 }
 
 export interface GlobalSettings {

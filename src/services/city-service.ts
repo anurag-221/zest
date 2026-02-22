@@ -1,43 +1,76 @@
 import { City } from '../types';
-import citiesData from '../../data/cities.json';
+import { supabaseClient } from '@/lib/supabase';
+
+// Helper to map DB snake_case back to app camelCase
+const mapCity = (dbCity: any): City => ({
+    id: dbCity.id,
+    name: dbCity.name,
+    pincodes: dbCity.pincodes,
+    isActive: dbCity.is_active,
+    lat: dbCity.lat,
+    lng: dbCity.lng,
+    displayName: dbCity.display_name
+});
 
 export const CityService = {
-  getAllCities: (): City[] => {
-    return (citiesData as City[]).filter(city => city.isActive);
+  getAllCities: async (): Promise<City[]> => {
+    const { data: cities } = await supabaseClient
+        .from('cities')
+        .select('*')
+        .eq('is_active', true);
+    return (cities || []).map(mapCity);
   },
 
-  getCityById: (id: string): City | undefined => {
-    // We might still want to get a city by ID even if inactive (e.g. for existing orders), 
-    // but for now let's keep it consistent or just leave it as is. 
-    // Usually getById is for specific lookups, whereas lists are for selection.
-    // Let's filter here too to be safe, unless it breaks order history.
-    // Actually, for order history, we likely store the city name snapshot.
-    return (citiesData as City[]).find(city => city.id === id && city.isActive);
+  getCityById: async (id: string): Promise<City | undefined> => {
+    const { data: city } = await supabaseClient
+        .from('cities')
+        .select('*')
+        .eq('id', id)
+        .eq('is_active', true)
+        .single();
+    
+    return city ? mapCity(city) : undefined;
   },
 
-  searchCities: (query: string): City[] => {
+  searchCities: async (query: string): Promise<City[]> => {
     if (!query) return [];
     const lowerQuery = query.toLowerCase();
-    return (citiesData as City[])
-      .filter(city => city.isActive)
+    
+    // Fetch all active to filter locally since JSONB/Array searching via JS is easier than complex PostgREST
+    // In production with millions, you'd use a dedicated text search index
+    const { data: cities } = await supabaseClient
+        .from('cities')
+        .select('*')
+        .eq('is_active', true);
+
+    return (cities || [])
+      .map(mapCity)
       .filter(city => 
-      city.name.toLowerCase().includes(lowerQuery) || 
-      city.pincodes.some(p => p.includes(lowerQuery))
-    ).slice(0, 5); // Return max 5 suggestions
+        city.name.toLowerCase().includes(lowerQuery) || 
+        city.pincodes.some(p => p.includes(lowerQuery))
+      ).slice(0, 5); 
   },
 
-  isValidPincode: (pincode: string): City | undefined => {
-    return (citiesData as City[]).find(city => city.isActive && city.pincodes.includes(pincode));
+  isValidPincode: async (pincode: string): Promise<City | undefined> => {
+    const { data: cities } = await supabaseClient
+        .from('cities')
+        .select('*')
+        .eq('is_active', true)
+        .contains('pincodes', [pincode])
+        .limit(1);
+
+    return cities && cities.length > 0 ? mapCity(cities[0]) : undefined;
   },
 
-  getNearestCity: (lat: number, lng: number): City | null => {
-    const cities = CityService.getAllCities().filter(c => c.lat && c.lng);
+  getNearestCity: async (lat: number, lng: number): Promise<City | null> => {
+    const citiesRaw = await CityService.getAllCities();
+    const cities = citiesRaw.filter(c => c.lat && c.lng);
+    
     let nearest: City | null = null;
     let minDistance = Infinity;
 
     cities.forEach(city => {
-        // Haversine Formula approximation (sufficient for city level)
-        const R = 6371; // Earth radius in km
+        const R = 6371; 
         const dLat = (city.lat! - lat) * Math.PI / 180;
         const dLng = (city.lng! - lng) * Math.PI / 180;
         const a = 
@@ -53,7 +86,6 @@ export const CityService = {
         }
     });
 
-    // Only return if within 50km
     if (minDistance <= 50) return nearest;
     return null;
   }

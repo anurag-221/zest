@@ -1,8 +1,9 @@
-import { db } from '@/lib/fs-db';
+import { supabaseAdmin } from '@/lib/supabase';
 import ProductForm from '@/components/admin/ProductForm';
 
 export default async function NewProductPage() {
-  const cities = await db.cities.getAll();
+  const { data: dbCities } = await supabaseAdmin.from('cities').select('*');
+  const cities = dbCities || [];
 
   return (
     <div>

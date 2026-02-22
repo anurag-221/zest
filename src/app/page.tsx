@@ -21,54 +21,71 @@ export default function Home() {
   const [cityProducts, setCityProducts] = useState<any[]>([]);
   const [eventProducts, setEventProducts] = useState<any[]>([]);
   const [topCategories, setTopCategories] = useState<{name: string, products: any[]}[]>([]);
+  const [recentlyViewed, setRecentlyViewed] = useState<any[]>([]);
   const [mounted, setMounted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { viewedProductIds } = useViewedStore();
 
   const loadData = useCallback(async () => {
     if (!selectedCity) return;
+    setLoading(true);
 
-    // Simulate network delay for better UX on refresh
-    await new Promise(resolve => setTimeout(resolve, 500));
+    try {
+        // 1. Get Active Events from Supabase
+        const events = await EventService.getActiveEvents(selectedCity.id);
+        setActiveEvents(events);
 
-    // 1. Get Active Events
-    const events = EventService.getActiveEvents(selectedCity.id);
-    setActiveEvents(events);
+        // 2. Get All Products for City (Availability check)
+        const products = await ProductService.getProductsByCity(selectedCity.id);
+        setCityProducts(products);
 
-    // 2. Get All Products for City (Availability check)
-    // Clear cache effectively by calling the service (which we cleared manually before calling this if refreshing)
-    const products = ProductService.getProductsByCity(selectedCity.id);
-    setCityProducts(products);
+        // 3. Filter Products for Event (if any event is active)
+        if (events.length > 0) {
+            const primaryEvent = events[0];
+            const tags = primaryEvent.rules.showTags;
+            const filtered = products.filter(p => 
+                p.tags && p.tags.some((tag: string) => tags.includes(tag))
+            );
+            setEventProducts(filtered);
+        } else {
+            setEventProducts([]);
+        }
 
-    // 3. Filter Products for Event (if any event is active)
-    if (events.length > 0) {
-      const primaryEvent = events[0];
-      const tags = primaryEvent.rules.showTags;
-      const filtered = products.filter(p => 
-          p.tags && p.tags.some(tag => tags.includes(tag))
-      );
-      setEventProducts(filtered);
-    } else {
-      setEventProducts([]);
-    }
-
-    // 4. Derive Top Categories (categories with most products)
-    const categoryMap = new Map<string, any[]>();
-    products.forEach(p => {
-        if (!categoryMap.has(p.category)) categoryMap.set(p.category, []);
-        categoryMap.get(p.category)!.push(p);
-    });
-    
-    // Sort categories by product count and take top 4
-    const sortedCategories = Array.from(categoryMap.entries())
-        .sort((a, b) => b[1].length - a[1].length)
-        .slice(0, 4)
-        .map(([name, products]) => ({
-            name: name.charAt(0).toUpperCase() + name.slice(1).replace('-', ' '),
-            products: products.slice(0, 10) // show up to 10 per rail
-        }));
+        // 4. Derive Top Categories (categories with most products)
+        const categoryMap = new Map<string, any[]>();
+        products.forEach(p => {
+            if (!categoryMap.has(p.category)) categoryMap.set(p.category, []);
+            categoryMap.get(p.category)!.push(p);
+        });
         
-    setTopCategories(sortedCategories);
-  }, [selectedCity]);
+        // Sort categories by product count and take top 4
+        const sortedCategories = Array.from(categoryMap.entries())
+            .sort((a, b) => b[1].length - a[1].length)
+            .slice(0, 4)
+            .map(([name, products]) => ({
+                name: name.charAt(0).toUpperCase() + name.slice(1).replace('-', ' '),
+                products: products.slice(0, 10) // show up to 10 per rail
+            }));
+            
+        setTopCategories(sortedCategories);
+
+        // 5. Build Recently Viewed Products Array
+        if (viewedProductIds.length > 0) {
+            const allProducts = await ProductService.getAllProducts();
+            const viewed = viewedProductIds
+                .map(id => allProducts.find(p => p.id === id))
+                .filter(Boolean);
+            setRecentlyViewed(viewed);
+        } else {
+            setRecentlyViewed([]);
+        }
+
+    } catch (e) {
+        console.error("Error loading products", e);
+    } finally {
+        setLoading(false);
+    }
+  }, [selectedCity, viewedProductIds]);
 
   // Effect to load data when city changes
   useEffect(() => {
@@ -110,10 +127,10 @@ export default function Home() {
         <PullToRefresh onRefresh={handleRefresh}>
           <BannerCarousel events={activeEvents} />
 
-          {mounted && viewedProductIds.length > 0 && (
+          {mounted && recentlyViewed.length > 0 && (
              <ProductRail 
                  title="Recently Viewed" 
-                 products={viewedProductIds.map(id => ProductService.getAllProducts().find(p => p.id === id)).filter(Boolean) as any[]} 
+                 products={recentlyViewed} 
              />
           )}
         

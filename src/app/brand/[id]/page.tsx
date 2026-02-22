@@ -5,7 +5,7 @@ import { ProductService } from '@/services/product-service';
 import { useLocationStore } from '@/store/location-store';
 import { useCartStore } from '@/store/cart-store';
 import Header from '@/components/Header';
-import { ArrowLeft, Clock, Plus, Minus } from 'lucide-react';
+import { ArrowLeft, Clock, Plus, Minus, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import { use, useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
@@ -17,6 +17,7 @@ export default function BrandPage({ params }: { params: Promise<{ id: string }> 
   const router = useRouter();
   
   const [products, setProducts] = useState<any[]>([]);
+  const [loading, setLoading] = useState(false);
 
   // Unwrap params
   useEffect(() => {
@@ -26,10 +27,17 @@ export default function BrandPage({ params }: { params: Promise<{ id: string }> 
   const brand = BrandService.getBrandById(brandId);
 
   useEffect(() => {
+    let isMounted = true;
     if (brandId && selectedCity) {
-        const brandProducts = ProductService.getProductsByBrand(brandId, selectedCity.id);
-        setProducts(brandProducts);
+        setLoading(true);
+        ProductService.getProductsByBrand(brandId, selectedCity.id).then(brandProducts => {
+            if (isMounted) {
+                setProducts(brandProducts);
+                setLoading(false);
+            }
+        });
     }
+    return () => { isMounted = false; };
   }, [brandId, selectedCity]);
 
   if (!brand || !selectedCity) {
@@ -67,66 +75,72 @@ export default function BrandPage({ params }: { params: Promise<{ id: string }> 
       <div className="container mx-auto px-4 py-8">
         <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6">Products ({products.length})</h2>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {products.map(product => {
-                const cartItem = items.find((i) => i.id === product.id);
-                const quantity = cartItem ? cartItem.quantity : 0;
+        {loading ? (
+             <div className="flex justify-center py-10">
+                 <Loader2 className="animate-spin text-indigo-500" size={32} />
+             </div>
+        ) : (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {products.map(product => {
+                    const cartItem = items.find((i) => i.id === product.id);
+                    const quantity = cartItem ? cartItem.quantity : 0;
 
-                return (
-                    <div 
-                        key={product.id} 
-                        className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-xl p-3 flex flex-col hover:shadow-lg transition-all"
-                    >
-                        <Link href={`/product/${product.id}`} className="block relative aspect-square mb-3 bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
-                             <img 
-                                src={product.image} 
-                                alt={product.name}
-                                className="w-full h-full object-contain mix-blend-multiply dark:mix-blend-normal"
-                            />
-                        </Link>
-                        
-                        <div className="flex-1 flex flex-col">
-                            <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">{product.description.substring(0, 20)}...</div>
-                            <Link href={`/product/${product.id}`} className="font-semibold text-gray-900 dark:text-white text-sm leading-tight mb-2 line-clamp-2 min-h-[2.5em] hover:text-indigo-600 transition-colors">
-                                {product.name}
+                    return (
+                        <div 
+                            key={product.id} 
+                            className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-xl p-3 flex flex-col hover:shadow-lg transition-all"
+                        >
+                            <Link href={`/product/${product.id}`} className="block relative aspect-square mb-3 bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
+                                 <img 
+                                    src={product.image} 
+                                    alt={product.name}
+                                    className="w-full h-full object-contain mix-blend-multiply dark:mix-blend-normal"
+                                />
                             </Link>
+                            
+                            <div className="flex-1 flex flex-col">
+                                <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">{product.description.substring(0, 20)}...</div>
+                                <Link href={`/product/${product.id}`} className="font-semibold text-gray-900 dark:text-white text-sm leading-tight mb-2 line-clamp-2 min-h-[2.5em] hover:text-indigo-600 transition-colors">
+                                    {product.name}
+                                </Link>
 
-                             <div className="flex items-center justify-between mt-auto">
-                                <div>
-                                    <span className="text-xs text-gray-500 line-through">₹{product.price + 10}</span>
-                                    <div className="font-bold text-base text-gray-900 dark:text-white">₹{product.price}</div>
-                                </div>
-                                
-                                {quantity === 0 ? (
-                                    <button 
-                                        onClick={() => addItem(product)}
-                                        className="px-4 py-1.5 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 rounded-lg text-sm font-bold border border-indigo-100 dark:border-indigo-800 hover:bg-indigo-600 hover:text-white transition-all shadow-sm"
-                                    >
-                                        ADD
-                                    </button>
-                                ) : (
-                                    <div className="flex items-center bg-indigo-600 rounded-lg">
-                                        <button 
-                                            onClick={() => widthdrawItem(product.id)}
-                                            className="w-8 h-8 flex items-center justify-center text-white hover:bg-indigo-700 rounded-l-lg transition-colors"
-                                        >
-                                            <Minus size={16} />
-                                        </button>
-                                        <span className="w-8 text-center text-white font-bold text-sm">{quantity}</span>
+                                 <div className="flex items-center justify-between mt-auto">
+                                    <div>
+                                        <span className="text-xs text-gray-500 line-through">₹{product.price + 10}</span>
+                                        <div className="font-bold text-base text-gray-900 dark:text-white">₹{product.price}</div>
+                                    </div>
+                                    
+                                    {quantity === 0 ? (
                                         <button 
                                             onClick={() => addItem(product)}
-                                            className="w-8 h-8 flex items-center justify-center text-white hover:bg-indigo-700 rounded-r-lg transition-colors"
+                                            className="px-4 py-1.5 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 rounded-lg text-sm font-bold border border-indigo-100 dark:border-indigo-800 hover:bg-indigo-600 hover:text-white transition-all shadow-sm"
                                         >
-                                            <Plus size={16} />
+                                            ADD
                                         </button>
-                                    </div>
-                                )}
+                                    ) : (
+                                        <div className="flex items-center bg-indigo-600 rounded-lg">
+                                            <button 
+                                                onClick={() => widthdrawItem(product.id)}
+                                                className="w-8 h-8 flex items-center justify-center text-white hover:bg-indigo-700 rounded-l-lg transition-colors"
+                                            >
+                                                <Minus size={16} />
+                                            </button>
+                                            <span className="w-8 text-center text-white font-bold text-sm">{quantity}</span>
+                                            <button 
+                                                onClick={() => addItem(product)}
+                                                className="w-8 h-8 flex items-center justify-center text-white hover:bg-indigo-700 rounded-r-lg transition-colors"
+                                            >
+                                                <Plus size={16} />
+                                            </button>
+                                        </div>
+                                    )}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                );
-            })}
-        </div>
+                    );
+                })}
+            </div>
+        )}
       </div>
     </main>
   );

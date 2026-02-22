@@ -1,11 +1,16 @@
-import { db } from '@/lib/fs-db';
-import { Users, TrendingUp, AlertTriangle } from 'lucide-react';
+
+import { supabaseAdmin } from '@/lib/supabase';
+import { Users as UsersIcon, TrendingUp, AlertTriangle } from 'lucide-react';
 import AdminAnalytics from '@/components/AdminAnalytics';
+import AdminPushTrigger from '@/components/admin/AdminPushTrigger';
 
 export default async function AdminDashboard() {
-  const events = await db.events.getAll();
-  const orders = await db.orders.getAll();
-  const products = await db.products.getAll();
+  const events: any[] = [];
+  const { data: dbOrders } = await supabaseAdmin.from('orders').select('*');
+  const orders = dbOrders || [];
+  const { data: dbProducts } = await supabaseAdmin.from('products').select('*');
+  const products = dbProducts || [];
+  const { data: dbUsers } = await supabaseAdmin.from('users').select('*');
   
   // 1. Active Events
   const activeEvents = events.filter(e => {
@@ -20,11 +25,11 @@ export default async function AdminDashboard() {
 
   const today = new Date().toDateString();
   const todaysRevenue = orders
-    .filter(o => o.status !== 'cancelled' && new Date(o.createdAt).toDateString() === today)
+    .filter(o => o.status !== 'cancelled' && new Date(o.created_at).toDateString() === today)
     .reduce((acc, o) => acc + o.total, 0);
 
   // 3. User Metrics (Unique Customers)
-  const uniqueCustomers = new Set(orders.map(o => o.customer?.name || 'Guest')).size;
+  const uniqueCustomers = dbUsers?.length || 0;
 
   // 4. Analytics Data
   const last7Days = Array.from({length: 7}).map((_, i) => {
@@ -34,7 +39,7 @@ export default async function AdminDashboard() {
   });
 
   const weeklyData = last7Days.map(dateStr => {
-      const dayOrders = orders.filter(o => o.status !== 'cancelled' && new Date(o.createdAt).toDateString() === dateStr);
+      const dayOrders = orders.filter(o => o.status !== 'cancelled' && new Date(o.created_at).toDateString() === dateStr);
       return {
           name: dateStr.split(' ')[0], // Mon, Tue...
           revenue: dayOrders.reduce((acc, o) => acc + o.total, 0),
@@ -46,7 +51,7 @@ export default async function AdminDashboard() {
   const productSales: Record<string, { name: string; sales: number; revenue: number }> = {};
 
   orders.filter(o => o.status !== 'cancelled').forEach(order => {
-      order.items.forEach(item => {
+      order.items.forEach((item: any) => {
           const product = products.find(p => p.id === item.id);
           if (product) {
               categorySales[product.category] = (categorySales[product.category] || 0) + (item.price * item.quantity);
@@ -68,13 +73,16 @@ export default async function AdminDashboard() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-gray-900 mb-8">Dashboard Overview</h1>
+      <div className="flex items-center justify-between mb-8">
+        <h1 className="text-2xl font-bold text-gray-900">Dashboard Overview</h1>
+        <AdminPushTrigger />
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-gray-500 font-medium">Total Customers</h3>
-            <Users className="text-indigo-600" size={24} />
+            <UsersIcon className="text-indigo-600" size={24} />
           </div>
           <p className="text-3xl font-bold text-gray-900">{uniqueCustomers}</p>
           <span className="text-green-500 text-sm font-medium">Lifetime unique</span>
@@ -116,7 +124,7 @@ export default async function AdminDashboard() {
                     <div key={order.id} className="p-4 flex items-center justify-between hover:bg-gray-50">
                         <div>
                             <p className="font-bold text-sm text-gray-900">New Order #{order.id}</p>
-                            <p className="text-xs text-gray-500">{order.items.length} items • {new Date(order.createdAt).toLocaleTimeString()}</p>
+                            <p className="text-xs text-gray-500">{order.items.length} items • {new Date(order.created_at).toLocaleTimeString()}</p>
                         </div>
                         <div className="text-right">
                             <p className="font-bold text-sm text-gray-900">₹{order.total}</p>

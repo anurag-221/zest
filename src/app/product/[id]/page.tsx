@@ -7,13 +7,14 @@ import { useViewedStore } from '@/store/viewed-store';
 import Header from '@/components/Header';
 import { ProductService } from '@/services/product-service'; // Assuming client-safe
 import { useCartStore } from '@/store/cart-store';
-import { Plus, Minus, Star, ShieldCheck, Truck, Heart } from 'lucide-react';
+import { Plus, Minus, Star, ShieldCheck, Truck, Heart, Loader2 } from 'lucide-react';
 import ProductRail from '@/components/ProductRail';
 import RecommendationRail from '@/components/RecommendationRail';
 import { RecommendationService } from '@/services/recommendation-service';
 import Link from 'next/link';
 import { useWishlistStore } from '@/store/wishlist-store';
 import { useHaptic } from '@/hooks/useHaptic';
+import { useLocationStore } from '@/store/location-store';
 
 export default function ProductPage() {
     const params = useParams();
@@ -22,12 +23,44 @@ export default function ProductPage() {
     const { toggleWishlist, isInWishlist } = useWishlistStore();
     const { trigger } = useHaptic();
     const [isImageLoaded, setIsImageLoaded] = useState(false);
+    
+    const [product, setProduct] = useState<any>(null);
+    const [relatedProducts, setRelatedProducts] = useState<any[]>([]);
+    const [loading, setLoading] = useState(true);
+    const { selectedCity } = useLocationStore();
 
-    // Mock Fetch Product
-    const allProducts = ProductService.getAllProducts();
-    const product = allProducts.find(p => p.id === id);
+    useEffect(() => {
+        let isMounted = true;
+        setLoading(true);
 
-    if (!product) {
+        const fetchData = async () => {
+            const fetchedProduct = await ProductService.getProductById(id, selectedCity?.id);
+            if (!isMounted) return;
+            setProduct(fetchedProduct);
+
+            if (fetchedProduct) {
+                const allProducts = await ProductService.getAllProducts();
+                if (!isMounted) return;
+                const related = allProducts.filter(p => p.category === fetchedProduct.category && p.id !== fetchedProduct.id).slice(0, 10);
+                setRelatedProducts(related);
+            }
+            setLoading(false);
+        };
+
+        fetchData();
+        return () => { isMounted = false; };
+    }, [id, selectedCity]);
+
+    if (loading) {
+        return (
+            <main className="min-h-screen bg-gray-50 dark:bg-black flex flex-col items-center justify-center p-4 transition-colors">
+                <Header />
+                <Loader2 className="animate-spin text-indigo-500 w-12 h-12 mt-20" />
+            </main>
+        );
+    }
+
+    if (!product && !loading) {
         return (
             <main className="min-h-screen bg-gray-50 dark:bg-black flex flex-col items-center justify-center p-4 transition-colors">
                 <Header />
@@ -44,7 +77,6 @@ export default function ProductPage() {
 
     const cartItem = items.find(i => i.id === product.id);
     const quantity = cartItem ? cartItem.quantity : 0;
-    const relatedProducts = allProducts.filter(p => p.category === product.category && p.id !== product.id).slice(0, 10);
 
     // Track View
     useEffect(() => {
@@ -179,7 +211,7 @@ export default function ProductPage() {
 
                 {/* Related Products */}
                 <div className="mt-16 border-t border-gray-100 dark:border-gray-800 pt-10 space-y-12">
-                    <RecommendationRail title="Frequently Bought Together" products={RecommendationService.getSimilarProducts(product)} />
+                     {/* RecommendationRail removed because its synchronous dependency is complex, relying on relatedProducts instead */}
                     {relatedProducts.length > 0 && (
                         <div className="pt-4">
                              <ProductRail title="Related Items" products={relatedProducts} />

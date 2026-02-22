@@ -1,10 +1,17 @@
-import { db } from '@/lib/fs-db';
+import { supabaseAdmin } from '@/lib/supabase';
 import CityForm from '@/components/admin/CityForm';
 import { notFound } from 'next/navigation';
 
 export default async function EditCityPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const city = (await db.cities.getAll()).find(c => c.id === id);
+  
+  const { data } = await supabaseAdmin.from('cities').select('*').eq('id', id).single();
+  
+  const city = data ? {
+      ...data,
+      isActive: data.is_active,
+      displayName: data.display_name
+  } : null;
   
   if (!city) {
     notFound();

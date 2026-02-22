@@ -1,12 +1,14 @@
 'use server';
 
-import { db } from '@/lib/fs-db';
+import { getSettings } from '@/actions/settings-actions';
 
 export async function validateAdminPassword(password: string) {
     try {
-        const settings = await db.settings.get();
+        const res = await getSettings();
+        const settings = res.settings;
+        
         // In a real application, you'd use bcrypt.compare here
-        if (password === settings.adminPasswordHash) {
+        if (settings && password === settings.adminPasswordHash) {
             return { success: true };
         }
         return { success: false, message: 'Invalid credentials' };

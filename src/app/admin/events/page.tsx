@@ -1,10 +1,12 @@
-import { db } from '@/lib/fs-db';
+
 import Link from 'next/link';
 import { Plus, Edit, Trash2, Calendar } from 'lucide-react';
 import { deleteEvent } from '@/actions/event-actions';
+import { supabaseAdmin } from '@/lib/supabase';
 
 export default async function EventsPage() {
-  const events = await db.events.getAll();
+  const { data: dbEvents } = await supabaseAdmin.from('events').select('*').order('created_at', { ascending: false });
+  const events = dbEvents || [];
 
   return (
     <div>
@@ -32,7 +34,8 @@ export default async function EventsPage() {
             </thead>
             <tbody className="divide-y divide-gray-100">
                 {events.map(event => {
-                    const isActive = new Date() >= new Date(event.schedule.start) && new Date() <= new Date(event.schedule.end);
+                    const schedule = event.schedule || { start: new Date().toISOString(), end: new Date().toISOString() };
+                    const isActive = new Date() >= new Date(schedule.start) && new Date() <= new Date(schedule.end);
                     return (
                         <tr key={event.id} className="hover:bg-gray-50 transition-colors">
                             <td className="px-6 py-4">
@@ -42,7 +45,7 @@ export default async function EventsPage() {
                             <td className="px-6 py-4">
                                 <div className="flex items-center gap-2 text-sm text-gray-600">
                                     <Calendar size={14} />
-                                    <span>{new Date(event.schedule.start).toLocaleDateString()} - {new Date(event.schedule.end).toLocaleDateString()}</span>
+                                    <span>{new Date(schedule.start).toLocaleDateString()} - {new Date(schedule.end).toLocaleDateString()}</span>
                                 </div>
                             </td>
                             <td className="px-6 py-4">

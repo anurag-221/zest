@@ -40,7 +40,11 @@ export function usePushNotifications() {
 
   const subscribeToPush = async () => {
     try {
-      if (typeof window === 'undefined' || !('Notification' in window)) return;
+      console.log('[Push] Starting subscription process...');
+      if (typeof window === 'undefined' || !('Notification' in window)) {
+          console.warn('[Push] Browser does not support notifications');
+          return;
+      }
       
       if (Notification.permission === 'denied') {
         alert('Notifications are blocked in your browser settings.');
@@ -55,13 +59,18 @@ export function usePushNotifications() {
       }
 
       if (perm === 'granted') {
+          console.log('[Push] Permission granted, waiting for Service Worker...');
         const registration = await navigator.serviceWorker.ready;
+        console.log('[Push] Service Worker ready. Getting env keys...');
         const publicVapidKey = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY;
 
         if (!publicVapidKey) {
-            console.error('VAPID public key missing from env');
+            console.error('[Push] VAPID public key missing from env! Cannot subscribe.');
+            console.error('[Push] VAPID public key missing from env! Cannot subscribe.');
             return;
         }
+        
+        console.log('[Push] Keys found. Calling pushManager.subscribe...');
 
         const subscription = await registration.pushManager.subscribe({
           userVisibleOnly: true,

@@ -1,27 +1,44 @@
-import { db } from '@/lib/fs-db';
+import { supabaseAdmin } from '@/lib/supabase';
 import ProductForm from '@/components/admin/ProductForm';
 import { notFound } from 'next/navigation';
 
 export default async function EditProductPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const product = (await db.products.getAll()).find(p => p.id === id);
-  const cities = await db.cities.getAll();
-  const allInventory = await db.inventory.getAll();
+  const { data: dbProduct } = await supabaseAdmin
+      .from('products')
+      .select('*')
+      .eq('id', id)
+      .single();
   
-  if (!product) {
+  if (!dbProduct) {
     notFound();
   }
 
+  const product = {
+      ...dbProduct,
+      isBestSeller: dbProduct.is_best_seller,
+      isNewArrival: dbProduct.is_new_arrival,
+      isTrending: dbProduct.is_trending
+  };
+
+  // Fetch Cities
+  const { data: dbCities } = await supabaseAdmin.from('cities').select('*');
+  const cities = dbCities || [];
+
+  // Fetch Inventory for this specific product
+  const { data: invRecords } = await supabaseAdmin
+      .from('inventory')
+      .select('*')
+      .eq('product_id', product.id);
+
   // Transform inventory to format expected by form: { [cityId]: { stock, price } }
-  // DB structure is { [cityId]: { [productId]: { stock, price } } }
   const productInventory: Record<string, { stock: number, price: number }> = {};
   
-  cities.forEach(city => {
-      const cityInv = allInventory[city.id];
-      if (cityInv && cityInv[product.id]) {
-          productInventory[city.id] = cityInv[product.id];
-      }
-  });
+  if (invRecords) {
+      invRecords.forEach(record => {
+          productInventory[record.city_id] = { stock: record.stock, price: record.price };
+      });
+  }
 
   return (
     <div>

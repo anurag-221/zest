@@ -4,6 +4,7 @@ import { Suspense, useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Header from '@/components/Header';
 import ProductRail from '@/components/ProductRail';
+import { Loader2 } from 'lucide-react';
 import { ProductService } from '@/services/product-service'; // Assuming this service exists and works client-side or we mock data access
 import { Product } from '@/types';
 
@@ -11,20 +12,27 @@ function SearchResults() {
     const searchParams = useSearchParams();
     const query = searchParams.get('q') || '';
     const [results, setResults] = useState<any[]>([]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
+        let isMounted = true;
         if (query) {
+            setLoading(true);
             const q = query.toLowerCase();
-            const allProducts = ProductService.getAllProducts();
-            const filtered = allProducts.filter(p =>
-                p.name.toLowerCase().includes(q) ||
-                p.category.toLowerCase().includes(q) ||
-                (p.brand && p.brand.toLowerCase().includes(q)) ||
-                p.tags.some(t => t.toLowerCase().includes(q)) ||
-                p.description.toLowerCase().includes(q)
-            );
-            setResults(filtered);
+            ProductService.getAllProducts().then(allProducts => {
+                if (!isMounted) return;
+                const filtered = allProducts.filter(p =>
+                    p.name.toLowerCase().includes(q) ||
+                    p.category.toLowerCase().includes(q) ||
+                    (p.brand && p.brand.toLowerCase().includes(q)) ||
+                    p.tags.some(t => t.toLowerCase().includes(q)) ||
+                    p.description.toLowerCase().includes(q)
+                );
+                setResults(filtered);
+                setLoading(false);
+            });
         }
+        return () => { isMounted = false; };
     }, [query]);
 
     return (
@@ -35,7 +43,11 @@ function SearchResults() {
                     {results.length} results for "{query}"
                 </h1>
 
-                {results.length > 0 ? (
+                {loading ? (
+                    <div className="flex justify-center items-center py-20">
+                         <Loader2 className="animate-spin text-indigo-500" size={40} />
+                    </div>
+                ) : results.length > 0 ? (
                     <ProductRail title="Products" products={results} />
                 ) : (
                     <div className="flex flex-col items-center justify-center py-20">

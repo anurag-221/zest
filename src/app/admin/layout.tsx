@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { LayoutDashboard, Calendar, Package, Settings, ShoppingBag, MapPin, Tag, Menu, X } from 'lucide-react';
+import { LayoutDashboard, Calendar, Package, Settings, ShoppingBag, MapPin, Tag, Menu, X, Users } from 'lucide-react';
 import AdminGuard from '@/components/admin/AdminGuard';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
@@ -60,6 +60,7 @@ export default function AdminLayout({
               { href: '/admin/events', icon: Calendar, label: 'Events & Config' },
               { href: '/admin/products', icon: Package, label: 'Products' },
               { href: '/admin/orders', icon: ShoppingBag, label: 'Orders' },
+              { href: '/admin/users', icon: Users, label: 'Customers' },
               { href: '/admin/cities', icon: MapPin, label: 'Cities' },
               { href: '/admin/coupons', icon: Tag, label: 'Coupons' }
           ].map((item) => {
