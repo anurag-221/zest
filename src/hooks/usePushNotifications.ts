@@ -94,5 +94,25 @@ export function usePushNotifications() {
     }
   };
 
-  return { isSupported, isSubscribed, permission, subscribeToPush };
+  const unsubscribeFromPush = async () => {
+    try {
+      const registration = await navigator.serviceWorker.ready;
+      const subscription = await registration.pushManager.getSubscription();
+      if (subscription) {
+        await subscription.unsubscribe();
+        // Remove from server
+        await fetch('/api/push/subscribe', {
+          method: 'DELETE',
+          body: JSON.stringify({ endpoint: subscription.endpoint }),
+          headers: { 'content-type': 'application/json' },
+        });
+        setIsSubscribed(false);
+      }
+    } catch (err) {
+      console.error('[Push] Failed to unsubscribe', err);
+    }
+  };
+
+  return { isSupported, isSubscribed, permission, subscribeToPush, unsubscribeFromPush };
 }
+

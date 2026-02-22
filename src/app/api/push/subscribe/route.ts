@@ -3,19 +3,18 @@ import { supabaseAdmin } from '@/lib/supabase';
 
 export async function POST(req: NextRequest) {
   try {
-    const { subscription } = await req.json();
+    const { subscription, userId } = await req.json();
 
     if (!subscription) {
       return NextResponse.json({ error: 'Missing subscription object' }, { status: 400 });
     }
 
-    // Save the subscription to the database
     const { error } = await supabaseAdmin
         .from('push_subscriptions')
         .upsert({
             endpoint: subscription.endpoint,
             keys: subscription.keys,
-            // user_id: '...' would go here once we pass user ID from the client
+            user_id: userId || null,
         }, { onConflict: 'endpoint' });
 
     if (error) {
@@ -23,7 +22,6 @@ export async function POST(req: NextRequest) {
         throw new Error('Database save failed');
     }
 
-    console.log('[Push] Saved subscription to DB:', subscription.endpoint.substring(0, 50) + '...');
     return NextResponse.json({ success: true, message: 'Subscribed' });
   } catch (error: any) {
     console.error('[Push Subscribe Error]', error);
@@ -31,4 +29,20 @@ export async function POST(req: NextRequest) {
   }
 }
 
+export async function DELETE(req: NextRequest) {
+  try {
+    const { endpoint } = await req.json();
+    if (!endpoint) return NextResponse.json({ error: 'Missing endpoint' }, { status: 400 });
 
+    const { error } = await supabaseAdmin
+      .from('push_subscriptions')
+      .delete()
+      .eq('endpoint', endpoint);
+
+    if (error) throw new Error(error.message);
+    return NextResponse.json({ success: true });
+  } catch (error: any) {
+    console.error('[Push Unsubscribe Error]', error);
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+}
