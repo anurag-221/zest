@@ -2,11 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from './AppProviders';
-import SupportChat from '@/components/SupportChat';
-import LocationGuard from "@/components/LocationGuard";
-import BottomNav from "@/components/BottomNav";
-import FloatingCart from "@/components/FloatingCart";
-import PushPermissionBanner from "@/components/PushPermissionBanner";
+import UserLayoutWrapper from '@/components/UserLayoutWrapper';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,7 +25,7 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
-  userScalable: false, // Prevent zoom on mobile for app-like feel
+  userScalable: false,
 };
 
 export default function RootLayout({
@@ -41,12 +37,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} antialiased bg-gray-50 dark:bg-black transition-colors`}>
         <Providers>
-          <LocationGuard>
+          <UserLayoutWrapper>
             {children}
-            <FloatingCart />
-            <BottomNav />
-            <PushPermissionBanner />
-          </LocationGuard>
+          </UserLayoutWrapper>
         </Providers>
       </body>
     </html>
