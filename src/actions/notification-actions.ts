@@ -2,6 +2,7 @@
 
 import { supabaseAdmin } from '@/lib/supabase';
 import { revalidatePath } from 'next/cache';
+import { sendPushNotification } from '@/lib/push-service';
 
 export interface PushCampaign {
   id: string;
@@ -93,19 +94,14 @@ export async function sendCampaignNow(campaign: {
   target_ids: string[];
 }) {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/api/push/send`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'x-admin-secret': process.env.ADMIN_SECRET || 'zest-admin' },
-        body: JSON.stringify(campaign),
-    });
+    const result = await sendPushNotification(campaign);
 
-    if (!res.ok) {
-        const err = await res.json().catch(() => ({}));
-        throw new Error(err.error || 'Failed to send');
+    if (!result.success) {
+        throw new Error(result.message || 'Failed to send');
     }
 
     revalidatePath('/admin/notifications', 'page');
-    return await res.json();
+    return result;
   } catch (error: any) {
     console.error('sendCampaignNow exception:', error);
     throw error;
