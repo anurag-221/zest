@@ -26,7 +26,8 @@ export default function PushPermissionBanner() {
 
   const handleEnable = async () => {
     setLoading(true);
-    await subscribeToPush();
+    const user = useAuthStore.getState().user;
+    await subscribeToPush(user?.id);
     setDismissed(true);
     setLoading(false);
   };

@@ -11,7 +11,10 @@ export default function CouponForm() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState<Partial<Coupon>>({
-      type: 'percentage'
+      type: 'percentage',
+      isActive: true,
+      startDate: '',
+      endDate: ''
   });
 
   const handleChange = (field: string, value: any) => {
@@ -26,16 +29,19 @@ export default function CouponForm() {
         const payload: Coupon = {
             code: formData.code!.toUpperCase(),
             type: formData.type as 'flat' | 'percentage' | 'shipping',
-            value: Number(formData.value),
+            value: Number(formData.value || 0),
             minOrderValue: Number(formData.minOrderValue || 0),
             maxDiscount: formData.maxDiscount ? Number(formData.maxDiscount) : undefined,
-            description: formData.description || ''
+            description: formData.description || '',
+            isActive: formData.isActive,
+            startDate: formData.startDate || undefined,
+            endDate: formData.endDate || undefined
         };
 
         const result = await saveCoupon(payload);
 
         if (result.success) {
-            toast.success('Coupon created successfully!');
+            toast.success('Coupon saved successfully!');
             router.push('/admin/coupons');
             router.refresh();
         } else {
@@ -65,7 +71,7 @@ export default function CouponForm() {
             </div>
             
             <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-gray-700 mb-1">Description (Internal / Customer facing)</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
                 <input 
                     required
                     type="text" 
@@ -129,6 +135,46 @@ export default function CouponForm() {
                  />
              </div>
             )}
+
+            <div className="md:col-span-2 pt-4 border-t border-gray-100">
+                <h3 className="text-sm font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    Scheduling & Status
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Start Date (Optional)</label>
+                        <input 
+                            type="datetime-local" 
+                            value={formData.startDate}
+                            onChange={e => handleChange('startDate', e.target.value)}
+                            className="w-full rounded-lg border-gray-300 border p-2.5 outline-none focus:ring-2 focus:ring-indigo-500"
+                        />
+                    </div>
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">End Date (Optional)</label>
+                        <input 
+                            type="datetime-local" 
+                            value={formData.endDate}
+                            onChange={e => handleChange('endDate', e.target.value)}
+                            className="w-full rounded-lg border-gray-300 border p-2.5 outline-none focus:ring-2 focus:ring-indigo-500"
+                        />
+                    </div>
+                </div>
+
+                <div className="mt-4 flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100">
+                    <div>
+                        <p className="text-sm font-bold text-gray-900">Active Status</p>
+                        <p className="text-xs text-gray-500">Enable or disable this coupon manually.</p>
+                    </div>
+                    <button 
+                        type="button"
+                        onClick={() => handleChange('isActive', !formData.isActive)}
+                        className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none ${formData.isActive ? 'bg-indigo-600' : 'bg-gray-200'}`}
+                    >
+                        <span className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${formData.isActive ? 'translate-x-6' : 'translate-x-1'}`} />
+                    </button>
+                </div>
+            </div>
         </div>
 
         <div className="flex gap-4 pt-4 border-t border-gray-100">

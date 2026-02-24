@@ -13,7 +13,9 @@ export async function saveCoupon(coupon: Coupon) {
             min_order_value: coupon.minOrderValue,
             max_discount: coupon.maxDiscount,
             description: coupon.description,
-            is_active: coupon.isActive ?? true
+            is_active: coupon.isActive ?? true,
+            start_date: coupon.startDate || null,
+            end_date: coupon.endDate || null
         });
         
         if (error) throw error;

@@ -82,6 +82,51 @@ export async function saveCampaign(campaign: Omit<PushCampaign, 'id' | 'created_
     }
 }
 
+// ── Update a campaign ────────────────────────────────────────────────────────
+export async function updateCampaign(id: string, updates: Partial<PushCampaign>) {
+    try {
+        const { error } = await supabaseAdmin
+            .from('push_campaigns')
+            .update({
+                ...updates,
+                status: updates.scheduled_at ? 'scheduled' : (updates.status || 'draft')
+            })
+            .eq('id', id);
+
+        if (error) {
+            console.error('Failed to update campaign:', error);
+            throw new Error(error.message);
+        }
+
+        revalidatePath('/admin/notifications', 'page');
+        return { success: true };
+    } catch (error: any) {
+        console.error('updateCampaign exception:', error);
+        throw error;
+    }
+}
+
+// ── Delete a campaign ────────────────────────────────────────────────────────
+export async function deleteCampaign(id: string) {
+    try {
+        const { error } = await supabaseAdmin
+            .from('push_campaigns')
+            .delete()
+            .eq('id', id);
+
+        if (error) {
+            console.error('Failed to delete campaign:', error);
+            throw new Error(error.message);
+        }
+
+        revalidatePath('/admin/notifications', 'page');
+        return { success: true };
+    } catch (error: any) {
+        console.error('deleteCampaign exception:', error);
+        throw error;
+    }
+}
+
 // ── Send a campaign immediately ───────────────────────────────────────────────
 export async function sendCampaignNow(campaign: {
   id?: string;

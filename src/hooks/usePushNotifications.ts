@@ -38,7 +38,7 @@ export function usePushNotifications() {
     }
   };
 
-  const subscribeToPush = async () => {
+  const subscribeToPush = async (userId?: string) => {
     try {
       console.log('[Push] Starting subscription process...');
       if (typeof window === 'undefined' || !('Notification' in window)) {
@@ -66,7 +66,6 @@ export function usePushNotifications() {
 
         if (!publicVapidKey) {
             console.error('[Push] VAPID public key missing from env! Cannot subscribe.');
-            console.error('[Push] VAPID public key missing from env! Cannot subscribe.');
             return;
         }
         
@@ -80,7 +79,7 @@ export function usePushNotifications() {
         // Send subscription to our server
         await fetch('/api/push/subscribe', {
           method: 'POST',
-          body: JSON.stringify({ subscription }),
+          body: JSON.stringify({ subscription, userId }),
           headers: {
             'content-type': 'application/json',
           },

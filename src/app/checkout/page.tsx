@@ -19,6 +19,7 @@ import AuthModal from '@/components/AuthModal';
 import { getSettings } from '@/actions/settings-actions';
 import { GlobalSettings } from '@/types';
 import AddressSelectionModal from '@/components/checkout/AddressSelectionModal';
+import CouponSelector from '@/components/checkout/CouponSelector';
 
 export default function CheckoutPage() {
     const { items, total, discount, couponCode, applyCoupon, removeCoupon, clearCart, tip, setTip } = useCartStore();
@@ -331,57 +332,74 @@ export default function CheckoutPage() {
                         Coupons & Offers
                      </h2>
                      
-                     {couponCode ? (
-                         <div className="flex justify-between items-center bg-green-50 border border-green-200 p-3 rounded-lg">
-                             <div>
-                                 <p className="font-bold text-green-700 flex items-center gap-1">
-                                     <CheckCircle2 size={14} /> 
-                                     '{couponCode}' applied
-                                 </p>
-                                 <p className="text-xs text-green-600">You saved ₹{discount}</p>
-                             </div>
-                             <button onClick={removeCoupon} className="text-xs text-red-500 font-bold hover:underline">REMOVE</button>
-                         </div>
-                     ) : (
-                        <div className="flex gap-2">
-                             <div className="flex-1 relative">
-                                <input 
-                                    type="text"
-                                    placeholder="Enter Coupon Code"
-                                    className="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-indigo-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white uppercase placeholder-gray-400"
-                                    value={couponInput}
-                                    onChange={(e) => {
-                                        setCouponInput(e.target.value.toUpperCase());
-                                        setCouponError('');
-                                    }}
-                                />
-                                {couponError && <p className="absolute -bottom-5 left-0 text-xs text-red-500">{couponError}</p>}
-                             </div>
-                             <button 
-                                onClick={async () => {
-                                    if (!couponInput) return;
-                                    setValidatingCoupon(true);
-                                    setCouponError('');
-                                    const { validateCoupon } = await import('@/actions/coupon-actions'); // Dynamic import to avoid server action in client component issues if any
-                                    const res = await validateCoupon(couponInput, total);
-                                    setValidatingCoupon(false);
-                                    
-                                    if (res.success && res.coupon) {
-                                        applyCoupon(res.coupon.code, res.coupon.discount);
-                                        toast.success('Coupon applied successfully!');
-                                        setCouponInput('');
-                                    } else {
-                                        toast.error(res.message || 'Invalid Coupon');
-                                        setCouponError(res.message || 'Invalid Coupon');
-                                    }
-                                }}
-                                disabled={validatingCoupon || !couponInput}
-                                className="bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-gray-800 disabled:opacity-50"
-                             >
-                                 {validatingCoupon ? 'APPLYING...' : 'APPLY'}
-                             </button>
-                        </div>
-                     )}
+                      {couponCode ? (
+                          <div className="flex justify-between items-center bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 p-4 rounded-xl">
+                              <div className="flex items-center gap-3">
+                                  <div className="w-10 h-10 bg-green-100 dark:bg-green-600/30 rounded-full flex items-center justify-center text-green-600 dark:text-green-400">
+                                      <CheckCircle2 size={24} />
+                                  </div>
+                                  <div>
+                                      <p className="font-bold text-green-700 dark:text-green-400">
+                                          '{couponCode}' applied
+                                      </p>
+                                      <p className="text-xs text-green-600 dark:text-green-500 font-medium">You saved ₹{discount} on this order</p>
+                                  </div>
+                              </div>
+                              <button onClick={removeCoupon} className="text-xs text-red-500 font-black uppercase hover:underline p-2">REMOVE</button>
+                          </div>
+                      ) : (
+                          <div className="space-y-4">
+                              <CouponSelector 
+                                  total={total} 
+                                  onApply={(code, discount) => applyCoupon(code, discount)} 
+                              />
+                              
+                              <div className="flex items-center gap-2">
+                                  <div className="h-px bg-gray-100 dark:bg-gray-800 flex-1" />
+                                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">or enter manually</span>
+                                  <div className="h-px bg-gray-100 dark:bg-gray-800 flex-1" />
+                              </div>
+
+                              <div className="flex gap-2">
+                                   <div className="flex-1 relative">
+                                      <input 
+                                          type="text"
+                                          placeholder="Enter Coupon Code"
+                                          className="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-indigo-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white uppercase placeholder-gray-400"
+                                          value={couponInput}
+                                          onChange={(e) => {
+                                              setCouponInput(e.target.value.toUpperCase());
+                                              setCouponError('');
+                                          }}
+                                      />
+                                      {couponError && <p className="absolute -bottom-5 left-0 text-xs text-red-500">{couponError}</p>}
+                                   </div>
+                                   <button 
+                                      onClick={async () => {
+                                          if (!couponInput) return;
+                                          setValidatingCoupon(true);
+                                          setCouponError('');
+                                          const { validateCoupon } = await import('@/actions/coupon-actions');
+                                          const res = await validateCoupon(couponInput, total);
+                                          setValidatingCoupon(false);
+                                          
+                                          if (res.success && res.coupon) {
+                                              applyCoupon(res.coupon.code, res.coupon.discount);
+                                              toast.success('Coupon applied successfully!');
+                                              setCouponInput('');
+                                          } else {
+                                              toast.error(res.message || 'Invalid Coupon');
+                                              setCouponError(res.message || 'Invalid Coupon');
+                                          }
+                                      }}
+                                      disabled={validatingCoupon || !couponInput}
+                                      className="bg-gray-900 dark:bg-gray-800 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-gray-800 disabled:opacity-50"
+                                   >
+                                       {validatingCoupon ? 'APPLYING...' : 'APPLY'}
+                                   </button>
+                              </div>
+                          </div>
+                      )}
                 </section>
 
                 {/* 3.5 Delivery Tip */}

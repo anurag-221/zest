@@ -3,9 +3,11 @@
 import { useState, useEffect, useTransition } from 'react';
 import {
   Bell, Users, Send, Clock, CheckCircle, AlertCircle,
-  Megaphone, Gift, Laugh, Zap, ChevronDown, RefreshCw, Search
+  Megaphone, Gift, Laugh, Zap, ChevronDown, RefreshCw, Search,
+  Edit, Trash2, X as CloseIcon
 } from 'lucide-react';
-import { getSubscribers, getCampaigns, sendCampaignNow, saveCampaign, type PushCampaign } from '@/actions/notification-actions';
+import { getSubscribers, getCampaigns, sendCampaignNow, saveCampaign, updateCampaign, deleteCampaign, type PushCampaign } from '@/actions/notification-actions';
+import { toast } from 'sonner';
 
 const CAMPAIGN_TYPES = [
   { value: 'announcement', label: 'Announcement', icon: Megaphone, color: 'bg-blue-100 text-blue-700' },
@@ -43,6 +45,7 @@ export default function NotificationsPage() {
     target_ids: [] as string[],
     scheduled_at: '',
   });
+  const [editingId, setEditingId] = useState<string | null>(null);
   const [sending, setSending] = useState(false);
   const [result, setResult] = useState<{ type: 'success' | 'error'; msg: string } | null>(null);
   const [subSearch, setSubSearch] = useState('');
@@ -65,9 +68,20 @@ export default function NotificationsPage() {
     setSending(true);
     setResult(null);
     try {
-      const res = await sendCampaignNow({ ...form, id: `camp-${Date.now()}` });
+      if (editingId) {
+        await updateCampaign(editingId, { 
+          ...form, 
+          id: editingId, 
+          status: 'sent', 
+          type: form.type as any,
+          target_type: form.target_type as any,
+          sent_at: new Date().toISOString() 
+        });
+      }
+      const res = await sendCampaignNow({ ...form, id: editingId || `camp-${Date.now()}` });
       setResult({ type: 'success', msg: `✅ Sent to ${res.sent} subscribers!` });
       setForm(prev => ({ ...prev, title: '', body: '' }));
+      setEditingId(null);
       loadData();
     } catch (e: any) {
       setResult({ type: 'error', msg: e.message });
@@ -84,15 +98,30 @@ export default function NotificationsPage() {
     setSending(true);
     setResult(null);
     try {
-      await saveCampaign({
-        ...form,
-        type: form.type as 'offer' | 'alert' | 'joke' | 'announcement',
-        target_type: form.target_type as 'all' | 'city' | 'users',
-        status: 'scheduled',
-      });
+      const scheduled_at = form.scheduled_at ? new Date(form.scheduled_at).toISOString() : null;
+      
+      if (editingId) {
+        await updateCampaign(editingId, {
+          ...form,
+          scheduled_at,
+          type: form.type as any,
+          target_type: form.target_type as any,
+          status: 'scheduled',
+        });
+        setResult({ type: 'success', msg: '✅ Campaign updated!' });
+      } else {
+        await saveCampaign({
+          ...form,
+          scheduled_at,
+          type: form.type as 'offer' | 'alert' | 'joke' | 'announcement',
+          target_type: form.target_type as 'all' | 'city' | 'users',
+          status: 'scheduled',
+        });
+        setResult({ type: 'success', msg: '✅ Campaign scheduled!' });
+      }
 
-      setResult({ type: 'success', msg: '✅ Campaign scheduled!' });
       setForm(prev => ({ ...prev, title: '', body: '', scheduled_at: '' }));
+      setEditingId(null);
       loadData();
     } catch (e: any) {
       setResult({ type: 'error', msg: e.message });
@@ -143,7 +172,22 @@ export default function NotificationsPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Form */}
           <div className="lg:col-span-2 bg-white rounded-xl border border-gray-200 shadow-sm p-6 space-y-5">
-            <h2 className="font-semibold text-gray-900 text-lg">Compose Campaign</h2>
+            <div className="flex items-center justify-between">
+              <h2 className="font-semibold text-gray-900 text-lg">
+                {editingId ? 'Edit Campaign' : 'Compose Campaign'}
+              </h2>
+              {editingId && (
+                <button 
+                  onClick={() => {
+                    setEditingId(null);
+                    setForm({ title: '', body: '', url: '/', icon: '/icon-192.png', type: 'announcement', target_type: 'all', target_ids: [], scheduled_at: '' });
+                  }}
+                  className="text-xs font-bold text-red-500 hover:text-red-600 flex items-center gap-1"
+                >
+                  <CloseIcon size={14} /> Cancel Edit
+                </button>
+              )}
+            </div>
 
             {result && (
               <div className={`flex items-center gap-2 p-3 rounded-lg text-sm font-medium ${result.type === 'success' ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'}`}>
@@ -221,11 +265,11 @@ export default function NotificationsPage() {
               <button onClick={handleSendNow} disabled={sending}
                 className="flex-1 flex items-center justify-center gap-2 py-3 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-colors disabled:opacity-60">
                 {sending ? <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> : <Send size={17} />}
-                Send Now
+                {editingId ? 'Update & Send' : 'Send Now'}
               </button>
               <button onClick={handleSchedule} disabled={sending || !form.scheduled_at}
                 className="flex-1 flex items-center justify-center gap-2 py-3 bg-gray-100 text-gray-700 rounded-xl font-bold hover:bg-gray-200 transition-colors disabled:opacity-60">
-                <Clock size={17} /> Schedule
+                <Clock size={17} /> {editingId ? 'Update Schedule' : 'Schedule'}
               </button>
             </div>
           </div>
@@ -333,14 +377,14 @@ export default function NotificationsPage() {
           <table className="w-full min-w-[700px]">
             <thead className="bg-gray-50 border-b border-gray-100">
               <tr>
-                {['Campaign', 'Type', 'Target', 'Status', 'Sent At', 'Recipients'].map(h => (
+                {['Campaign', 'Type', 'Target', 'Status', 'Sent At', 'Recipients', 'Actions'].map(h => (
                   <th key={h} className="p-4 text-xs font-bold text-gray-500 uppercase text-left">{h}</th>
                 ))}
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-50">
               {campaigns.length === 0 ? (
-                <tr><td colSpan={6} className="p-8 text-center text-sm text-gray-400">No campaigns yet</td></tr>
+                <tr><td colSpan={7} className="p-8 text-center text-sm text-gray-400">No campaigns yet</td></tr>
               ) : campaigns.map(c => {
                 const typeInfo = CAMPAIGN_TYPES.find(t => t.value === c.type);
                 return (
@@ -364,6 +408,54 @@ export default function NotificationsPage() {
                     </td>
                     <td className="p-4 text-xs text-gray-400">{c.sent_at ? new Date(c.sent_at).toLocaleString() : (c.scheduled_at ? `⏰ ${new Date(c.scheduled_at).toLocaleString()}` : '—')}</td>
                     <td className="p-4 text-sm font-bold text-gray-900">{c.recipient_count ?? '—'}</td>
+                    <td className="p-4">
+                      <div className="flex items-center gap-2">
+                        {c.status !== 'sent' && (
+                          <button 
+                            onClick={() => {
+                              // Local format helper for datetime-local input
+                              const getLocalString = (utcStr: string) => {
+                                const d = new Date(utcStr);
+                                const offset = d.getTimezoneOffset() * 60000;
+                                return new Date(d.getTime() - offset).toISOString().slice(0, 16);
+                              };
+
+                              setEditingId(c.id);
+                              setForm({
+                                title: c.title,
+                                body: c.body,
+                                url: c.url || '/',
+                                icon: c.icon || '/icon-192.png',
+                                type: c.type,
+                                target_type: c.target_type,
+                                target_ids: c.target_ids || [],
+                                scheduled_at: c.scheduled_at ? getLocalString(c.scheduled_at) : '',
+                              });
+                              setTab('compose');
+                            }}
+                            className="p-1.5 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                          >
+                            <Edit size={16} />
+                          </button>
+                        )}
+                        <button 
+                          onClick={async () => {
+                            if (window.confirm('Are you sure you want to delete this campaign?')) {
+                              try {
+                                await deleteCampaign(c.id);
+                                loadData();
+                                toast.success('Campaign deleted successfully');
+                              } catch (e: any) {
+                                toast.error(e.message);
+                              }
+                            }
+                          }}
+                          className="p-1.5 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                        >
+                          <Trash2 size={16} />
+                        </button>
+                      </div>
+                    </td>
                   </tr>
                 );
               })}

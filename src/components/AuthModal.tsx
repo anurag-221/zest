@@ -146,7 +146,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 toast.success(`Welcome back, ${existingUser.name}!`);
                 onClose();
                 
-                setTimeout(() => subscribeToPush(), 1000);
+                setTimeout(() => subscribeToPush(existingUser.id), 1000);
                 setTimeout(() => resetModalState(), 500);
             } else {
                 setStep('name');
@@ -192,7 +192,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
         
         // Automatically attempt to subscribe to push notifications on login
         setTimeout(() => {
-            subscribeToPush();
+            subscribeToPush(inserted.id);
         }, 1000);
         // Reset for next time
         setTimeout(() => {
