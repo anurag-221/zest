@@ -4,14 +4,16 @@ import { useAuthStore } from '@/store/auth-store';
 import { useOrderStore } from '@/store/order-store';
 import Header from '@/components/Header';
 import Link from 'next/link';
-import { Package, MapPin, ChevronRight, LogOut, User, Loader2 } from 'lucide-react';
+import { Package, MapPin, ChevronRight, LogOut, User, Loader2, Bell } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { supabaseClient } from '@/lib/supabase';
+import { usePushNotifications } from '@/hooks/usePushNotifications';
 
 export default function ProfilePage() {
   const { user, logout, isAuthenticated } = useAuthStore();
   const { orders, updateOrderStatusLocally } = useOrderStore();
+  const { isSupported, isSubscribed, subscribeToPush, unsubscribeFromPush } = usePushNotifications();
   const router = useRouter();
 
   const [dbOrders, setDbOrders] = useState<any[]>([]);
@@ -147,7 +149,7 @@ export default function ProfilePage() {
             </button>
         </div>
 
-        <Link href="/profile/addresses" className="mb-6 block bg-indigo-50 dark:bg-indigo-900/30 p-4 rounded-xl border border-indigo-100 dark:border-indigo-800 flex items-center justify-between">
+        <Link href="/profile/addresses" className="mb-4 block bg-indigo-50 dark:bg-indigo-900/30 p-4 rounded-xl border border-indigo-100 dark:border-indigo-800 flex items-center justify-between">
             <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900 rounded-full flex items-center justify-center text-indigo-600">
                     <MapPin size={20} />
@@ -159,6 +161,29 @@ export default function ProfilePage() {
             </div>
             <ChevronRight size={18} className="text-gray-400" />
         </Link>
+
+        {/* Notifications Toggle */}
+        <div className="mb-6 bg-white dark:bg-gray-900 p-4 rounded-xl border border-gray-100 dark:border-gray-800 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-indigo-50 dark:bg-indigo-900/50 rounded-full flex items-center justify-center text-indigo-600 dark:text-indigo-400">
+                    <Bell size={20} />
+                </div>
+                <div>
+                     <h3 className="font-bold text-gray-900 dark:text-white">Push Notifications</h3>
+                     <p className="text-xs text-gray-500 dark:text-gray-400">
+                         {isSupported ? (isSubscribed ? 'Notifications enabled' : 'Stay updated on your orders') : 'Not supported on this browser'}
+                     </p>
+                </div>
+            </div>
+            {isSupported && (
+                <button 
+                    onClick={() => isSubscribed ? unsubscribeFromPush() : subscribeToPush()}
+                    className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none ${isSubscribed ? 'bg-indigo-600' : 'bg-gray-200 dark:bg-gray-700'}`}
+                >
+                    <span className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${isSubscribed ? 'translate-x-6' : 'translate-x-1'}`} />
+                </button>
+            )}
+        </div>
 
         {/* Orders Section */}
         <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">

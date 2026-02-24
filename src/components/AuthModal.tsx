@@ -10,6 +10,7 @@ import { useCartStore } from '@/store/cart-store';
 import { useWishlistStore } from '@/store/wishlist-store';
 import { useWalletStore } from '@/store/wallet-store';
 import { useViewedStore } from '@/store/viewed-store';
+import { upsertUser } from '@/actions/auth-actions';
 
 interface AuthModalProps {
   isOpen: boolean;
@@ -125,6 +126,14 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 .single();
 
             if (existingUser) {
+                // Background sync/upsert to ensure all fields are standard
+                await upsertUser({
+                    id: existingUser.id,
+                    name: existingUser.name,
+                    phone: existingUser.phone,
+                    addresses: existingUser.addresses || []
+                });
+
                 // Log User into Local Client Store
                 login({
                     id: existingUser.id,
@@ -158,18 +167,17 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
     setLoading(true);
     
     try {
-        const userId = Math.random().toString(36).substring(7);
-        const { data: inserted, error: insError } = await supabaseClient
-            .from('users')
-            .insert({
-                id: userId,
-                name: name,
-                phone: phone,
-                addresses: []
-            })
-            .select()
-            .single();
-        if (insError) throw insError;
+        const res = await upsertUser({
+            name: name,
+            phone: phone,
+            addresses: []
+        });
+
+        if (!res.success || !res.user) {
+            throw new Error(res.message || 'Failed to save user');
+        }
+
+        const inserted = res.user;
 
         // Log User into Local Client Store
         login({

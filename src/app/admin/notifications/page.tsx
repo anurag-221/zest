@@ -22,10 +22,15 @@ const STATUS_BADGES: Record<string, string> = {
 };
 
 export default function NotificationsPage() {
+  const [mounted, setMounted] = useState(false);
   const [subscribers, setSubscribers] = useState<any[]>([]);
   const [campaigns, setCampaigns] = useState<PushCampaign[]>([]);
   const [tab, setTab] = useState<'compose' | 'subscribers' | 'history'>('compose');
   const [isPending, startTransition] = useTransition();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Composer state
   const [form, setForm] = useState({
@@ -97,11 +102,13 @@ export default function NotificationsPage() {
   };
 
   const filteredSubs = subscribers.filter(s => {
-    const u = s.users as any;
+    const u = (s.users || {}) as any;
     return !subSearch || u?.name?.toLowerCase().includes(subSearch.toLowerCase()) || u?.phone?.includes(subSearch);
   });
 
-  const selectedType = CAMPAIGN_TYPES.find(t => t.value === form.type)!;
+  const selectedType = CAMPAIGN_TYPES.find(t => t.value === form.type) || CAMPAIGN_TYPES[0];
+
+  if (!mounted) return <div className="p-8 text-center text-gray-500">Loading dashboard...</div>;
 
   return (
     <div>

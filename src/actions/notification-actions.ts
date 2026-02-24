@@ -21,49 +21,64 @@ export interface PushCampaign {
 
 // ── Get all push subscribers joined with user info ────────────────────────────
 export async function getSubscribers() {
-  const { data, error } = await supabaseAdmin
-    .from('push_subscriptions')
-    .select('endpoint, user_id, created_at, users(name, phone)')
-    .order('created_at', { ascending: false });
+  try {
+    const { data, error } = await supabaseAdmin
+      .from('push_subscriptions')
+      .select('endpoint, user_id, created_at, users(name, phone)')
+      .order('created_at', { ascending: false });
 
-  if (error) {
-    console.error('Failed to get subscribers', error);
+    if (error) {
+      console.error('Failed to get subscribers', error);
+      return [];
+    }
+    return data || [];
+  } catch (err) {
+    console.error('getSubscribers exception:', err);
     return [];
   }
-  return data || [];
 }
 
 // ── Get all campaigns ─────────────────────────────────────────────────────────
 export async function getCampaigns(): Promise<PushCampaign[]> {
-  const { data, error } = await supabaseAdmin
-    .from('push_campaigns')
-    .select('*')
-    .order('created_at', { ascending: false });
+  try {
+    const { data, error } = await supabaseAdmin
+      .from('push_campaigns')
+      .select('*')
+      .order('created_at', { ascending: false });
 
-  if (error) {
-    console.error('Failed to get campaigns', error);
+    if (error) {
+      console.error('Failed to get campaigns', error);
+      return [];
+    }
+    return (data || []) as PushCampaign[];
+  } catch (err) {
+    console.error('getCampaigns exception:', err);
     return [];
   }
-  return (data || []) as PushCampaign[];
 }
 
 // ── Save a campaign (draft or scheduled) ─────────────────────────────────────
 export async function saveCampaign(campaign: Omit<PushCampaign, 'id' | 'created_at' | 'sent_at' | 'recipient_count'>) {
-  const id = `camp-${Date.now()}`;
-  const { error } = await supabaseAdmin.from('push_campaigns').insert({
-    id,
-    ...campaign,
-    status: campaign.scheduled_at ? 'scheduled' : 'draft',
-    recipient_count: 0,
-  });
+    try {
+        const id = `camp-${Date.now()}`;
+        const { error } = await supabaseAdmin.from('push_campaigns').insert({
+            id,
+            ...campaign,
+            status: campaign.scheduled_at ? 'scheduled' : 'draft',
+            recipient_count: 0,
+        });
 
-  if (error) {
-    console.error('Failed to save campaign:', error);
-    throw new Error(error.message);
-  }
+        if (error) {
+            console.error('Failed to save campaign:', error);
+            throw new Error(error.message);
+        }
 
-  revalidatePath('/admin/notifications');
-  return { success: true, id };
+        revalidatePath('/admin/notifications', 'page');
+        return { success: true, id };
+    } catch (error: any) {
+        console.error('saveCampaign exception:', error);
+        throw error;
+    }
 }
 
 // ── Send a campaign immediately ───────────────────────────────────────────────
@@ -77,17 +92,22 @@ export async function sendCampaignNow(campaign: {
   target_type: string;
   target_ids: string[];
 }) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/api/push/send`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'x-admin-secret': process.env.ADMIN_SECRET || 'zest-admin' },
-    body: JSON.stringify(campaign),
-  });
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/api/push/send`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-admin-secret': process.env.ADMIN_SECRET || 'zest-admin' },
+        body: JSON.stringify(campaign),
+    });
 
-  if (!res.ok) {
-    const err = await res.json().catch(() => ({}));
-    throw new Error(err.error || 'Failed to send');
+    if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.error || 'Failed to send');
+    }
+
+    revalidatePath('/admin/notifications', 'page');
+    return await res.json();
+  } catch (error: any) {
+    console.error('sendCampaignNow exception:', error);
+    throw error;
   }
-
-  revalidatePath('/admin/notifications');
-  return await res.json();
 }
